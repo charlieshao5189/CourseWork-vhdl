@@ -145,6 +145,7 @@ begin
 					if (enb = '1') then
 						tm_alarm <= '0';
 						alarmCounter := 0;
+						-- setting value of hours up to 99 hours.
 						SetValueByHoldBtn	(hold_btn3,hunSecPulse,
 												 HOLDMAX, hold_tm, 10, x"0063",x"0000",
 											    timerHH);	
