@@ -1,0 +1,25 @@
+
+# PlanAhead Generated physical constraints 
+
+NET "clk" LOC = V10;
+NET "rst" LOC = T10;
+NET "btn3" LOC = D9;
+NET "btn2" LOC = B8;
+NET "btn1" LOC = C4;
+NET "ssd[0]" LOC = L14;
+NET "ssd[1]" LOC = N14;
+NET "ssd[2]" LOC = M14;
+NET "ssd[3]" LOC = U18;
+NET "ssd[4]" LOC = U17;
+NET "ssd[5]" LOC = T18;
+NET "ssd[6]" LOC = T17;
+NET "ssd[7]" LOC = M13;
+NET "mode_led[4]" LOC = M11;
+NET "mode_led[3]" LOC = V15;
+NET "mode_led[2]" LOC = U15;
+NET "mode_led[1]" LOC = V16;
+NET "mode_led[0]" LOC = U16;
+NET "anode[0]" LOC = N16;
+NET "anode[1]" LOC = N15;
+NET "anode[2]" LOC = P18;
+NET "anode[3]" LOC = P17;
