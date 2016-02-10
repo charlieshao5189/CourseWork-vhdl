@@ -146,7 +146,7 @@ begin
 						tm_alarm <= '0';
 						alarmCounter := 0;
 						SetValueByHoldBtn	(hold_btn3,hunSecPulse,
-												 HOLDMAX, hold_tm, 10, x"0017",x"0000",
+												 HOLDMAX, hold_tm, 10, x"0063",x"0000",
 											    timerHH);	
 					end if;
 				when TMR_ALARM => 		
