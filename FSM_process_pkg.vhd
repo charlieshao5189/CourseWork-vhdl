@@ -14,25 +14,25 @@ use ieee.numeric_std.all;
 package FSM_process_pkg is
 
 --main 5 moduls switch on/off enable states
-	subtype MODULE_STATES is std_logic_vector (5 downto 0);
-	constant UNKNOWN  		: MODULE_STATES := "000001";
-	constant CLOCK_MD			: MODULE_STATES := "000010";
-	constant ALARM_MD			: MODULE_STATES := "000100";
-	constant CALENDAR_MD		: MODULE_STATES := "001000";	
-	constant STOPWATCH_MD	: MODULE_STATES := "010000";	
-	constant TIMER_MD			: MODULE_STATES := "100000";	
+	subtype MODULE_STATES is std_ulogic_vector (2 downto 0);
+	constant UNKNOWN  		: MODULE_STATES := "000";
+	constant CLOCK_MD			: MODULE_STATES := "001";
+	constant ALARM_MD			: MODULE_STATES := "010";
+	constant CALENDAR_MD		: MODULE_STATES := "011";	
+	constant STOPWATCH_MD	: MODULE_STATES := "100";	
+	constant TIMER_MD			: MODULE_STATES := "101";	
 
 --7segment LCD blink flag							
 --	type SSD_BLINK_STATE is (NO_BLINK, BL0, BL1, BL01, BL2, BL3, BL23, BLALL);
-	subtype SSD_BLINK_STATE is std_logic_vector (7 downto 0); 
-	constant NO_BLINK : SSD_BLINK_STATE := "00000001";
-	constant BL0 		: SSD_BLINK_STATE := "00000010";
-	constant BL1 		: SSD_BLINK_STATE := "00000100";
-	constant BL01 		: SSD_BLINK_STATE := "00001000";
-	constant BL2 		: SSD_BLINK_STATE := "00010000";
-	constant BL3 		: SSD_BLINK_STATE := "00100000";
-	constant BL23 		: SSD_BLINK_STATE := "01000000";
-	constant BLALL 	: SSD_BLINK_STATE := "10000000";	
+	subtype SSD_BLINK_STATE is std_ulogic_vector (2 downto 0); 
+	constant NO_BLINK : SSD_BLINK_STATE := "000";
+	constant BL0 		: SSD_BLINK_STATE := "001";
+	constant BL1 		: SSD_BLINK_STATE := "010";
+	constant BL01 		: SSD_BLINK_STATE := "011";
+	constant BL2 		: SSD_BLINK_STATE := "100";
+	constant BL3 		: SSD_BLINK_STATE := "101";
+	constant BL23 		: SSD_BLINK_STATE := "110";
+	constant BLALL 	: SSD_BLINK_STATE := "111";	
 	
 --stopwatch mode inside states declaration
 	type STOPWATCH_STATE is (STOP, TIMING, PAULSE, LAP, STW_RESET);
@@ -80,18 +80,16 @@ package FSM_process_pkg is
 								  signal alarm_flag 	: in STD_LOGIC;
 								  signal blink_flag 	: out SSD_BLINK_STATE;
 								  signal tmnx_state	: out TIMER_STATE);
-
-
-	procedure SetValueByHoldBtn( signal BtnHold_flag 	: in std_logic;	-- button holding signal
+										 
+	procedure SetValueByHoldBtn3( signal BtnHold_flag 	: in std_logic;	-- button holding signal
 										  signal Pulse_100Hz		: in std_logic;	-- 100hz sample signal (0.01 s)
-										  variable HTime_MAX		: inout integer;	-- 100 means 1 second	
-										  variable hold_tm		: inout integer;	-- counter to calculate time
-										  Constant Speedup_Level: in integer;	-- if not zero, will speedup increase
-										  Constant Max_Value		: in std_logic_vector(15 downto 0);	
-										  Constant Min_Value		: in std_logic_vector(15 downto 0);	
-										  signal outValue			: inout std_logic_vector(15 downto 0)
+										  variable HTime_MAX		: inout natural;	-- 100 means 1 second	
+										  variable hold_tm		: inout natural;	-- counter to calculate time
+										  Constant Speedup_Level: in natural;	-- if not zero, will speedup increase
+										  Constant Max_Value		: in natural;	
+										  Constant Min_Value		: in natural;
+										  signal outValue			: inout natural
 										 );
-
 
 end FSM_process_pkg;
 
@@ -137,7 +135,7 @@ package body FSM_process_pkg is
 				if (event_btn1 = '1') then 
 					tmnx_state <= START;	
 				elsif (event_btn2 = '1') then
-					tmnx_state <= READY;	
+					tmnx_state <= TMR_RESET;	
 				elsif (alarm_flag = '1') then
 					tmnx_state <= TMR_ALARM;
 				else 
@@ -170,8 +168,16 @@ package body FSM_process_pkg is
 				else
 					tmnx_state <= TMR_ALARM;
 				end if;
+			when TMR_RESET =>
+				blink_flag <= NO_BLINK;
+				if (event_btn1 = '1') then 
+					tmnx_state <= READY;	
+				elsif (event_btn2 = '1') then
+					tmnx_state <= SET_MIN;						
+				end if;							
 			when others => 
-				blink_flag <= BLALL;
+				--blink_flag <= BLALL;
+				blink_flag <= (others => '0');
 				if (event_btn1 = '1' or event_btn2 = '1'	) then 
 					tmnx_state <= READY;	
 				end if;
@@ -184,7 +190,7 @@ package body FSM_process_pkg is
 	procedure Calendar_FSM(signal cdpr_state 	: in CALENDAR_STATE;
 								  signal event_btn1	: in STD_LOGIC;
 								  signal event_btn2 	: in STD_LOGIC;
-								  signal blink_flag 	: out  SSD_BLINK_STATE;
+								  signal blink_flag 	: out SSD_BLINK_STATE;
 								  signal cdnx_state	: out CALENDAR_STATE) is
 	begin
 		cdnx_state <= cdpr_state;
@@ -278,7 +284,8 @@ package body FSM_process_pkg is
 					cdnx_state <= SET_DWK;
 				end if;							
 			when others => 
-				blink_flag <= BLALL;
+				--blink_flag <= BLALL;
+				blink_flag <= (others => '0');
 				if (event_btn1 = '1' or event_btn2 = '1'	) then 
 					cdnx_state <= CALENDAR;		
 				end if;
@@ -288,7 +295,7 @@ package body FSM_process_pkg is
 -- Clock mode inside state machine transition process
 	procedure Clock_FSM(	  signal ckpr_state 	: in CLOCK_STATE;
 								  signal event_btn1	: in STD_LOGIC;
-								  signal blink_flag 	: out  SSD_BLINK_STATE;
+								  signal blink_flag 	: out SSD_BLINK_STATE;
 								  signal cknx_state	: out CLOCK_STATE) is
 	begin
 		cknx_state <= ckpr_state;
@@ -315,7 +322,8 @@ package body FSM_process_pkg is
 					cknx_state <= SET_HOUR;				
 				end if;						
 			when others => 	
-				blink_flag <= BLALL;
+				--blink_flag <= BLALL;
+				blink_flag <= (others => '0');
 				if (event_btn1 = '1') then 
 					cknx_state <= CLOCK;	
 				end if;
@@ -376,7 +384,8 @@ package body FSM_process_pkg is
 					alnx_state <= CLEAN;					
 				end if;		
 			when others => 
-				blink_flag <= BLALL;
+				--blink_flag <= BLALL;
+				blink_flag <= (others => '0');
 				if (event_btn1 = '1' or event_btn2 = '1') then 
 					alnx_state <= READY;
 				end if;
@@ -424,44 +433,50 @@ package body FSM_process_pkg is
 					swnx_state <= LAP;
 				end if;							
 			when others => 
-				blink_flag <= BLALL;
+				--blink_flag <= BLALL;
+				blink_flag <= (others => '0');
 				if (event_btn1 = '1' or event_btn2 = '1') then
 					swnx_state <= STOP;
 				end if;
 		end case;				
 	end;
 
-
-	procedure SetValueByHoldBtn( signal BtnHold_flag 	: in std_logic;
-										  signal Pulse_100Hz		: in std_logic;
-										  variable HTime_MAX		: inout integer;
-										  variable hold_tm		: inout integer;
-										  Constant Speedup_Level: in integer;
-										  Constant Max_Value		: in std_logic_vector(15 downto 0);	
-										  Constant Min_Value		: in std_logic_vector(15 downto 0);	
-										  signal outValue			: inout std_logic_vector(15 downto 0)
-										) is
-
+	procedure SetValueByHoldBtn3( signal BtnHold_flag 	: in std_logic;	-- button holding signal
+										  signal Pulse_100Hz		: in std_logic;	-- 100hz sample signal (0.01 s)
+										  variable HTime_MAX		: inout natural;	-- 100 means 1 second	
+										  variable hold_tm		: inout natural;	-- counter to calculate time
+										  Constant Speedup_Level: in natural;	-- if not zero, will speedup increase
+										  Constant Max_Value		: in natural;	
+										  Constant Min_Value		: in natural;
+										  signal outValue			: inout natural
+										 ) is
 	begin 
 		if (BtnHold_flag = '1') then
 			if (Pulse_100Hz = '1') then
-				if hold_tm =  HTime_MAX then
+				if hold_tm <  HTime_MAX then 
+					hold_tm := hold_tm + 1;								
+				else
 					hold_tm := 0;
-					if (HTime_MAX > 20) then
-						HTime_MAX :=  HTime_MAX - Speedup_Level; -- speed up 0.1s/s
-					end if;								
+					
 					if (outValue < Max_Value) then
-						 outValue <= std_logic_vector(unsigned(outValue) + 1);
+						 outValue <= outValue + 1;
 					else
 						 outValue <= Min_Value;								
-					end if;								
-				else
-					hold_tm := hold_tm + 1;
+					end if;
+					
+					if (HTime_MAX > 20) then
+						if (HTime_MAX > Speedup_Level) then
+							HTime_MAX :=  HTime_MAX - Speedup_Level; -- speed up 0.1s/s
+						end if;
+					else
+						HTime_MAX := 20;
+					end if;														
 				end if;
 			end if;
 		else
 			 HTime_MAX := 100;
+			 hold_tm := 0;
 		end if;	
-	end;
- 
+	end;	
+
 end FSM_process_pkg;

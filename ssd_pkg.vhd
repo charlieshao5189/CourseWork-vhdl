@@ -1,3 +1,11 @@
+----------------------------------------------------------------------------------
+-- Company: HSN	
+-- Engineer: Qinghui Liu , Zhili Shao, Joseph Fotso
+-- 
+-- Create Date:    14:27:31 02/01/2016 
+-- Design Name: 
+-- Module Name:    FSM_process_pkg  
+----------------------------------------------------------------------------------
 
 library IEEE;
 use IEEE.STD_LOGIC_1164.all;
@@ -8,16 +16,18 @@ package ssd_pkg is
 
 -- Bin to BCD function, 16-bit binary number convert on 20bit BCD
 -- with 5 groups of 4-bit, each representing 1 digit
-	function Bin2BCD (bin: std_logic_vector(15 downto 0)) return std_logic_vector;
+	function Bin2BCD (bin: natural) return std_logic_vector; --(15 downto 0)
 	
 -- BCD to 7seg display (ssd), 4-bit BCD value conver to 7-bit
--- representing the 7 segments for the LCD display
-	function BCD2ssd (bcd: std_logic_vector(3 downto 0)) return std_logic_vector;
+-- representing the 7 segments for the LCD display return ssgement vector (6 downto 0)
+	function BCD2ssd (bcd: std_logic_vector(3 downto 0)) return std_logic_vector; 
 	
--- 7seg blink proccess
+-- caculate and return number of days in a month upon defferent years
+	function nDays_In_Month(Months: in  natural; Years : in  natural) return natural; 
+	
 	procedure ssd_Blink_Display(	signal blink_flag : in SSD_BLINK_STATE;	
-											variable delay_cnt : inout integer;
-											constant BLINK_TM  : in integer;
+											variable delay_cnt : inout natural;
+											constant BLINK_TM  : in natural;
 											variable bcd0	: in std_logic_vector (7 downto 0);
 											variable bcd1	: in std_logic_vector (7 downto 0);
 											variable bcd2	: in std_logic_vector (7 downto 0);
@@ -28,21 +38,55 @@ package ssd_pkg is
 											signal ssd3 : out std_logic_vector(7 downto 0)
 										);
 
-	procedure Days_InMonth(
-				variable I_MONTH: in  std_logic_vector(15 downto 0);
-				variable I_Year : in  std_logic_vector(15 downto 0);
-				signal O_DAYS_IN_MONTH : out std_logic_vector(15 downto 0)
-   );
-
 end ssd_pkg;
 
 package body ssd_pkg is
---- binary to bcd conversion function----
-	function Bin2BCD(bin: std_logic_vector(15 downto 0)) return std_logic_vector is
+
+	-- caculate and return number of days in a month upon defferent years
+	function nDays_In_Month(Months: in  natural; 
+									Years : in  natural) return natural is
+		variable is_leap: std_logic := '0';
+		variable n_days : natural range 28 to 31 := 31;
+	begin
+		 if Years mod 4 = 0 then
+			if Years  mod 100 = 0 then
+				if Years mod 400 = 0 then
+					is_leap :='1';
+				else 	
+					is_leap :='0';
+				end if;
+			else 
+				is_leap :='1';
+			end if;
+		 else 
+			is_leap :='0';
+		 end if;	 
+		
+		if Months = 4 or Months = 9 or 
+			Months = 6 or Months = 11 then  
+			n_days := 30;
+		elsif Months = 2 then
+			if is_leap = '0' then
+				n_days := 28;
+			else 
+				n_days := 29;
+			end if;		
+		else
+		 n_days := 31;
+		end if;
+		
+		return n_days;
+		
+	end nDays_In_Month;
+	
+
+	--- binary to bcd conversion function----
+	function Bin2BCD(bin: natural) return std_logic_vector is
 		variable i : integer := 0;
 		variable BCD: std_logic_vector(19 downto 0):= (others => '0');
-		variable Bin_tmp: std_logic_vector(15 downto 0):= bin;
+		variable Bin_tmp: std_logic_vector(15 downto 0):= (others => '0');	
 	begin 
+		Bin_tmp := std_logic_vector(to_unsigned(bin, Bin_tmp'length));
 		for i in 0 to 15 loop
 			BCD(19 downto 1) := BCD(18 downto 0); --shift left
 			BCD(0) := Bin_tmp(15);
@@ -70,10 +114,10 @@ package body ssd_pkg is
 			end if;	
 			
 		end loop;
-		return BCD;
+		return BCD(15 downto 0);
 	end Bin2BCD;
 
--- BCD to 7segment display conversion function ---
+	-- BCD to 7segment display conversion function ---
 	function BCD2ssd (bcd:std_logic_vector(3 downto 0)) return std_logic_vector is
 		variable SSEG : std_logic_vector(6 downto 0):= (others => '1');
 	begin
@@ -99,11 +143,10 @@ package body ssd_pkg is
 		return SSEG;
 	end BCD2ssd;
  
-
--- ssd blink process
+   -- ssd blink process
 	procedure ssd_Blink_Display(	signal blink_flag : in SSD_BLINK_STATE;	
-											variable delay_cnt : inout integer;
-											constant BLINK_TM  : in integer;
+											variable delay_cnt : inout natural;
+											constant BLINK_TM  : in natural;
 											variable bcd0	: in std_logic_vector (7 downto 0);
 											variable bcd1	: in std_logic_vector (7 downto 0);
 											variable bcd2	: in std_logic_vector (7 downto 0);
@@ -115,24 +158,18 @@ package body ssd_pkg is
 										) is
 	begin
 		case blink_flag is
-			when NO_BLINK => 
-				ssd0  <= bcd0;
-				ssd1  <= bcd1;
-				ssd2  <= bcd2;
-				ssd3  <= bcd3;
-				delay_cnt := 0;	
 			when BLALL =>
 				if (delay_cnt < BLINK_TM/2) then
 					ssd0  <= x"FF";
 					ssd1  <= x"FF";
 					ssd2  <= x"FF";
-					ssd3  <= x"FF";
-				elsif (delay_cnt  <BLINK_TM ) then						
+					ssd3  <= x"FF";								
+				elsif (delay_cnt  <BLINK_TM ) then
 					ssd0  <= bcd0;
 					ssd1  <= bcd1;
 					ssd2  <= bcd2;
 					ssd3  <= bcd3;	
-				else
+				else 	
 					delay_cnt := 0;
 				end if;
 				
@@ -211,72 +248,13 @@ package body ssd_pkg is
 				ssd2  <= bcd2;
 				
 			when others =>
+				ssd0  <= bcd0;
+				ssd1  <= bcd1;
+				ssd2  <= bcd2;
+				ssd3  <= bcd3;
 				delay_cnt := 0;
+				
 		end case;	
-	end;
-
-
-	procedure Days_InMonth(
-					variable I_MONTH: in  std_logic_vector(15 downto 0);
-					variable I_Year : in  std_logic_vector(15 downto 0);
-					signal O_DAYS_IN_MONTH : out std_logic_vector(15 downto 0)
-		) is
-
-		variable month_30d : std_logic;
-		variable month_28d : std_logic;
-		variable month_31d : std_logic;
-		variable month_29d : std_logic;
-		variable I_LEAP_YEAR : std_logic;	
-		variable I_Year_temp:unsigned(15 downto 0):=unsigned(I_Year);
-	begin
-
-		 if I_Year_temp mod 4 =0 then
-			if I_Year_temp  mod 100 =0 then
-				if I_Year_temp mod 400 =0 then
-					I_LEAP_YEAR :='1';
-				else 	
-					I_LEAP_YEAR :='0';
-				end if;
-			else 
-				I_LEAP_YEAR :='1';
-			end if;
-		 else 
-			I_LEAP_YEAR :='0';
-		 end if;	 
-		
-		if I_MONTH = std_logic_vector(to_unsigned(4,I_MONTH'LENGTH))or --9
-			I_MONTH = std_logic_vector(to_unsigned(9,I_MONTH'LENGTH)) or --4
-			I_MONTH = std_logic_vector(to_unsigned(6,I_MONTH'LENGTH)) or --6
-			I_MONTH = std_logic_vector(to_unsigned(11,I_MONTH'LENGTH)) then  --11 
-			month_30d := '1'; 
-		else month_30d :='0';
-		end if;
-
-		if I_MONTH = std_logic_vector(to_unsigned(2,I_MONTH'LENGTH))and I_LEAP_YEAR = '0' then--2
-			month_28d := '1' ; 						 
-		else month_28d :='0';
-		end if;
-		
-		if I_MONTH = std_logic_vector(to_unsigned(2,I_MONTH'LENGTH))and I_LEAP_YEAR = '1' then--2
-			month_29d := '1' ; 						 
-		else month_29d :='0';
-		end if;
-							  
-		if month_30d = '0' and month_28d = '0' and month_29d = '0' then 
-		   month_31d := '1' ; 
-		else  month_31d := '0';
-		end if;
-							  
-		if month_30d = '1' then
-			O_DAYS_IN_MONTH <= std_logic_vector(to_unsigned(30,O_DAYS_IN_MONTH'length));
-		elsif month_28d = '1' then
-			O_DAYS_IN_MONTH <= std_logic_vector(to_unsigned(28,O_DAYS_IN_MONTH'length));
-		elsif month_29d = '1' then
-			O_DAYS_IN_MONTH <= std_logic_vector(to_unsigned(29,O_DAYS_IN_MONTH'length));
-		else
-			O_DAYS_IN_MONTH <= std_logic_vector(to_unsigned(31,O_DAYS_IN_MONTH'length));	
-		end if;
-
 	end;
 
 end ssd_pkg;

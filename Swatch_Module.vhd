@@ -14,10 +14,10 @@ use work.FSM_process_pkg.all;
 entity Swatch_Module is
     Port ( clk : in  STD_LOGIC;
            rst : in  STD_LOGIC;
-           enb : in  STD_LOGIC;
+			  pr_modul 	 : in  MODULE_STATES;
            event_btn2 : in  STD_LOGIC;
            event_btn3 : in  STD_LOGIC;
-           sw_blink : out  SSD_BLINK_STATE;--STD_LOGIC_VECTOR (7 downto 0);
+           sw_blink : out  SSD_BLINK_STATE;
            sw_bcd : out  STD_LOGIC_VECTOR (31 downto 0));
 end Swatch_Module;
 
@@ -25,10 +25,11 @@ architecture Behavioral of Swatch_Module is
 
 	signal swpr_state, swnx_state : STOPWATCH_STATE;
 	signal hunSecPulse	: std_logic ;	-- 0.01 seconds pulse signal
-	
-	signal timerHH : std_logic_vector(15 downto 0) := x"0000";
-	signal timerLL : std_logic_vector(15 downto 0) := x"0000";	
 
+	signal timerHH : natural range 0 to 99;
+	signal timerLL : natural range 0 to 59;
+	constant dp_ON  : std_logic := '0';
+	constant dp_OFF : std_logic := '1';
 begin
 --lower section of state transitions process--
 	process(clk, rst)
@@ -63,66 +64,63 @@ begin
 		end if;
 	end process;
 
-	process (enb, swpr_state, event_btn2, event_btn3, swnx_state)
+	process (pr_modul, swpr_state, event_btn2, event_btn3, swnx_state)
 	begin 
-		if (enb = '1') then
-				StopWatch_FSM( swpr_state, event_btn2, event_btn3,
-									sw_blink, swnx_state);
+		if (pr_modul = STOPWATCH_MD) then
+			StopWatch_FSM( swpr_state, event_btn2, event_btn3, sw_blink, swnx_state);
+		else
+			swnx_state <= swpr_state;
+			sw_blink <= NO_BLINK;
 		end if;
 	end process;
 
 
 -- process stopwatch mode
 	process (clk, hunSecPulse, swpr_state)
-		variable counter : integer range 0 to 9;
+		variable counter : natural range 0 to 9;
 		variable lap_flag : std_logic := '0';
 		
-		variable tmr_tss : std_logic_vector(15 downto 0) := x"0000";
-		variable tmr_ss : std_logic_vector(15 downto 0) := x"0000";
-		variable tmr_min : std_logic_vector(15 downto 0) := x"0000";
-		variable tmr_hour : std_logic_vector(15 downto 0) := x"0000";
+		variable tmr_tss : natural range 0 to 9;
+		variable tmr_ss, tmr_min : natural range 0 to 59;
+		variable tmr_hour : natural range 0 to 99;
 
 	begin
 		if rising_edge(clk) then
 			case swpr_state is
 				when STOP =>
-					tmr_tss := x"0000";
-					tmr_ss := x"0000";
-					tmr_min := x"0000";
-					tmr_hour := x"0000";
-					timerHH <= x"0000";
-					timerLL <= x"0000";					
+					tmr_tss := 0;
+					tmr_ss := 0;
+					tmr_min := 0;
+					tmr_hour := 0;
+					timerHH <= 0;
+					timerLL <= 0;					
 					counter := 0;
 					lap_flag := '0';
 					
 				when TIMING =>					
 					if (hunSecPulse = '1') then
-						if (counter = 9) then
-							counter := 0; 						
-							if tmr_tss = x"0009" then
-								tmr_tss := x"0000";							
-								if tmr_ss = x"003B" then -- "003b" = 59
-									tmr_ss := x"0000";									
-									if tmr_min = x"003B" then -- "003b" = 59
-										tmr_min := x"0000";
-										tmr_hour:= std_logic_vector(unsigned(tmr_hour) + 1);	-- 1 hours
+						if (counter = 9) then	counter := 0; 						
+							if tmr_tss = 9 then	 tmr_tss := 0;							
+								if tmr_ss = 59 then 	tmr_ss := 0;									
+									if tmr_min = 59 then tmr_min := 0;
+										tmr_hour:= tmr_hour + 1;
 									else
-										tmr_min := std_logic_vector(unsigned(tmr_min) + 1); -- 1 minues
+										tmr_min := tmr_min + 1; 
 									end if;									
 								else
-									tmr_ss := std_logic_vector(unsigned(tmr_ss) + 1); --1 s
+									tmr_ss := tmr_ss + 1; --1s
 								end if;							
 							else
-								tmr_tss := std_logic_vector(unsigned(tmr_tss) + 1);	-- 0.1 s
+								tmr_tss := tmr_tss + 1;	--0.1s
 							end if;							
 						else
 							counter := counter + 1;
 						end if;									
 					else
-						if tmr_hour > x"0000" then
+						if tmr_hour > 0 then
 							timerHH <= tmr_hour;
 							timerLL <= tmr_min;
-						elsif tmr_min > x"0000" then
+						elsif tmr_min > 0 then
 							timerHH <= tmr_min;
 							timerLL <= tmr_ss;						
 						else
@@ -133,10 +131,10 @@ begin
 					end if;
 
 				when PAULSE =>					
-					if tmr_hour > x"0000" then
+					if tmr_hour > 0 then
 						timerHH <= tmr_hour;
 						timerLL <= tmr_min;
-					elsif tmr_min > x"0000" then
+					elsif tmr_min > 0 then
 						timerHH <= tmr_min;
 						timerLL <= tmr_ss;						
 					else
@@ -146,23 +144,19 @@ begin
 
 				when LAP =>					
 					if (hunSecPulse = '1') then
-						if (counter = 9) then
-							counter := 0; 						
-							if unsigned(tmr_tss) = 9 then
-								tmr_tss := x"0000";							
-								if unsigned(tmr_ss) = 59 then 
-									tmr_ss := x"0000";									
-									if unsigned(tmr_min) = 59 then
-										tmr_min := x"0000";
-										tmr_hour:= std_logic_vector(unsigned(tmr_hour) + 1);	-- 1 hours
+						if counter = 9 then	counter := 0; 						
+							if tmr_tss = 9 then	 tmr_tss := 0;							
+								if tmr_ss = 59 then 	tmr_ss := 0;									
+									if tmr_min = 59 then	tmr_min := 0;
+										tmr_hour:= tmr_hour + 1;	-- 1 hours
 									else
-										tmr_min := std_logic_vector(unsigned(tmr_min) + 1); -- 1 minues
+										tmr_min := tmr_min + 1; -- 1 minues
 									end if;									
 								else
-									tmr_ss := std_logic_vector(unsigned(tmr_ss) + 1);--1 s
+									tmr_ss := tmr_ss + 1;--1 s
 								end if;							
 							else
-								tmr_tss := std_logic_vector(unsigned(tmr_tss) + 1); --0.1 s
+								tmr_tss := tmr_tss + 1; --0.1 s
 							end if;							
 						else
 							counter := counter + 1;
@@ -170,10 +164,10 @@ begin
 					end if;
 				
 				when others =>
-					tmr_tss := (others => '0');
-					tmr_ss := (others => '0');
-					tmr_min := (others => '0');
-					tmr_hour := (others => '0');
+					tmr_tss := 0;
+					tmr_ss := 0;
+					tmr_min := 0;
+					tmr_hour := 0;
 					counter := 0;
 					lap_flag := '0';		
 				
@@ -181,17 +175,19 @@ begin
 		end if;
 	end process;
 
-	process (clk, enb, timerHH, timerLL)
-		variable bcd_tm : std_logic_vector (19 downto 0);
+	process (clk, pr_modul, timerHH, timerLL)
+		variable bcd_tm  : std_logic_vector (15 downto 0);
 	begin
 			if (rising_edge(clk)) then
-				if (enb = '1') then
+				if (pr_modul = STOPWATCH_MD) then
 					bcd_tm := Bin2BCD(timerLL);	
-					sw_bcd(7 downto 0) <=  '1' & BCD2ssd(bcd_tm(3 downto 0));
-					sw_bcd(15 downto 8) <=  '1' & BCD2ssd(bcd_tm(7 downto 4));
+					sw_bcd(7 downto 0)   <= dp_OFF & BCD2ssd(bcd_tm(3 downto 0));
+					sw_bcd(15 downto 8)  <= dp_OFF & BCD2ssd(bcd_tm(7 downto 4));
 					bcd_tm := Bin2BCD(timerHH);
-					sw_bcd(23 downto 16) <= '0' & BCD2ssd(bcd_tm(3 downto 0));
-					sw_bcd(31 downto 24) <= '1' & BCD2ssd(bcd_tm(7 downto 4));					
+					sw_bcd(23 downto 16) <= dp_ON & BCD2ssd(bcd_tm(3 downto 0));
+					sw_bcd(31 downto 24) <= dp_OFF & BCD2ssd(bcd_tm(7 downto 4));
+				else
+					sw_bcd <= (23 => dp_OFF, others => dp_ON);
 				end if;
 			end if;			
 	end process;
