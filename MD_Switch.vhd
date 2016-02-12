@@ -12,105 +12,146 @@ use work.ssd_pkg.all;
 use work.FSM_process_pkg.all;
 
 entity MD_Switch is
-    Port ( envent_btn1 : in  STD_LOGIC;
-			  pr_modul 	  : in  MODULE_STATES;--STD_LOGIC_VECTOR (5 downto 0);
-			  ck_blink    : in SSD_BLINK_STATE;
-			  al_blink    : in SSD_BLINK_STATE;
-			  cd_blink    : in SSD_BLINK_STATE;
+    Port ( clk : in  STD_LOGIC;
+           rst : in  STD_LOGIC;
+			  envent_btn1 : in  STD_LOGIC;
+			  cac_blink	  : in SSD_BLINK_STATE;
 			  sw_blink    : in SSD_BLINK_STATE;
 			  tm_blink    : in SSD_BLINK_STATE;
 			  clock_alarm : in  STD_LOGIC;
 			  timer_alarm : in  STD_LOGIC;
-           nx_modul : out MODULE_STATES;-- STD_LOGIC_VECTOR (5 downto 0);
-           modul_set : out  STD_LOGIC_VECTOR (4 downto 0);
-           blink_flag : out SSD_BLINK_STATE ); --STD_LOGIC_VECTOR (7 downto 0)
+			  cr_modul 	  : out MODULE_STATES;
+           blink_flag  : out SSD_BLINK_STATE );
 end MD_Switch;
 
 architecture Behavioral of MD_Switch is
-
+	signal pr_modul, nx_modul : MODULE_STATES;
 begin
 
+	--lower section of state transitions process--
+	process(clk, rst)
+	begin	
+		if(clk'EVENT and clk = '1') then
+			if (rst = '1') then
+				pr_modul <= UNKNOWN;
+				cr_modul <= UNKNOWN;
+			else 
+				pr_modul <= nx_modul;
+				cr_modul <= nx_modul;
+			end if;
+		end if;
+	end process;
+
 	process (pr_modul, envent_btn1, clock_alarm, timer_alarm, 
-				ck_blink, tm_blink, al_blink, cd_blink, sw_blink )
+				cac_blink, tm_blink, sw_blink )
 	begin
-		nx_modul <= pr_modul;
-		
+		--nx_modul <= pr_modul;
 		case pr_modul is
-			when UNKNOWN => 
-				modul_set <= "11111"; -- ALl 5 LEDs lit on LED_SET
-			
+			when UNKNOWN => 				
 				if (envent_btn1 = '1' ) then 
-					nx_modul <= CLOCK_MD;	-- switch to next mode after button release			
+					nx_modul <= CLOCK_MD;
+					blink_flag <= cac_blink;
+				elsif (clock_alarm = '1') then
+					nx_modul<= ALARM_MD;
+					blink_flag <= BLALL;
+				elsif (timer_alarm = '1') then
+					nx_modul<= TIMER_MD;
+					blink_flag <= BLALL;	
+				else 
+					nx_modul <= UNKNOWN;	
+					blink_flag <= BLALL;					
 				end if;
 			
-			when CLOCK_MD =>
-				modul_set <= "00001";  --LED[0] lit on and enable Clock_modul
-				blink_flag <= ck_blink;	
-							  
+			when CLOCK_MD =>							  
 				if (envent_btn1 = '1' ) then 
-					nx_modul <= ALARM_MD; 
+					nx_modul <= ALARM_MD;
+					blink_flag <= cac_blink;					
+				elsif (clock_alarm = '1') then
+					nx_modul<= ALARM_MD;
+					blink_flag <= BLALL;
+				elsif (timer_alarm = '1') then
+					nx_modul<= TIMER_MD;
+					blink_flag <= BLALL;	
 				else 
 					nx_modul <= CLOCK_MD;
+					blink_flag <= cac_blink;
 				end if;
 						
-			when ALARM_MD =>
-				modul_set <= "00010";  --LED[1] lit on, and enable Alarm_modul 	
-				blink_flag <= al_blink;	
-				
+			when ALARM_MD =>				
 				if (envent_btn1 = '1' ) then 
 					nx_modul <= CALENDAR_MD; 
+					blink_flag <= cac_blink;
+				elsif (clock_alarm = '1') then
+					nx_modul <= ALARM_MD;
+					blink_flag <= BLALL;
+				elsif (timer_alarm = '1') then
+					nx_modul<= TIMER_MD;
+					blink_flag <= BLALL;	
 				else 
 					nx_modul <= ALARM_MD;
+					blink_flag <= cac_blink;
 				end if;
 
 			when CALENDAR_MD =>
-				modul_set <= "00100";	--LED[2] lit on and enable Calendar_modul
-				blink_flag <= cd_blink;	
-
 				if (envent_btn1 = '1' ) then 
 					nx_modul <= STOPWATCH_MD; 
+					blink_flag <= sw_blink;
+				elsif (clock_alarm = '1') then
+					nx_modul<= ALARM_MD;
+					blink_flag <= BLALL;
+				elsif (timer_alarm = '1') then
+					nx_modul<= TIMER_MD;
+					blink_flag <= BLALL;	
 				else
 					nx_modul <= CALENDAR_MD;
+					blink_flag <= cac_blink;
 				end if;
 			
-			when STOPWATCH_MD =>
-				modul_set <= "01000";	--LED[3] lit on
-				blink_flag <= sw_blink;		
-				
+			when STOPWATCH_MD =>			
 				if (envent_btn1 = '1' ) then 
-					nx_modul <= TIMER_MD; 	
+					nx_modul <= TIMER_MD; 
+					blink_flag <= tm_blink;	
+				elsif (clock_alarm = '1') then
+					nx_modul<= ALARM_MD;
+					blink_flag <= BLALL;
+				elsif (timer_alarm = '1') then
+					nx_modul<= TIMER_MD;
+					blink_flag <= BLALL;		
 				else
 					nx_modul <= STOPWATCH_MD;
+					blink_flag <= sw_blink;	
 				end if;	
 						
 			when TIMER_MD =>
-				modul_set <= "10000";  --LED[4] lit on
-				blink_flag <= tm_blink;	
-
 				if (envent_btn1 = '1' ) then 
 					nx_modul <= CLOCK_MD; 
+					blink_flag <= cac_blink;
+				elsif (clock_alarm = '1') then
+					nx_modul<= ALARM_MD;
+					blink_flag <= BLALL;
+				elsif (timer_alarm = '1') then
+					nx_modul<= TIMER_MD;
+					blink_flag <= BLALL;	
 				else
 					nx_modul <= TIMER_MD; 
+					blink_flag <= tm_blink;
 				end if;		
 			
 			when others =>
-				modul_set <= "11111"; 
-				nx_modul <= UNKNOWN;				
-				blink_flag <= BLALL;		
 				if (envent_btn1 = '1' ) then 
 					nx_modul <= CLOCK_MD; 
+					blink_flag <= cac_blink;
+				elsif (clock_alarm = '1') then
+					nx_modul<= ALARM_MD;
+					blink_flag <= BLALL;
+				elsif (timer_alarm = '1') then
+					nx_modul<= TIMER_MD;
+					blink_flag <= BLALL;		
 				else
 					nx_modul <= UNKNOWN; 
+					blink_flag <= BLALL;
 				end if;					
-		end case;
-		
-		if (clock_alarm = '1') then
-			nx_modul<= ALARM_MD;
-			blink_flag <= BLALL;
-		elsif (timer_alarm = '1') then
-			nx_modul<= TIMER_MD;
-			blink_flag <= BLALL;			
-		end if;
+		end case;				
 			
 	end process;
 

@@ -12,20 +12,23 @@ use work.FSM_process_pkg.all;
 
 entity LED_Blink is
     Port ( clk : in  STD_LOGIC;
-			  led_in: in STD_LOGIC_VECTOR (4 downto 0);
-           blink_flag : in  STD_LOGIC_VECTOR (7 downto 0);
-           led_out : out  STD_LOGIC_VECTOR (4 downto 0));
+           rst : in  STD_LOGIC;
+			  pr_modul 	 : in  MODULE_STATES;
+           blink_flag : in  SSD_BLINK_STATE;
+           led_out : out  STD_ULOGIC_VECTOR (4 downto 0));
 end LED_Blink;
 
 architecture Behavioral of LED_Blink is
 	signal CLK_1HZ: std_logic;
-	signal CLK_1KHZ: std_logic;
-	constant LED_OFF : STD_LOGIC_VECTOR (4 downto 0):= "00000";
+	signal CLK_1KHZ: std_logic;	
 begin
-	process (clk)
+	process (clk, rst)
 		variable counter, counter_next, i : natural := 0;
 	begin
 		if rising_edge(clk) then
+			if (rst = '1') then
+				counter_next := 0;
+			else
 				counter := counter_next;
 				counter_next := counter + 1;
 				if (counter = 999999) then
@@ -38,21 +41,37 @@ begin
 					end if;
 					CLK_1KHZ <= not CLK_1KHZ;
 				end if;
+			end if;
 		end if;	
 	end process;
 	
-	process (clk, CLK_1KHZ, CLK_1HZ)
+	process (clk, CLK_1KHZ, CLK_1HZ, blink_flag)
 	begin 
 		if rising_edge(clk) then
 			if (blink_flag = NO_BLINK) then
 				if (CLK_1KHZ = '1') then
-					led_out <= led_in;
+					case pr_modul is
+						when CLOCK_MD =>		led_out <= "00001";
+						when ALARM_MD =>		led_out <= "00010";					
+						when CALENDAR_MD => 	led_out <= "00100";
+						when STOPWATCH_MD => led_out <= "01000";
+						when TIMER_MD =>		led_out <= "10000";
+						when others  =>		led_out <= "00000";					
+					end case;
+					
 				end if;
 			else
 				if (CLK_1HZ = '1') then
-					led_out <= led_in;
+					case pr_modul is
+						when CLOCK_MD =>		led_out <= "00001";
+						when ALARM_MD =>		led_out <= "00010";					
+						when CALENDAR_MD => 	led_out <= "00100";
+						when STOPWATCH_MD => led_out <= "01000";
+						when TIMER_MD =>		led_out <= "10000";
+						when others  =>		led_out <= "00000";					
+					end case;
 				else
-					led_out <= LED_OFF;
+					led_out <= "00000";
 				end if;				
 			end if;
 		end if;
