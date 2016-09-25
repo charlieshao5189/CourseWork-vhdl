@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<item value="system.bit" key="scoreboard_hw_platform-bitFile"/>
+	<item value="C:\Users\qhsam\Desktop\scoreboard\SDK\scorebd\Debug\scorebd.elf" key="scoreboard_hw_platform-microblaze_0-initElf"/>
+	<item value="system_bd.bmm" key="scoreboard_hw_platform-bmmFile"/>
+</section>

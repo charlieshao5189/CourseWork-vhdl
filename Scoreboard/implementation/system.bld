@@ -1,0 +1,321 @@
+Release 14.7 ngdbuild P.20131013 (nt64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+
+Command Line: C:\Xilinx\14.7\ISE_DS\ISE\bin\nt64\unwrapped\ngdbuild.exe -p
+xc6slx16csg324-3 -nt timestamp -bm system.bmm
+C:/Users/qhsam/Desktop/last_time/implementation/system.ngc -uc system.ucf
+system.ngd
+
+Reading NGO file "C:/Users/qhsam/Desktop/last_time/implementation/system.ngc"
+...
+Loading design module
+"C:/Users/qhsam/Desktop/last_time/implementation/system_dip_switches_8bits_wrapp
+er.ngc"...
+Loading design module
+"C:/Users/qhsam/Desktop/last_time/implementation/system_push_buttons_4bits_wrapp
+er.ngc"...
+Loading design module
+"C:/Users/qhsam/Desktop/last_time/implementation/system_rs232_uart_1_wrapper.ngc
+"...
+Loading design module
+"C:/Users/qhsam/Desktop/last_time/implementation/system_clock_generator_0_wrappe
+r.ngc"...
+Loading design module
+"C:/Users/qhsam/Desktop/last_time/implementation/system_proc_sys_reset_0_wrapper
+.ngc"...
+Loading design module
+"C:/Users/qhsam/Desktop/last_time/implementation/system_microblaze_0_wrapper.ngc
+"...
+Loading design module
+"C:/Users/qhsam/Desktop/last_time/implementation/system_mb_plb_wrapper.ngc"...
+Loading design module
+"C:/Users/qhsam/Desktop/last_time/implementation/system_ilmb_wrapper.ngc"...
+Loading design module
+"C:/Users/qhsam/Desktop/last_time/implementation/system_dlmb_wrapper.ngc"...
+Loading design module
+"C:/Users/qhsam/Desktop/last_time/implementation/system_dlmb_cntlr_wrapper.ngc".
+..
+Loading design module
+"C:/Users/qhsam/Desktop/last_time/implementation/system_ilmb_cntlr_wrapper.ngc".
+..
+Loading design module
+"C:/Users/qhsam/Desktop/last_time/implementation/system_leds_8bits_wrapper.ngc".
+..
+Loading design module
+"C:/Users/qhsam/Desktop/last_time/implementation/system_ps2_mouse_keyboard_wrapp
+er.ngc"...
+Loading design module
+"C:/Users/qhsam/Desktop/last_time/implementation/system_micron_ram_wrapper.ngc".
+..
+Loading design module
+"C:/Users/qhsam/Desktop/last_time/implementation/system_digilent_sevseg_disp_wra
+pper.ngc"...
+Loading design module
+"C:/Users/qhsam/Desktop/last_time/implementation/system_xps_timer_0_wrapper.ngc"
+...
+Loading design module
+"C:/Users/qhsam/Desktop/last_time/implementation/system_mdm_0_wrapper.ngc"...
+Loading design module
+"C:/Users/qhsam/Desktop/last_time/implementation/system_xps_intc_0_wrapper.ngc".
+..
+Loading design module
+"C:/Users/qhsam/Desktop/last_time/implementation/system_tft_controller_wrapper.n
+gc"...
+Loading design module
+"C:/Users/qhsam/Desktop/last_time/implementation/system_lmb_bram_wrapper.ngc"...
+Loading design module
+"C:/Users/qhsam/Desktop/last_time/implementation/system_mem_bus_mux_0_wrapper.ng
+c"...
+Applying constraints in
+"C:/Users/qhsam/Desktop/last_time/implementation/system_tft_controller_wrapper.n
+cf" to module "tft_controller"...
+Checking Constraint Associations...
+Gathering constraint information from source properties...
+Done.
+
+Annotating constraints to design from ucf file "system.ucf" ...
+Resolving constraint associations...
+Checking Constraint Associations...
+WARNING:ConstraintSystem:134 - Constraint <INST
+   /system/EXPANDED/system/tft_controller/tft_controller\/TFT_CTRL_I\/VSYNC_U3\/
+   V_p_cnt_tc_rstpot1 TNM = TNM_TFT_CLOCK_tft_controller>: No appropriate
+   instances for the TNM constraint were found under block
+   "tft_controller/tft_controller/TFT_CTRL_I/VSYNC_U3/V_p_cnt_tc_rstpot1"
+   (type=LUT6).
+
+WARNING:ConstraintSystem:134 - Constraint <INST
+   /system/EXPANDED/system/tft_controller/tft_controller\/TFT_CTRL_I\/VSYNC_U3\/
+   V_p_cnt_tc_rstpot1_SW0 TNM = TNM_TFT_CLOCK_tft_controller>: No appropriate
+   instances for the TNM constraint were found under block
+   "tft_controller/tft_controller/TFT_CTRL_I/VSYNC_U3/V_p_cnt_tc_rstpot1_SW0"
+   (type=LUT2).
+
+WARNING:ConstraintSystem:194 - The TNM 'TNM_TFT_CLOCK_tft_controller', does not
+   directly or indirectly drive any flip-flops, latches and/or RAMs and is not
+   actively used by any referencing constraint.
+
+WARNING:ConstraintSystem:194 - The TNM 'TNM_TFT_CLOCK_tft_controller', does not
+   directly or indirectly drive any flip-flops, latches and/or RAMs and is not
+   actively used by any referencing constraint.
+
+INFO:ConstraintSystem:178 - TNM 'sys_clk_pin', used in period specification
+   'TS_sys_clk_pin', was traced into PLL_ADV instance
+   clock_generator_0/PLL0_INST/Using_PLL_ADV.PLL_ADV_inst. The following new TNM
+   groups and period specifications were generated at the PLL_ADV output(s): 
+   CLKOUT1: <TIMESPEC TS_clock_generator_0_clock_generator_0_SIG_PLL0_CLKOUT1 =
+   PERIOD "clock_generator_0_clock_generator_0_SIG_PLL0_CLKOUT1" TS_sys_clk_pin
+   * 0.25 HIGH 50%>
+
+INFO:ConstraintSystem:178 - TNM 'sys_clk_pin', used in period specification
+   'TS_sys_clk_pin', was traced into PLL_ADV instance
+   clock_generator_0/PLL0_INST/Using_PLL_ADV.PLL_ADV_inst. The following new TNM
+   groups and period specifications were generated at the PLL_ADV output(s): 
+   CLKOUT0: <TIMESPEC TS_clock_generator_0_clock_generator_0_SIG_PLL0_CLKOUT0 =
+   PERIOD "clock_generator_0_clock_generator_0_SIG_PLL0_CLKOUT0" TS_sys_clk_pin
+   * 0.833333333 HIGH 50%>
+
+Done...
+
+Processing BMM file "system.bmm" ...
+
+Checking expanded design ...
+WARNING:NgdBuild:443 - SFF primitive
+   'microblaze_0/microblaze_0/MicroBlaze_Core_I/Performance.Decode_I/Using_FPGA.
+   Gen_Bits[27].MEM_EX_Result_Inst' has unconnected output pin
+WARNING:NgdBuild:443 - SFF primitive
+   'Micron_RAM/Micron_RAM/MCH_PLB_IPIF_I/NO_CHNL_IF_GEN.PLBV46_SLAVE_BURST_I/I_S
+   LAVE_ATTACHMENT/I_DECODER/GEN_CE_FOR_SHARED.GEN_BKEND_CE_REGISTERS[0].I_BKEND
+   _WRCE_REG' has unconnected output pin
+WARNING:NgdBuild:443 - SFF primitive
+   'Micron_RAM/Micron_RAM/MCH_PLB_IPIF_I/NO_CHNL_IF_GEN.PLBV46_SLAVE_BURST_I/I_S
+   LAVE_ATTACHMENT/I_DECODER/GEN_CE_FOR_SHARED.GEN_BKEND_CE_REGISTERS[0].I_BKEND
+   _RDCE_REG' has unconnected output pin
+WARNING:NgdBuild:443 - SFF primitive
+   'Micron_RAM/Micron_RAM/MCH_PLB_IPIF_I/NO_CHNL_IF_GEN.PLBV46_SLAVE_BURST_I/I_S
+   LAVE_ATTACHMENT/I_BUS_ADDRESS_COUNTER/GEN_FOR_SHARED.GEN_S_H_SIZE_REG[0].I_SI
+   ZE_S_H_REG' has unconnected output pin
+WARNING:NgdBuild:443 - SFF primitive
+   'Micron_RAM/Micron_RAM/MCH_PLB_IPIF_I/NO_CHNL_IF_GEN.PLBV46_SLAVE_BURST_I/I_S
+   LAVE_ATTACHMENT/I_STEER_ADDRESS_COUNTER/GEN_FOR_SHARED.GEN_S_H_SIZE_REG[0].I_
+   SIZE_S_H_REG' has unconnected output pin
+WARNING:NgdBuild:443 - SFF primitive
+   'Micron_RAM/Micron_RAM/MCH_PLB_IPIF_I/NO_CHNL_IF_GEN.PLBV46_SLAVE_BURST_I/I_S
+   LAVE_ATTACHMENT/I_BURST_SUPPORT/RESPONSE_DBEAT_CNTR_I/STRUCTURAL_A_GEN.I_ADDS
+   UB_GEN[6].FDRE_I' has unconnected output pin
+WARNING:NgdBuild:443 - SFF primitive
+   'Micron_RAM/Micron_RAM/MCH_PLB_IPIF_I/NO_CHNL_IF_GEN.PLBV46_SLAVE_BURST_I/I_S
+   LAVE_ATTACHMENT/I_BURST_SUPPORT/CONTROL_DBEAT_CNTR_I/STRUCTURAL_A_GEN.I_ADDSU
+   B_GEN[6].FDRE_I' has unconnected output pin
+WARNING:NgdBuild:443 - SFF primitive
+   'Micron_RAM/Micron_RAM/EMC_CTRL_I/ADDR_COUNTER_MUX_I/ADDRESS_STORE_GEN[31].AD
+   DRESS_REG' has unconnected output pin
+WARNING:NgdBuild:443 - SFF primitive
+   'Micron_RAM/Micron_RAM/EMC_CTRL_I/ADDR_COUNTER_MUX_I/ADDRESS_STORE_GEN[30].AD
+   DRESS_REG' has unconnected output pin
+WARNING:NgdBuild:443 - SFF primitive
+   'Micron_RAM/Micron_RAM/EMC_CTRL_I/MEM_STEER_I/RDDATA_PATH_MUX_GEN.ASYNC_ADDR_
+   CNT_GEN.RDDATA_EN_GEN_ASYNC[3].RDDATA_EN_REG_ASYNC' has unconnected output
+   pin
+WARNING:NgdBuild:443 - SFF primitive
+   'Micron_RAM/Micron_RAM/EMC_CTRL_I/MEM_STEER_I/ASYNC_MEM_RDACK_GEN.AALIGN_PIPE
+   _GEN[1].AALIGN_PIPE' has unconnected output pin
+WARNING:NgdBuild:443 - SFF primitive
+   'Micron_RAM/Micron_RAM/EMC_CTRL_I/MEM_STATE_MACHINE_I/READ_COMPLETE_PIPE_GEN[
+   6].READ_COMPLETE_PIPE' has unconnected output pin
+WARNING:NgdBuild:443 - SFF primitive
+   'xps_timer_0/xps_timer_0/TC_CORE_I/TIMER_CONTROL_I/TCSR1_GENERATE[20].TCSR1_F
+   F_I' has unconnected output pin
+WARNING:NgdBuild:443 - SFF primitive
+   'xps_timer_0/xps_timer_0/TC_CORE_I/TIMER_CONTROL_I/TCSR1_GENERATE[19].TCSR1_F
+   F_I' has unconnected output pin
+WARNING:NgdBuild:443 - SFF primitive
+   'xps_timer_0/xps_timer_0/TC_CORE_I/TIMER_CONTROL_I/TCSR1_GENERATE[18].TCSR1_F
+   F_I' has unconnected output pin
+WARNING:NgdBuild:443 - SFF primitive
+   'xps_timer_0/xps_timer_0/TC_CORE_I/TIMER_CONTROL_I/TCSR1_GENERATE[17].TCSR1_F
+   F_I' has unconnected output pin
+WARNING:NgdBuild:443 - SFF primitive
+   'xps_timer_0/xps_timer_0/TC_CORE_I/TIMER_CONTROL_I/TCSR1_GENERATE[16].TCSR1_F
+   F_I' has unconnected output pin
+WARNING:NgdBuild:443 - SFF primitive
+   'xps_timer_0/xps_timer_0/TC_CORE_I/TIMER_CONTROL_I/TCSR1_GENERATE[15].TCSR1_F
+   F_I' has unconnected output pin
+WARNING:NgdBuild:443 - SFF primitive
+   'xps_timer_0/xps_timer_0/TC_CORE_I/TIMER_CONTROL_I/TCSR1_GENERATE[14].TCSR1_F
+   F_I' has unconnected output pin
+WARNING:NgdBuild:443 - SFF primitive
+   'xps_timer_0/xps_timer_0/TC_CORE_I/TIMER_CONTROL_I/TCSR1_GENERATE[13].TCSR1_F
+   F_I' has unconnected output pin
+WARNING:NgdBuild:443 - SFF primitive
+   'xps_timer_0/xps_timer_0/TC_CORE_I/TIMER_CONTROL_I/TCSR1_GENERATE[12].TCSR1_F
+   F_I' has unconnected output pin
+WARNING:NgdBuild:443 - SFF primitive
+   'xps_timer_0/xps_timer_0/TC_CORE_I/TIMER_CONTROL_I/TCSR1_GENERATE[11].TCSR1_F
+   F_I' has unconnected output pin
+WARNING:NgdBuild:443 - SFF primitive
+   'xps_timer_0/xps_timer_0/TC_CORE_I/TIMER_CONTROL_I/TCSR1_GENERATE[10].TCSR1_F
+   F_I' has unconnected output pin
+WARNING:NgdBuild:443 - SFF primitive
+   'xps_timer_0/xps_timer_0/TC_CORE_I/TIMER_CONTROL_I/TCSR1_GENERATE[9].TCSR1_FF
+   _I' has unconnected output pin
+WARNING:NgdBuild:443 - SFF primitive
+   'xps_timer_0/xps_timer_0/TC_CORE_I/TIMER_CONTROL_I/TCSR1_GENERATE[8].TCSR1_FF
+   _I' has unconnected output pin
+WARNING:NgdBuild:443 - SFF primitive
+   'xps_timer_0/xps_timer_0/TC_CORE_I/TIMER_CONTROL_I/TCSR1_GENERATE[7].TCSR1_FF
+   _I' has unconnected output pin
+WARNING:NgdBuild:443 - SFF primitive
+   'xps_timer_0/xps_timer_0/TC_CORE_I/TIMER_CONTROL_I/TCSR1_GENERATE[6].TCSR1_FF
+   _I' has unconnected output pin
+WARNING:NgdBuild:443 - SFF primitive
+   'xps_timer_0/xps_timer_0/TC_CORE_I/TIMER_CONTROL_I/TCSR1_GENERATE[5].TCSR1_FF
+   _I' has unconnected output pin
+WARNING:NgdBuild:443 - SFF primitive
+   'xps_timer_0/xps_timer_0/TC_CORE_I/TIMER_CONTROL_I/TCSR1_GENERATE[4].TCSR1_FF
+   _I' has unconnected output pin
+WARNING:NgdBuild:443 - SFF primitive
+   'xps_timer_0/xps_timer_0/TC_CORE_I/TIMER_CONTROL_I/TCSR1_GENERATE[3].TCSR1_FF
+   _I' has unconnected output pin
+WARNING:NgdBuild:443 - SFF primitive
+   'xps_timer_0/xps_timer_0/TC_CORE_I/TIMER_CONTROL_I/TCSR1_GENERATE[2].TCSR1_FF
+   _I' has unconnected output pin
+WARNING:NgdBuild:443 - SFF primitive
+   'xps_timer_0/xps_timer_0/TC_CORE_I/TIMER_CONTROL_I/TCSR1_GENERATE[1].TCSR1_FF
+   _I' has unconnected output pin
+WARNING:NgdBuild:443 - SFF primitive
+   'xps_timer_0/xps_timer_0/TC_CORE_I/TIMER_CONTROL_I/TCSR1_GENERATE[0].TCSR1_FF
+   _I' has unconnected output pin
+WARNING:NgdBuild:443 - SFF primitive
+   'xps_timer_0/xps_timer_0/TC_CORE_I/TIMER_CONTROL_I/TCSR0_GENERATE[20].TCSR0_F
+   F_I' has unconnected output pin
+WARNING:NgdBuild:443 - SFF primitive
+   'xps_timer_0/xps_timer_0/TC_CORE_I/TIMER_CONTROL_I/TCSR0_GENERATE[19].TCSR0_F
+   F_I' has unconnected output pin
+WARNING:NgdBuild:443 - SFF primitive
+   'xps_timer_0/xps_timer_0/TC_CORE_I/TIMER_CONTROL_I/TCSR0_GENERATE[18].TCSR0_F
+   F_I' has unconnected output pin
+WARNING:NgdBuild:443 - SFF primitive
+   'xps_timer_0/xps_timer_0/TC_CORE_I/TIMER_CONTROL_I/TCSR0_GENERATE[17].TCSR0_F
+   F_I' has unconnected output pin
+WARNING:NgdBuild:443 - SFF primitive
+   'xps_timer_0/xps_timer_0/TC_CORE_I/TIMER_CONTROL_I/TCSR0_GENERATE[16].TCSR0_F
+   F_I' has unconnected output pin
+WARNING:NgdBuild:443 - SFF primitive
+   'xps_timer_0/xps_timer_0/TC_CORE_I/TIMER_CONTROL_I/TCSR0_GENERATE[15].TCSR0_F
+   F_I' has unconnected output pin
+WARNING:NgdBuild:443 - SFF primitive
+   'xps_timer_0/xps_timer_0/TC_CORE_I/TIMER_CONTROL_I/TCSR0_GENERATE[14].TCSR0_F
+   F_I' has unconnected output pin
+WARNING:NgdBuild:443 - SFF primitive
+   'xps_timer_0/xps_timer_0/TC_CORE_I/TIMER_CONTROL_I/TCSR0_GENERATE[13].TCSR0_F
+   F_I' has unconnected output pin
+WARNING:NgdBuild:443 - SFF primitive
+   'xps_timer_0/xps_timer_0/TC_CORE_I/TIMER_CONTROL_I/TCSR0_GENERATE[12].TCSR0_F
+   F_I' has unconnected output pin
+WARNING:NgdBuild:443 - SFF primitive
+   'xps_timer_0/xps_timer_0/TC_CORE_I/TIMER_CONTROL_I/TCSR0_GENERATE[11].TCSR0_F
+   F_I' has unconnected output pin
+WARNING:NgdBuild:443 - SFF primitive
+   'xps_timer_0/xps_timer_0/TC_CORE_I/TIMER_CONTROL_I/TCSR0_GENERATE[10].TCSR0_F
+   F_I' has unconnected output pin
+WARNING:NgdBuild:443 - SFF primitive
+   'xps_timer_0/xps_timer_0/TC_CORE_I/TIMER_CONTROL_I/TCSR0_GENERATE[9].TCSR0_FF
+   _I' has unconnected output pin
+WARNING:NgdBuild:443 - SFF primitive
+   'xps_timer_0/xps_timer_0/TC_CORE_I/TIMER_CONTROL_I/TCSR0_GENERATE[8].TCSR0_FF
+   _I' has unconnected output pin
+WARNING:NgdBuild:443 - SFF primitive
+   'xps_timer_0/xps_timer_0/TC_CORE_I/TIMER_CONTROL_I/TCSR0_GENERATE[7].TCSR0_FF
+   _I' has unconnected output pin
+WARNING:NgdBuild:443 - SFF primitive
+   'xps_timer_0/xps_timer_0/TC_CORE_I/TIMER_CONTROL_I/TCSR0_GENERATE[6].TCSR0_FF
+   _I' has unconnected output pin
+WARNING:NgdBuild:443 - SFF primitive
+   'xps_timer_0/xps_timer_0/TC_CORE_I/TIMER_CONTROL_I/TCSR0_GENERATE[5].TCSR0_FF
+   _I' has unconnected output pin
+WARNING:NgdBuild:443 - SFF primitive
+   'xps_timer_0/xps_timer_0/TC_CORE_I/TIMER_CONTROL_I/TCSR0_GENERATE[4].TCSR0_FF
+   _I' has unconnected output pin
+WARNING:NgdBuild:443 - SFF primitive
+   'xps_timer_0/xps_timer_0/TC_CORE_I/TIMER_CONTROL_I/TCSR0_GENERATE[3].TCSR0_FF
+   _I' has unconnected output pin
+WARNING:NgdBuild:443 - SFF primitive
+   'xps_timer_0/xps_timer_0/TC_CORE_I/TIMER_CONTROL_I/TCSR0_GENERATE[2].TCSR0_FF
+   _I' has unconnected output pin
+WARNING:NgdBuild:443 - SFF primitive
+   'xps_timer_0/xps_timer_0/TC_CORE_I/TIMER_CONTROL_I/TCSR0_GENERATE[1].TCSR0_FF
+   _I' has unconnected output pin
+WARNING:NgdBuild:443 - SFF primitive
+   'xps_timer_0/xps_timer_0/TC_CORE_I/TIMER_CONTROL_I/TCSR0_GENERATE[0].TCSR0_FF
+   _I' has unconnected output pin
+WARNING:NgdBuild:443 - SFF primitive
+   'tft_controller/tft_controller/PLBV46_MASTER_BURST_I/I_RD_WR_CONTROL/I_RDSOP_
+   REG' has unconnected output pin
+WARNING:NgdBuild:443 - SFF primitive
+   'tft_controller/tft_controller/PLBV46_MASTER_BURST_I/I_RD_WR_CONTROL/I_WRERR_
+   REG' has unconnected output pin
+WARNING:NgdBuild:443 - SFF primitive
+   'tft_controller/tft_controller/PLBV46_MASTER_BURST_I/I_RD_WR_CONTROL/I_RDERR_
+   REG' has unconnected output pin
+WARNING:NgdBuild:443 - SFF primitive
+   'tft_controller/tft_controller/PLBV46_MASTER_BURST_I/I_RD_WR_CONTROL/I_FIFO_R
+   EN_WRACK_REG' has unconnected output pin
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+NGDBUILD Design Results Summary:
+  Number of errors:     0
+  Number of warnings:  62
+
+Total memory usage is 273880 kilobytes
+
+Writing NGD file "system.ngd" ...
+Total REAL time to NGDBUILD completion: 2 min  34 sec
+Total CPU time to NGDBUILD completion:  2 min  14 sec
+
+Writing NGDBUILD log file "system.bld"...

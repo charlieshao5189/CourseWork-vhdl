@@ -1,0 +1,3677 @@
+10:33:07 **** Incremental Build of configuration Debug for project scorebd ****
+make all 
+Building file: ../src/kbDecode.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../standalone_bsp_1/microblaze_0/include -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/kbDecode.d" -MT"src/kbDecode.d" -o "src/kbDecode.o" "../src/kbDecode.c"
+In file included from ../src/kbDecode.c:8:0:
+../src/kbDecode.h:13:20: fatal error: xil_io.h: No such file or directory
+compilation terminated.
+make: *** [src/kbDecode.o] ´íÎó 1
+10:33:09 **** Incremental Build of project standalone_bsp_0 ****
+make -k all 
+Finished building libraries
+10:33:16 **** Incremental Build of configuration Debug for project scorebd ****
+make all 
+Building file: ../src/kbDecode.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../standalone_bsp_1/microblaze_0/include -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/kbDecode.d" -MT"src/kbDecode.d" -o "src/kbDecode.o" "../src/kbDecode.c"
+In file included from ../src/kbDecode.c:8:0:
+../src/kbDecode.h:13:20: fatal error: xil_io.h: No such file or directory
+compilation terminated.
+make: *** [src/kbDecode.o] ´íÎó 1
+10:33:19 **** Incremental Build of project standalone_bsp_0 ****
+make -k all 
+Finished building libraries
+10:33:23 **** Incremental Build of configuration Debug for project scorebd ****
+make all 
+Building file: ../src/kbDecode.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../standalone_bsp_1/microblaze_0/include -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/kbDecode.d" -MT"src/kbDecode.d" -o "src/kbDecode.o" "../src/kbDecode.c"
+In file included from ../src/kbDecode.c:8:0:
+../src/kbDecode.h:13:20: fatal error: xil_io.h: No such file or directory
+compilation terminated.
+make: *** [src/kbDecode.o] ´íÎó 1
+10:33:25 **** Incremental Build of project standalone_bsp_0 ****
+make -k all 
+Finished building libraries
+10:34:04 **** Clean-only build of configuration Debug for project scorebd ****
+make clean 
+rm -rf  ./src/kbDecode.o ./src/main.o  ./src/kbDecode.d ./src/main.d  scorebd.elf.size  scorebd.elf.elfcheck  scorebd.elf
+ 
+10:34:04 **** Auto Build of configuration Debug for project scorebd ****
+make all 
+Building file: ../src/kbDecode.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../standalone_bsp_0/microblaze_0/include -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/kbDecode.d" -MT"src/kbDecode.d" -o "src/kbDecode.o" "../src/kbDecode.c"
+Finished building: ../src/kbDecode.c
+ 
+Building file: ../src/main.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../standalone_bsp_0/microblaze_0/include -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.c"
+Finished building: ../src/main.c
+ 
+Building target: scorebd.elf
+Invoking: MicroBlaze gcc linker
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../standalone_bsp_0/microblaze_0/lib -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "scorebd.elf"  ./src/kbDecode.o ./src/main.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+Finished building target: scorebd.elf
+ 
+Invoking: MicroBlaze Print Size
+mb-size scorebd.elf  |tee "scorebd.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  21824	   1604	   2452	  25880	   6518	scorebd.elf
+Finished building: scorebd.elf.size
+ 
+Invoking: Xilinx ELF Check
+elfcheck scorebd.elf -hw ../../scoreboard_hw_platform/system.xml -pe microblaze_0  |tee "scorebd.elf.elfcheck"
+elfcheck
+Xilinx EDK 14.7 Build EDK_P.20131013
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+Command Line: elfcheck -hw ../../scoreboard_hw_platform/system.xml -pe
+microblaze_0 scorebd.elf 
+
+ELF file	: scorebd.elf
+elfcheck passed.
+Finished building: scorebd.elf.elfcheck
+ 
+10:34:11 **** Auto Build of project standalone_bsp_0 ****
+make -k all 
+Finished building libraries
+10:34:22 **** Auto Build of configuration Debug for project scorebd ****
+make all 
+Building file: ../src/main.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../standalone_bsp_0/microblaze_0/include -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.c"
+Finished building: ../src/main.c
+ 
+Building target: scorebd.elf
+Invoking: MicroBlaze gcc linker
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../standalone_bsp_0/microblaze_0/lib -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "scorebd.elf"  ./src/kbDecode.o ./src/main.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+Finished building target: scorebd.elf
+ 
+Invoking: MicroBlaze Print Size
+mb-size scorebd.elf  |tee "scorebd.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  21824	   1604	   2452	  25880	   6518	scorebd.elf
+Finished building: scorebd.elf.size
+ 
+Invoking: Xilinx ELF Check
+elfcheck scorebd.elf -hw ../../scoreboard_hw_platform/system.xml -pe microblaze_0  |tee "scorebd.elf.elfcheck"
+elfcheck
+Xilinx EDK 14.7 Build EDK_P.20131013
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+Command Line: elfcheck -hw ../../scoreboard_hw_platform/system.xml -pe
+microblaze_0 scorebd.elf 
+
+ELF file	: scorebd.elf
+elfcheck passed.
+Finished building: scorebd.elf.elfcheck
+ 
+10:34:29 **** Auto Build of project standalone_bsp_0 ****
+make -k all 
+Finished building libraries
+10:34:55 **** Auto Build of configuration Debug for project scorebd ****
+make all 
+Building file: ../src/main.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../standalone_bsp_0/microblaze_0/include -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.c"
+Finished building: ../src/main.c
+ 
+Building target: scorebd.elf
+Invoking: MicroBlaze gcc linker
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../standalone_bsp_0/microblaze_0/lib -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "scorebd.elf"  ./src/kbDecode.o ./src/main.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+Finished building target: scorebd.elf
+ 
+Invoking: MicroBlaze Print Size
+mb-size scorebd.elf  |tee "scorebd.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  21824	   1604	   2452	  25880	   6518	scorebd.elf
+Finished building: scorebd.elf.size
+ 
+Invoking: Xilinx ELF Check
+elfcheck scorebd.elf -hw ../../scoreboard_hw_platform/system.xml -pe microblaze_0  |tee "scorebd.elf.elfcheck"
+elfcheck
+Xilinx EDK 14.7 Build EDK_P.20131013
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+Command Line: elfcheck -hw ../../scoreboard_hw_platform/system.xml -pe
+microblaze_0 scorebd.elf 
+
+ELF file	: scorebd.elf
+elfcheck passed.
+Finished building: scorebd.elf.elfcheck
+ 
+10:35:01 **** Auto Build of project standalone_bsp_0 ****
+make -k all 
+Finished building libraries
+15:16:11 **** Clean-only build of configuration Debug for project scorebd ****
+make clean 
+rm -rf  ./src/kbDecode.o ./src/main.o  ./src/kbDecode.d ./src/main.d  scorebd.elf.size  scorebd.elf.elfcheck  scorebd.elf
+ 
+15:16:13 **** Build of configuration Debug for project scorebd ****
+make all 
+Building file: ../src/kbDecode.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../standalone_bsp_0/microblaze_0/include -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/kbDecode.d" -MT"src/kbDecode.d" -o "src/kbDecode.o" "../src/kbDecode.c"
+Finished building: ../src/kbDecode.c
+ 
+Building file: ../src/main.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../standalone_bsp_0/microblaze_0/include -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.c"
+Finished building: ../src/main.c
+ 
+Building target: scorebd.elf
+Invoking: MicroBlaze gcc linker
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../standalone_bsp_0/microblaze_0/lib -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "scorebd.elf"  ./src/kbDecode.o ./src/main.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+Finished building target: scorebd.elf
+ 
+Invoking: MicroBlaze Print Size
+mb-size scorebd.elf  |tee "scorebd.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  21824	   1604	   2452	  25880	   6518	scorebd.elf
+Finished building: scorebd.elf.size
+ 
+Invoking: Xilinx ELF Check
+elfcheck scorebd.elf -hw ../../scoreboard_hw_platform/system.xml -pe microblaze_0  |tee "scorebd.elf.elfcheck"
+elfcheck
+Xilinx EDK 14.7 Build EDK_P.20131013
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+Command Line: elfcheck -hw ../../scoreboard_hw_platform/system.xml -pe
+microblaze_0 scorebd.elf 
+
+ELF file	: scorebd.elf
+elfcheck passed.
+Finished building: scorebd.elf.elfcheck
+ 
+15:16:21 **** Build of project standalone_bsp_0 ****
+make -k all 
+Finished building libraries
+16:39:48 **** Auto Build of configuration Debug for project scorebd ****
+make all 
+Building file: ../src/main.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../standalone_bsp_0/microblaze_0/include -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.c"
+Finished building: ../src/main.c
+ 
+Building target: scorebd.elf
+Invoking: MicroBlaze gcc linker
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../standalone_bsp_0/microblaze_0/lib -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "scorebd.elf"  ./src/kbDecode.o ./src/main.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+Finished building target: scorebd.elf
+ 
+Invoking: MicroBlaze Print Size
+mb-size scorebd.elf  |tee "scorebd.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  21884	   1604	   2456	  25944	   6558	scorebd.elf
+Finished building: scorebd.elf.size
+ 
+Invoking: Xilinx ELF Check
+elfcheck scorebd.elf -hw ../../scoreboard_hw_platform/system.xml -pe microblaze_0  |tee "scorebd.elf.elfcheck"
+elfcheck
+Xilinx EDK 14.7 Build EDK_P.20131013
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+Command Line: elfcheck -hw ../../scoreboard_hw_platform/system.xml -pe
+microblaze_0 scorebd.elf 
+
+ELF file	: scorebd.elf
+elfcheck passed.
+Finished building: scorebd.elf.elfcheck
+ 
+16:39:55 **** Auto Build of project standalone_bsp_0 ****
+make -k all 
+Finished building libraries
+17:17:41 **** Auto Build of configuration Debug for project scorebd ****
+make all 
+Building file: ../src/main.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../standalone_bsp_0/microblaze_0/include -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.c"
+Finished building: ../src/main.c
+ 
+Building target: scorebd.elf
+Invoking: MicroBlaze gcc linker
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../standalone_bsp_0/microblaze_0/lib -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "scorebd.elf"  ./src/kbDecode.o ./src/main.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+Finished building target: scorebd.elf
+ 
+Invoking: MicroBlaze Print Size
+mb-size scorebd.elf  |tee "scorebd.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  21952	   1604	   2452	  26008	   6598	scorebd.elf
+Finished building: scorebd.elf.size
+ 
+Invoking: Xilinx ELF Check
+elfcheck scorebd.elf -hw ../../scoreboard_hw_platform/system.xml -pe microblaze_0  |tee "scorebd.elf.elfcheck"
+elfcheck
+Xilinx EDK 14.7 Build EDK_P.20131013
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+Command Line: elfcheck -hw ../../scoreboard_hw_platform/system.xml -pe
+microblaze_0 scorebd.elf 
+
+ELF file	: scorebd.elf
+elfcheck passed.
+Finished building: scorebd.elf.elfcheck
+ 
+17:17:49 **** Auto Build of project standalone_bsp_0 ****
+make -k all 
+Finished building libraries
+17:21:01 **** Auto Build of configuration Debug for project scorebd ****
+make all 
+Building file: ../src/main.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../standalone_bsp_0/microblaze_0/include -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.c"
+Finished building: ../src/main.c
+ 
+Building target: scorebd.elf
+Invoking: MicroBlaze gcc linker
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../standalone_bsp_0/microblaze_0/lib -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "scorebd.elf"  ./src/kbDecode.o ./src/main.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+Finished building target: scorebd.elf
+ 
+Invoking: MicroBlaze Print Size
+mb-size scorebd.elf  |tee "scorebd.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  21572	   1580	   2456	  25608	   6408	scorebd.elf
+Finished building: scorebd.elf.size
+ 
+Invoking: Xilinx ELF Check
+elfcheck scorebd.elf -hw ../../scoreboard_hw_platform/system.xml -pe microblaze_0  |tee "scorebd.elf.elfcheck"
+elfcheck
+Xilinx EDK 14.7 Build EDK_P.20131013
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+Command Line: elfcheck -hw ../../scoreboard_hw_platform/system.xml -pe
+microblaze_0 scorebd.elf 
+
+ELF file	: scorebd.elf
+elfcheck passed.
+Finished building: scorebd.elf.elfcheck
+ 
+17:21:08 **** Auto Build of project standalone_bsp_0 ****
+make -k all 
+Finished building libraries
+17:28:56 **** Auto Build of configuration Debug for project scorebd ****
+make all 
+Building file: ../src/main.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../standalone_bsp_0/microblaze_0/include -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.c"
+Finished building: ../src/main.c
+ 
+Building target: scorebd.elf
+Invoking: MicroBlaze gcc linker
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../standalone_bsp_0/microblaze_0/lib -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "scorebd.elf"  ./src/kbDecode.o ./src/main.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+Finished building target: scorebd.elf
+ 
+Invoking: MicroBlaze Print Size
+mb-size scorebd.elf  |tee "scorebd.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  22024	   1580	   2460	  26064	   65d0	scorebd.elf
+Finished building: scorebd.elf.size
+ 
+Invoking: Xilinx ELF Check
+elfcheck scorebd.elf -hw ../../scoreboard_hw_platform/system.xml -pe microblaze_0  |tee "scorebd.elf.elfcheck"
+elfcheck
+Xilinx EDK 14.7 Build EDK_P.20131013
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+Command Line: elfcheck -hw ../../scoreboard_hw_platform/system.xml -pe
+microblaze_0 scorebd.elf 
+
+ELF file	: scorebd.elf
+elfcheck passed.
+Finished building: scorebd.elf.elfcheck
+ 
+17:29:02 **** Auto Build of project standalone_bsp_0 ****
+make -k all 
+Finished building libraries
+17:31:52 **** Auto Build of configuration Debug for project scorebd ****
+make all 
+Building file: ../src/main.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../standalone_bsp_0/microblaze_0/include -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.c"
+Finished building: ../src/main.c
+ 
+Building target: scorebd.elf
+Invoking: MicroBlaze gcc linker
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../standalone_bsp_0/microblaze_0/lib -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "scorebd.elf"  ./src/kbDecode.o ./src/main.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+Finished building target: scorebd.elf
+ 
+Invoking: MicroBlaze Print Size
+mb-size scorebd.elf  |tee "scorebd.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  22088	   1576	   2472	  26136	   6618	scorebd.elf
+Finished building: scorebd.elf.size
+ 
+Invoking: Xilinx ELF Check
+elfcheck scorebd.elf -hw ../../scoreboard_hw_platform/system.xml -pe microblaze_0  |tee "scorebd.elf.elfcheck"
+elfcheck
+Xilinx EDK 14.7 Build EDK_P.20131013
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+Command Line: elfcheck -hw ../../scoreboard_hw_platform/system.xml -pe
+microblaze_0 scorebd.elf 
+
+ELF file	: scorebd.elf
+elfcheck passed.
+Finished building: scorebd.elf.elfcheck
+ 
+17:31:58 **** Auto Build of project standalone_bsp_0 ****
+make -k all 
+Finished building libraries
+17:38:27 **** Auto Build of configuration Debug for project scorebd ****
+make all 
+Building file: ../src/main.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../standalone_bsp_0/microblaze_0/include -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.c"
+Finished building: ../src/main.c
+ 
+Building target: scorebd.elf
+Invoking: MicroBlaze gcc linker
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../standalone_bsp_0/microblaze_0/lib -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "scorebd.elf"  ./src/kbDecode.o ./src/main.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+Finished building target: scorebd.elf
+ 
+Invoking: MicroBlaze Print Size
+mb-size scorebd.elf  |tee "scorebd.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  22168	   1576	   2472	  26216	   6668	scorebd.elf
+Finished building: scorebd.elf.size
+ 
+Invoking: Xilinx ELF Check
+elfcheck scorebd.elf -hw ../../scoreboard_hw_platform/system.xml -pe microblaze_0  |tee "scorebd.elf.elfcheck"
+elfcheck
+Xilinx EDK 14.7 Build EDK_P.20131013
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+Command Line: elfcheck -hw ../../scoreboard_hw_platform/system.xml -pe
+microblaze_0 scorebd.elf 
+
+ELF file	: scorebd.elf
+elfcheck passed.
+Finished building: scorebd.elf.elfcheck
+ 
+17:38:33 **** Auto Build of project standalone_bsp_0 ****
+make -k all 
+Finished building libraries
+17:51:25 **** Auto Build of configuration Debug for project scorebd ****
+make all 
+Building file: ../src/main.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../standalone_bsp_0/microblaze_0/include -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.c"
+Finished building: ../src/main.c
+ 
+Building target: scorebd.elf
+Invoking: MicroBlaze gcc linker
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../standalone_bsp_0/microblaze_0/lib -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "scorebd.elf"  ./src/kbDecode.o ./src/main.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+Finished building target: scorebd.elf
+ 
+Invoking: MicroBlaze Print Size
+mb-size scorebd.elf  |tee "scorebd.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  22168	   1576	   2472	  26216	   6668	scorebd.elf
+Finished building: scorebd.elf.size
+ 
+Invoking: Xilinx ELF Check
+elfcheck scorebd.elf -hw ../../scoreboard_hw_platform/system.xml -pe microblaze_0  |tee "scorebd.elf.elfcheck"
+elfcheck
+Xilinx EDK 14.7 Build EDK_P.20131013
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+Command Line: elfcheck -hw ../../scoreboard_hw_platform/system.xml -pe
+microblaze_0 scorebd.elf 
+
+ELF file	: scorebd.elf
+elfcheck passed.
+Finished building: scorebd.elf.elfcheck
+ 
+17:51:31 **** Auto Build of project standalone_bsp_0 ****
+make -k all 
+Finished building libraries
+17:57:15 **** Auto Build of configuration Debug for project scorebd ****
+make all 
+Building file: ../src/main.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../standalone_bsp_0/microblaze_0/include -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.c"
+Finished building: ../src/main.c
+ 
+Building target: scorebd.elf
+Invoking: MicroBlaze gcc linker
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../standalone_bsp_0/microblaze_0/lib -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "scorebd.elf"  ./src/kbDecode.o ./src/main.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+Finished building target: scorebd.elf
+ 
+Invoking: MicroBlaze Print Size
+mb-size scorebd.elf  |tee "scorebd.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  22292	   1588	   2480	  26360	   66f8	scorebd.elf
+Finished building: scorebd.elf.size
+ 
+Invoking: Xilinx ELF Check
+elfcheck scorebd.elf -hw ../../scoreboard_hw_platform/system.xml -pe microblaze_0  |tee "scorebd.elf.elfcheck"
+elfcheck
+Xilinx EDK 14.7 Build EDK_P.20131013
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+Command Line: elfcheck -hw ../../scoreboard_hw_platform/system.xml -pe
+microblaze_0 scorebd.elf 
+
+ELF file	: scorebd.elf
+elfcheck passed.
+Finished building: scorebd.elf.elfcheck
+ 
+17:57:22 **** Auto Build of project standalone_bsp_0 ****
+make -k all 
+Finished building libraries
+18:14:35 **** Auto Build of configuration Debug for project scorebd ****
+make all 
+Building file: ../src/main.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../standalone_bsp_0/microblaze_0/include -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.c"
+../src/main.c:121:4: error: redefinition of 'gtm_MM'
+../src/main.c:113:21: note: previous definition of 'gtm_MM' was here
+../src/main.c:121:20: error: redefinition of 'gtm_SS'
+../src/main.c:113:37: note: previous definition of 'gtm_SS' was here
+../src/main.c:121:35: error: redefinition of 'gtm_TS'
+../src/main.c:113:52: note: previous definition of 'gtm_TS' was here
+make: *** [src/main.o] ´íÎó 1
+18:14:36 **** Auto Build of project standalone_bsp_0 ****
+make -k all 
+Finished building libraries
+18:16:04 **** Auto Build of configuration Debug for project scorebd ****
+make all 
+Building file: ../src/main.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../standalone_bsp_0/microblaze_0/include -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.c"
+../src/main.c:121:4: error: redefinition of 'gtm_MM'
+../src/main.c:113:21: note: previous definition of 'gtm_MM' was here
+../src/main.c:121:20: error: redefinition of 'gtm_SS'
+../src/main.c:113:37: note: previous definition of 'gtm_SS' was here
+../src/main.c:121:35: error: redefinition of 'gtm_TS'
+../src/main.c:113:52: note: previous definition of 'gtm_TS' was here
+make: *** [src/main.o] ´íÎó 1
+18:16:05 **** Auto Build of project standalone_bsp_0 ****
+make -k all 
+Finished building libraries
+18:16:33 **** Auto Build of configuration Debug for project scorebd ****
+make all 
+Building file: ../src/main.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../standalone_bsp_0/microblaze_0/include -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.c"
+Finished building: ../src/main.c
+ 
+Building target: scorebd.elf
+Invoking: MicroBlaze gcc linker
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../standalone_bsp_0/microblaze_0/lib -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "scorebd.elf"  ./src/kbDecode.o ./src/main.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+Finished building target: scorebd.elf
+ 
+Invoking: MicroBlaze Print Size
+mb-size scorebd.elf  |tee "scorebd.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  21984	   1588	   2492	  26064	   65d0	scorebd.elf
+Finished building: scorebd.elf.size
+ 
+Invoking: Xilinx ELF Check
+elfcheck scorebd.elf -hw ../../scoreboard_hw_platform/system.xml -pe microblaze_0  |tee "scorebd.elf.elfcheck"
+elfcheck
+Xilinx EDK 14.7 Build EDK_P.20131013
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+Command Line: elfcheck -hw ../../scoreboard_hw_platform/system.xml -pe
+microblaze_0 scorebd.elf 
+
+ELF file	: scorebd.elf
+elfcheck passed.
+Finished building: scorebd.elf.elfcheck
+ 
+18:16:39 **** Auto Build of project standalone_bsp_0 ****
+make -k all 
+Finished building libraries
+18:18:40 **** Auto Build of configuration Debug for project scorebd ****
+make all 
+Building file: ../src/main.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../standalone_bsp_0/microblaze_0/include -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.c"
+../src/main.c: In function 'kb_events':
+../src/main.c:699:5: error: 'game_clock' undeclared (first use in this function)
+../src/main.c:699:5: note: each undeclared identifier is reported only once for each function it appears in
+../src/main.c:702:5: error: 'shot_clock' undeclared (first use in this function)
+make: *** [src/main.o] ´íÎó 1
+18:18:41 **** Auto Build of project standalone_bsp_0 ****
+make -k all 
+Finished building libraries
+18:19:42 **** Auto Build of configuration Debug for project scorebd ****
+make all 
+Building file: ../src/main.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../standalone_bsp_0/microblaze_0/include -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.c"
+Finished building: ../src/main.c
+ 
+Building target: scorebd.elf
+Invoking: MicroBlaze gcc linker
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../standalone_bsp_0/microblaze_0/lib -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "scorebd.elf"  ./src/kbDecode.o ./src/main.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+Finished building target: scorebd.elf
+ 
+Invoking: MicroBlaze Print Size
+mb-size scorebd.elf  |tee "scorebd.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  21984	   1584	   2480	  26048	   65c0	scorebd.elf
+Finished building: scorebd.elf.size
+ 
+Invoking: Xilinx ELF Check
+elfcheck scorebd.elf -hw ../../scoreboard_hw_platform/system.xml -pe microblaze_0  |tee "scorebd.elf.elfcheck"
+elfcheck
+Xilinx EDK 14.7 Build EDK_P.20131013
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+Command Line: elfcheck -hw ../../scoreboard_hw_platform/system.xml -pe
+microblaze_0 scorebd.elf 
+
+ELF file	: scorebd.elf
+elfcheck passed.
+Finished building: scorebd.elf.elfcheck
+ 
+18:19:48 **** Auto Build of project standalone_bsp_0 ****
+make -k all 
+Finished building libraries
+19:15:23 **** Auto Build of configuration Debug for project scorebd ****
+make all 
+Building file: ../src/main.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../standalone_bsp_0/microblaze_0/include -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.c"
+Finished building: ../src/main.c
+ 
+Building target: scorebd.elf
+Invoking: MicroBlaze gcc linker
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../standalone_bsp_0/microblaze_0/lib -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "scorebd.elf"  ./src/kbDecode.o ./src/main.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+Finished building target: scorebd.elf
+ 
+Invoking: MicroBlaze Print Size
+mb-size scorebd.elf  |tee "scorebd.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  22464	   1592	   2480	  26536	   67a8	scorebd.elf
+Finished building: scorebd.elf.size
+ 
+Invoking: Xilinx ELF Check
+elfcheck scorebd.elf -hw ../../scoreboard_hw_platform/system.xml -pe microblaze_0  |tee "scorebd.elf.elfcheck"
+elfcheck
+Xilinx EDK 14.7 Build EDK_P.20131013
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+Command Line: elfcheck -hw ../../scoreboard_hw_platform/system.xml -pe
+microblaze_0 scorebd.elf 
+
+ELF file	: scorebd.elf
+elfcheck passed.
+Finished building: scorebd.elf.elfcheck
+ 
+19:15:29 **** Auto Build of project standalone_bsp_0 ****
+make -k all 
+Finished building libraries
+19:19:20 **** Auto Build of configuration Debug for project scorebd ****
+make all 
+Building file: ../src/main.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../standalone_bsp_0/microblaze_0/include -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.c"
+Finished building: ../src/main.c
+ 
+Building target: scorebd.elf
+Invoking: MicroBlaze gcc linker
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../standalone_bsp_0/microblaze_0/lib -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "scorebd.elf"  ./src/kbDecode.o ./src/main.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+Finished building target: scorebd.elf
+ 
+Invoking: MicroBlaze Print Size
+mb-size scorebd.elf  |tee "scorebd.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  22480	   1592	   2480	  26552	   67b8	scorebd.elf
+Finished building: scorebd.elf.size
+ 
+Invoking: Xilinx ELF Check
+elfcheck scorebd.elf -hw ../../scoreboard_hw_platform/system.xml -pe microblaze_0  |tee "scorebd.elf.elfcheck"
+elfcheck
+Xilinx EDK 14.7 Build EDK_P.20131013
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+Command Line: elfcheck -hw ../../scoreboard_hw_platform/system.xml -pe
+microblaze_0 scorebd.elf 
+
+ELF file	: scorebd.elf
+elfcheck passed.
+Finished building: scorebd.elf.elfcheck
+ 
+19:19:26 **** Auto Build of project standalone_bsp_0 ****
+make -k all 
+Finished building libraries
+19:40:00 **** Auto Build of configuration Debug for project scorebd ****
+make all 
+Building file: ../src/main.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../standalone_bsp_0/microblaze_0/include -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.c"
+../src/main.c: In function 'kb_events':
+../src/main.c:691:23: error: incompatible types when assigning to type 'u8[3]' from type 'char *'
+../src/main.c:697:23: error: incompatible types when assigning to type 'u8[3]' from type 'char *'
+../src/main.c:703:23: error: incompatible types when assigning to type 'u8[3]' from type 'char *'
+../src/main.c:709:23: error: incompatible types when assigning to type 'u8[3]' from type 'char *'
+../src/main.c:715:23: error: incompatible types when assigning to type 'u8[3]' from type 'char *'
+make: *** [src/main.o] ´íÎó 1
+19:40:01 **** Auto Build of project standalone_bsp_0 ****
+make -k all 
+Finished building libraries
+19:42:48 **** Auto Build of configuration Debug for project scorebd ****
+make all 
+Building file: ../src/main.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../standalone_bsp_0/microblaze_0/include -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.c"
+Finished building: ../src/main.c
+ 
+Building target: scorebd.elf
+Invoking: MicroBlaze gcc linker
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../standalone_bsp_0/microblaze_0/lib -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "scorebd.elf"  ./src/kbDecode.o ./src/main.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+Finished building target: scorebd.elf
+ 
+Invoking: MicroBlaze Print Size
+mb-size scorebd.elf  |tee "scorebd.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  23248	   1592	   2480	  27320	   6ab8	scorebd.elf
+Finished building: scorebd.elf.size
+ 
+Invoking: Xilinx ELF Check
+elfcheck scorebd.elf -hw ../../scoreboard_hw_platform/system.xml -pe microblaze_0  |tee "scorebd.elf.elfcheck"
+elfcheck
+Xilinx EDK 14.7 Build EDK_P.20131013
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+Command Line: elfcheck -hw ../../scoreboard_hw_platform/system.xml -pe
+microblaze_0 scorebd.elf 
+
+ELF file	: scorebd.elf
+elfcheck passed.
+Finished building: scorebd.elf.elfcheck
+ 
+19:42:55 **** Auto Build of project standalone_bsp_0 ****
+make -k all 
+Finished building libraries
+19:44:26 **** Auto Build of configuration Debug for project scorebd ****
+make all 
+Building file: ../src/main.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../standalone_bsp_0/microblaze_0/include -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.c"
+Finished building: ../src/main.c
+ 
+Building target: scorebd.elf
+Invoking: MicroBlaze gcc linker
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../standalone_bsp_0/microblaze_0/lib -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "scorebd.elf"  ./src/kbDecode.o ./src/main.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+Finished building target: scorebd.elf
+ 
+Invoking: MicroBlaze Print Size
+mb-size scorebd.elf  |tee "scorebd.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  23248	   1592	   2480	  27320	   6ab8	scorebd.elf
+Finished building: scorebd.elf.size
+ 
+Invoking: Xilinx ELF Check
+elfcheck scorebd.elf -hw ../../scoreboard_hw_platform/system.xml -pe microblaze_0  |tee "scorebd.elf.elfcheck"
+elfcheck
+Xilinx EDK 14.7 Build EDK_P.20131013
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+Command Line: elfcheck -hw ../../scoreboard_hw_platform/system.xml -pe
+microblaze_0 scorebd.elf 
+
+ELF file	: scorebd.elf
+elfcheck passed.
+Finished building: scorebd.elf.elfcheck
+ 
+19:44:33 **** Auto Build of project standalone_bsp_0 ****
+make -k all 
+Finished building libraries
+20:05:58 **** Auto Build of configuration Debug for project scorebd ****
+make all 
+Building file: ../src/main.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../standalone_bsp_0/microblaze_0/include -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.c"
+Finished building: ../src/main.c
+ 
+Building target: scorebd.elf
+Invoking: MicroBlaze gcc linker
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../standalone_bsp_0/microblaze_0/lib -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "scorebd.elf"  ./src/kbDecode.o ./src/main.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+Finished building target: scorebd.elf
+ 
+Invoking: MicroBlaze Print Size
+mb-size scorebd.elf  |tee "scorebd.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  23376	   1596	   2484	  27456	   6b40	scorebd.elf
+Finished building: scorebd.elf.size
+ 
+Invoking: Xilinx ELF Check
+elfcheck scorebd.elf -hw ../../scoreboard_hw_platform/system.xml -pe microblaze_0  |tee "scorebd.elf.elfcheck"
+elfcheck
+Xilinx EDK 14.7 Build EDK_P.20131013
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+Command Line: elfcheck -hw ../../scoreboard_hw_platform/system.xml -pe
+microblaze_0 scorebd.elf 
+
+ELF file	: scorebd.elf
+elfcheck passed.
+Finished building: scorebd.elf.elfcheck
+ 
+20:06:05 **** Auto Build of project standalone_bsp_0 ****
+make -k all 
+Finished building libraries
+20:12:53 **** Auto Build of configuration Debug for project scorebd ****
+make all 
+Building file: ../src/main.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../standalone_bsp_0/microblaze_0/include -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.c"
+Finished building: ../src/main.c
+ 
+Building target: scorebd.elf
+Invoking: MicroBlaze gcc linker
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../standalone_bsp_0/microblaze_0/lib -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "scorebd.elf"  ./src/kbDecode.o ./src/main.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+Finished building target: scorebd.elf
+ 
+Invoking: MicroBlaze Print Size
+mb-size scorebd.elf  |tee "scorebd.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  23376	   1596	   2484	  27456	   6b40	scorebd.elf
+Finished building: scorebd.elf.size
+ 
+Invoking: Xilinx ELF Check
+elfcheck scorebd.elf -hw ../../scoreboard_hw_platform/system.xml -pe microblaze_0  |tee "scorebd.elf.elfcheck"
+elfcheck
+Xilinx EDK 14.7 Build EDK_P.20131013
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+Command Line: elfcheck -hw ../../scoreboard_hw_platform/system.xml -pe
+microblaze_0 scorebd.elf 
+
+ELF file	: scorebd.elf
+elfcheck passed.
+Finished building: scorebd.elf.elfcheck
+ 
+20:12:59 **** Auto Build of project standalone_bsp_0 ****
+make -k all 
+Finished building libraries
+20:58:15 **** Auto Build of configuration Debug for project scorebd ****
+make all 
+Building file: ../src/main.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../standalone_bsp_0/microblaze_0/include -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.c"
+../src/main.c: In function 'Graphic_UI':
+../src/main.c:768:3: warning: implicit declaration of function 'Tft_Write' [-Wimplicit-function-declaration]
+Finished building: ../src/main.c
+ 
+Building target: scorebd.elf
+Invoking: MicroBlaze gcc linker
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../standalone_bsp_0/microblaze_0/lib -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "scorebd.elf"  ./src/kbDecode.o ./src/main.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+./src/main.o: In function `Graphic_UI':
+C:\Users\qhsam\Desktop\scoreboard\SDK\scorebd\Debug/../src/main.c:946: undefined reference to `Tft_Write'
+C:\Users\qhsam\Desktop\scoreboard\SDK\scorebd\Debug/../src/main.c:946: undefined reference to `Tft_Write'
+collect2: ld returned 1 exit status
+make: *** [scorebd.elf] ´íÎó 1
+20:58:17 **** Auto Build of project standalone_bsp_0 ****
+make -k all 
+Finished building libraries
+20:58:53 **** Auto Build of configuration Debug for project scorebd ****
+make all 
+Building file: ../src/main.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../standalone_bsp_0/microblaze_0/include -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.c"
+../src/main.c: In function 'Graphic_UI':
+../src/main.c:850:3: warning: implicit declaration of function 'Tft_Write' [-Wimplicit-function-declaration]
+Finished building: ../src/main.c
+ 
+Building target: scorebd.elf
+Invoking: MicroBlaze gcc linker
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../standalone_bsp_0/microblaze_0/lib -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "scorebd.elf"  ./src/kbDecode.o ./src/main.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+./src/main.o: In function `Graphic_UI':
+C:\Users\qhsam\Desktop\scoreboard\SDK\scorebd\Debug/../src/main.c:946: undefined reference to `Tft_Write'
+collect2: ld returned 1 exit status
+make: *** [scorebd.elf] ´íÎó 1
+20:58:55 **** Auto Build of project standalone_bsp_0 ****
+make -k all 
+Finished building libraries
+21:00:31 **** Auto Build of configuration Debug for project scorebd ****
+make all 
+Building file: ../src/main.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../standalone_bsp_0/microblaze_0/include -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.c"
+Finished building: ../src/main.c
+ 
+Building target: scorebd.elf
+Invoking: MicroBlaze gcc linker
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../standalone_bsp_0/microblaze_0/lib -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "scorebd.elf"  ./src/kbDecode.o ./src/main.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+Finished building target: scorebd.elf
+ 
+Invoking: MicroBlaze Print Size
+mb-size scorebd.elf  |tee "scorebd.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  24408	   1620	   2484	  28512	   6f60	scorebd.elf
+Finished building: scorebd.elf.size
+ 
+Invoking: Xilinx ELF Check
+elfcheck scorebd.elf -hw ../../scoreboard_hw_platform/system.xml -pe microblaze_0  |tee "scorebd.elf.elfcheck"
+elfcheck
+Xilinx EDK 14.7 Build EDK_P.20131013
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+Command Line: elfcheck -hw ../../scoreboard_hw_platform/system.xml -pe
+microblaze_0 scorebd.elf 
+
+ELF file	: scorebd.elf
+elfcheck passed.
+Finished building: scorebd.elf.elfcheck
+ 
+21:00:37 **** Auto Build of project standalone_bsp_0 ****
+make -k all 
+Finished building libraries
+21:11:05 **** Auto Build of configuration Debug for project scorebd ****
+make all 
+Building file: ../src/main.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../standalone_bsp_0/microblaze_0/include -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.c"
+Finished building: ../src/main.c
+ 
+Building target: scorebd.elf
+Invoking: MicroBlaze gcc linker
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../standalone_bsp_0/microblaze_0/lib -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "scorebd.elf"  ./src/kbDecode.o ./src/main.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+Finished building target: scorebd.elf
+ 
+Invoking: MicroBlaze Print Size
+mb-size scorebd.elf  |tee "scorebd.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  24564	   1620	   2488	  28672	   7000	scorebd.elf
+Finished building: scorebd.elf.size
+ 
+Invoking: Xilinx ELF Check
+elfcheck scorebd.elf -hw ../../scoreboard_hw_platform/system.xml -pe microblaze_0  |tee "scorebd.elf.elfcheck"
+elfcheck
+Xilinx EDK 14.7 Build EDK_P.20131013
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+Command Line: elfcheck -hw ../../scoreboard_hw_platform/system.xml -pe
+microblaze_0 scorebd.elf 
+
+ELF file	: scorebd.elf
+elfcheck passed.
+Finished building: scorebd.elf.elfcheck
+ 
+21:11:11 **** Auto Build of project standalone_bsp_0 ****
+make -k all 
+Finished building libraries
+21:11:52 **** Auto Build of configuration Debug for project scorebd ****
+make all 
+Building file: ../src/main.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../standalone_bsp_0/microblaze_0/include -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.c"
+Finished building: ../src/main.c
+ 
+Building target: scorebd.elf
+Invoking: MicroBlaze gcc linker
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../standalone_bsp_0/microblaze_0/lib -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "scorebd.elf"  ./src/kbDecode.o ./src/main.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+Finished building target: scorebd.elf
+ 
+Invoking: MicroBlaze Print Size
+mb-size scorebd.elf  |tee "scorebd.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  24564	   1620	   2488	  28672	   7000	scorebd.elf
+Finished building: scorebd.elf.size
+ 
+Invoking: Xilinx ELF Check
+elfcheck scorebd.elf -hw ../../scoreboard_hw_platform/system.xml -pe microblaze_0  |tee "scorebd.elf.elfcheck"
+elfcheck
+Xilinx EDK 14.7 Build EDK_P.20131013
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+Command Line: elfcheck -hw ../../scoreboard_hw_platform/system.xml -pe
+microblaze_0 scorebd.elf 
+
+ELF file	: scorebd.elf
+elfcheck passed.
+Finished building: scorebd.elf.elfcheck
+ 
+21:11:59 **** Auto Build of configuration Debug for project scorebd ****
+make all 
+Building file: ../src/main.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../standalone_bsp_0/microblaze_0/include -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.c"
+Finished building: ../src/main.c
+ 
+Building target: scorebd.elf
+Invoking: MicroBlaze gcc linker
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../standalone_bsp_0/microblaze_0/lib -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "scorebd.elf"  ./src/kbDecode.o ./src/main.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+Finished building target: scorebd.elf
+ 
+Invoking: MicroBlaze Print Size
+mb-size scorebd.elf  |tee "scorebd.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  24564	   1620	   2488	  28672	   7000	scorebd.elf
+Finished building: scorebd.elf.size
+ 
+Invoking: Xilinx ELF Check
+elfcheck scorebd.elf -hw ../../scoreboard_hw_platform/system.xml -pe microblaze_0  |tee "scorebd.elf.elfcheck"
+elfcheck
+Xilinx EDK 14.7 Build EDK_P.20131013
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+Command Line: elfcheck -hw ../../scoreboard_hw_platform/system.xml -pe
+microblaze_0 scorebd.elf 
+
+ELF file	: scorebd.elf
+elfcheck passed.
+Finished building: scorebd.elf.elfcheck
+ 
+21:12:05 **** Auto Build of configuration Debug for project scorebd ****
+make all 
+Building file: ../src/main.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../standalone_bsp_0/microblaze_0/include -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.c"
+Finished building: ../src/main.c
+ 
+Building target: scorebd.elf
+Invoking: MicroBlaze gcc linker
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../standalone_bsp_0/microblaze_0/lib -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "scorebd.elf"  ./src/kbDecode.o ./src/main.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+Finished building target: scorebd.elf
+ 
+Invoking: MicroBlaze Print Size
+mb-size scorebd.elf  |tee "scorebd.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  24564	   1620	   2488	  28672	   7000	scorebd.elf
+Finished building: scorebd.elf.size
+ 
+Invoking: Xilinx ELF Check
+elfcheck scorebd.elf -hw ../../scoreboard_hw_platform/system.xml -pe microblaze_0  |tee "scorebd.elf.elfcheck"
+elfcheck
+Xilinx EDK 14.7 Build EDK_P.20131013
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+Command Line: elfcheck -hw ../../scoreboard_hw_platform/system.xml -pe
+microblaze_0 scorebd.elf 
+
+ELF file	: scorebd.elf
+elfcheck passed.
+Finished building: scorebd.elf.elfcheck
+ 
+21:12:12 **** Auto Build of project standalone_bsp_0 ****
+make -k all 
+Finished building libraries
+21:13:01 **** Auto Build of configuration Debug for project scorebd ****
+make all 
+Building file: ../src/main.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../standalone_bsp_0/microblaze_0/include -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.c"
+Finished building: ../src/main.c
+ 
+Building target: scorebd.elf
+Invoking: MicroBlaze gcc linker
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../standalone_bsp_0/microblaze_0/lib -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "scorebd.elf"  ./src/kbDecode.o ./src/main.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+Finished building target: scorebd.elf
+ 
+Invoking: MicroBlaze Print Size
+mb-size scorebd.elf  |tee "scorebd.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  24564	   1620	   2488	  28672	   7000	scorebd.elf
+Finished building: scorebd.elf.size
+ 
+Invoking: Xilinx ELF Check
+elfcheck scorebd.elf -hw ../../scoreboard_hw_platform/system.xml -pe microblaze_0  |tee "scorebd.elf.elfcheck"
+elfcheck
+Xilinx EDK 14.7 Build EDK_P.20131013
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+Command Line: elfcheck -hw ../../scoreboard_hw_platform/system.xml -pe
+microblaze_0 scorebd.elf 
+
+ELF file	: scorebd.elf
+elfcheck passed.
+Finished building: scorebd.elf.elfcheck
+ 
+21:13:07 **** Auto Build of project standalone_bsp_0 ****
+make -k all 
+Finished building libraries
+21:13:46 **** Auto Build of configuration Debug for project scorebd ****
+make all 
+Building file: ../src/main.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../standalone_bsp_0/microblaze_0/include -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.c"
+Finished building: ../src/main.c
+ 
+Building target: scorebd.elf
+Invoking: MicroBlaze gcc linker
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../standalone_bsp_0/microblaze_0/lib -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "scorebd.elf"  ./src/kbDecode.o ./src/main.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+Finished building target: scorebd.elf
+ 
+Invoking: MicroBlaze Print Size
+mb-size scorebd.elf  |tee "scorebd.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  24564	   1620	   2488	  28672	   7000	scorebd.elf
+Finished building: scorebd.elf.size
+ 
+Invoking: Xilinx ELF Check
+elfcheck scorebd.elf -hw ../../scoreboard_hw_platform/system.xml -pe microblaze_0  |tee "scorebd.elf.elfcheck"
+elfcheck
+Xilinx EDK 14.7 Build EDK_P.20131013
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+Command Line: elfcheck -hw ../../scoreboard_hw_platform/system.xml -pe
+microblaze_0 scorebd.elf 
+
+ELF file	: scorebd.elf
+elfcheck passed.
+Finished building: scorebd.elf.elfcheck
+ 
+21:13:52 **** Auto Build of project standalone_bsp_0 ****
+make -k all 
+Finished building libraries
+21:15:08 **** Auto Build of configuration Debug for project scorebd ****
+make all 
+Building file: ../src/main.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../standalone_bsp_0/microblaze_0/include -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.c"
+Finished building: ../src/main.c
+ 
+Building target: scorebd.elf
+Invoking: MicroBlaze gcc linker
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../standalone_bsp_0/microblaze_0/lib -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "scorebd.elf"  ./src/kbDecode.o ./src/main.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+Finished building target: scorebd.elf
+ 
+Invoking: MicroBlaze Print Size
+mb-size scorebd.elf  |tee "scorebd.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  24564	   1620	   2488	  28672	   7000	scorebd.elf
+Finished building: scorebd.elf.size
+ 
+Invoking: Xilinx ELF Check
+elfcheck scorebd.elf -hw ../../scoreboard_hw_platform/system.xml -pe microblaze_0  |tee "scorebd.elf.elfcheck"
+elfcheck
+Xilinx EDK 14.7 Build EDK_P.20131013
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+Command Line: elfcheck -hw ../../scoreboard_hw_platform/system.xml -pe
+microblaze_0 scorebd.elf 
+
+ELF file	: scorebd.elf
+elfcheck passed.
+Finished building: scorebd.elf.elfcheck
+ 
+21:15:15 **** Auto Build of project standalone_bsp_0 ****
+make -k all 
+Finished building libraries
+21:15:22 **** Auto Build of configuration Debug for project scorebd ****
+make all 
+Building file: ../src/main.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../standalone_bsp_0/microblaze_0/include -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.c"
+Finished building: ../src/main.c
+ 
+Building target: scorebd.elf
+Invoking: MicroBlaze gcc linker
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../standalone_bsp_0/microblaze_0/lib -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "scorebd.elf"  ./src/kbDecode.o ./src/main.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+Finished building target: scorebd.elf
+ 
+Invoking: MicroBlaze Print Size
+mb-size scorebd.elf  |tee "scorebd.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  24564	   1620	   2488	  28672	   7000	scorebd.elf
+Finished building: scorebd.elf.size
+ 
+Invoking: Xilinx ELF Check
+elfcheck scorebd.elf -hw ../../scoreboard_hw_platform/system.xml -pe microblaze_0  |tee "scorebd.elf.elfcheck"
+elfcheck
+Xilinx EDK 14.7 Build EDK_P.20131013
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+Command Line: elfcheck -hw ../../scoreboard_hw_platform/system.xml -pe
+microblaze_0 scorebd.elf 
+
+ELF file	: scorebd.elf
+elfcheck passed.
+Finished building: scorebd.elf.elfcheck
+ 
+21:15:28 **** Auto Build of project standalone_bsp_0 ****
+make -k all 
+Finished building libraries
+21:15:47 **** Auto Build of configuration Debug for project scorebd ****
+make all 
+Building file: ../src/main.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../standalone_bsp_0/microblaze_0/include -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.c"
+../src/main.c: In function 'Rt_Clock':
+../src/main.c:425:23: error: 'al_minutes' undeclared (first use in this function)
+../src/main.c:425:23: note: each undeclared identifier is reported only once for each function it appears in
+../src/main.c:426:18: error: 'al_hours' undeclared (first use in this function)
+../src/main.c:445:6: error: 'rt_days' undeclared (first use in this function)
+../src/main.c: In function 'goStopWatch':
+../src/main.c:465:2: error: 'stw_tenthsec' undeclared (first use in this function)
+../src/main.c:469:3: error: 'stw_seconds' undeclared (first use in this function)
+../src/main.c:473:4: error: 'stw_minutes' undeclared (first use in this function)
+../src/main.c:477:5: error: 'stw_hours' undeclared (first use in this function)
+make: *** [src/main.o] ´íÎó 1
+21:15:48 **** Auto Build of project standalone_bsp_0 ****
+make -k all 
+Finished building libraries
+21:15:59 **** Auto Build of configuration Debug for project scorebd ****
+make all 
+Building file: ../src/main.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../standalone_bsp_0/microblaze_0/include -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.c"
+../src/main.c: In function 'Rt_Clock':
+../src/main.c:445:6: error: 'rt_days' undeclared (first use in this function)
+../src/main.c:445:6: note: each undeclared identifier is reported only once for each function it appears in
+../src/main.c: In function 'goStopWatch':
+../src/main.c:465:2: error: 'stw_tenthsec' undeclared (first use in this function)
+../src/main.c:469:3: error: 'stw_seconds' undeclared (first use in this function)
+../src/main.c:473:4: error: 'stw_minutes' undeclared (first use in this function)
+../src/main.c:477:5: error: 'stw_hours' undeclared (first use in this function)
+make: *** [src/main.o] ´íÎó 1
+21:16:00 **** Auto Build of project standalone_bsp_0 ****
+make -k all 
+Finished building libraries
+21:16:09 **** Auto Build of configuration Debug for project scorebd ****
+make all 
+Building file: ../src/main.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../standalone_bsp_0/microblaze_0/include -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.c"
+../src/main.c: In function 'goStopWatch':
+../src/main.c:465:2: error: 'stw_tenthsec' undeclared (first use in this function)
+../src/main.c:465:2: note: each undeclared identifier is reported only once for each function it appears in
+../src/main.c:469:3: error: 'stw_seconds' undeclared (first use in this function)
+../src/main.c:473:4: error: 'stw_minutes' undeclared (first use in this function)
+../src/main.c:477:5: error: 'stw_hours' undeclared (first use in this function)
+make: *** [src/main.o] ´íÎó 1
+21:16:10 **** Auto Build of project standalone_bsp_0 ****
+make -k all 
+Finished building libraries
+21:16:17 **** Auto Build of configuration Debug for project scorebd ****
+make all 
+Building file: ../src/main.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../standalone_bsp_0/microblaze_0/include -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.c"
+Finished building: ../src/main.c
+ 
+Building target: scorebd.elf
+Invoking: MicroBlaze gcc linker
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../standalone_bsp_0/microblaze_0/lib -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "scorebd.elf"  ./src/kbDecode.o ./src/main.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+Finished building target: scorebd.elf
+ 
+Invoking: MicroBlaze Print Size
+mb-size scorebd.elf  |tee "scorebd.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  24564	   1620	   2488	  28672	   7000	scorebd.elf
+Finished building: scorebd.elf.size
+ 
+Invoking: Xilinx ELF Check
+elfcheck scorebd.elf -hw ../../scoreboard_hw_platform/system.xml -pe microblaze_0  |tee "scorebd.elf.elfcheck"
+elfcheck
+Xilinx EDK 14.7 Build EDK_P.20131013
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+Command Line: elfcheck -hw ../../scoreboard_hw_platform/system.xml -pe
+microblaze_0 scorebd.elf 
+
+ELF file	: scorebd.elf
+elfcheck passed.
+Finished building: scorebd.elf.elfcheck
+ 
+21:16:24 **** Auto Build of project standalone_bsp_0 ****
+make -k all 
+Finished building libraries
+21:16:52 **** Auto Build of configuration Debug for project scorebd ****
+make all 
+Building file: ../src/main.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../standalone_bsp_0/microblaze_0/include -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.c"
+Finished building: ../src/main.c
+ 
+Building target: scorebd.elf
+Invoking: MicroBlaze gcc linker
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../standalone_bsp_0/microblaze_0/lib -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "scorebd.elf"  ./src/kbDecode.o ./src/main.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+Finished building target: scorebd.elf
+ 
+Invoking: MicroBlaze Print Size
+mb-size scorebd.elf  |tee "scorebd.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  24564	   1620	   2488	  28672	   7000	scorebd.elf
+Finished building: scorebd.elf.size
+ 
+Invoking: Xilinx ELF Check
+elfcheck scorebd.elf -hw ../../scoreboard_hw_platform/system.xml -pe microblaze_0  |tee "scorebd.elf.elfcheck"
+elfcheck
+Xilinx EDK 14.7 Build EDK_P.20131013
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+Command Line: elfcheck -hw ../../scoreboard_hw_platform/system.xml -pe
+microblaze_0 scorebd.elf 
+
+ELF file	: scorebd.elf
+elfcheck passed.
+Finished building: scorebd.elf.elfcheck
+ 
+21:16:58 **** Auto Build of project standalone_bsp_0 ****
+make -k all 
+Finished building libraries
+21:17:35 **** Auto Build of configuration Debug for project scorebd ****
+make all 
+Building file: ../src/main.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../standalone_bsp_0/microblaze_0/include -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.c"
+Finished building: ../src/main.c
+ 
+Building target: scorebd.elf
+Invoking: MicroBlaze gcc linker
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../standalone_bsp_0/microblaze_0/lib -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "scorebd.elf"  ./src/kbDecode.o ./src/main.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+Finished building target: scorebd.elf
+ 
+Invoking: MicroBlaze Print Size
+mb-size scorebd.elf  |tee "scorebd.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  24564	   1620	   2488	  28672	   7000	scorebd.elf
+Finished building: scorebd.elf.size
+ 
+Invoking: Xilinx ELF Check
+elfcheck scorebd.elf -hw ../../scoreboard_hw_platform/system.xml -pe microblaze_0  |tee "scorebd.elf.elfcheck"
+elfcheck
+Xilinx EDK 14.7 Build EDK_P.20131013
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+Command Line: elfcheck -hw ../../scoreboard_hw_platform/system.xml -pe
+microblaze_0 scorebd.elf 
+
+ELF file	: scorebd.elf
+elfcheck passed.
+Finished building: scorebd.elf.elfcheck
+ 
+21:17:42 **** Auto Build of project standalone_bsp_0 ****
+make -k all 
+Finished building libraries
+21:18:11 **** Auto Build of configuration Debug for project scorebd ****
+make all 
+Building file: ../src/main.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../standalone_bsp_0/microblaze_0/include -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.c"
+Finished building: ../src/main.c
+ 
+Building target: scorebd.elf
+Invoking: MicroBlaze gcc linker
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../standalone_bsp_0/microblaze_0/lib -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "scorebd.elf"  ./src/kbDecode.o ./src/main.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+Finished building target: scorebd.elf
+ 
+Invoking: MicroBlaze Print Size
+mb-size scorebd.elf  |tee "scorebd.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  24564	   1620	   2488	  28672	   7000	scorebd.elf
+Finished building: scorebd.elf.size
+ 
+Invoking: Xilinx ELF Check
+elfcheck scorebd.elf -hw ../../scoreboard_hw_platform/system.xml -pe microblaze_0  |tee "scorebd.elf.elfcheck"
+elfcheck
+Xilinx EDK 14.7 Build EDK_P.20131013
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+Command Line: elfcheck -hw ../../scoreboard_hw_platform/system.xml -pe
+microblaze_0 scorebd.elf 
+
+ELF file	: scorebd.elf
+elfcheck passed.
+Finished building: scorebd.elf.elfcheck
+ 
+21:18:17 **** Auto Build of project standalone_bsp_0 ****
+make -k all 
+Finished building libraries
+21:19:42 **** Auto Build of configuration Debug for project scorebd ****
+make all 
+Building file: ../src/main.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../standalone_bsp_0/microblaze_0/include -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.c"
+Finished building: ../src/main.c
+ 
+Building target: scorebd.elf
+Invoking: MicroBlaze gcc linker
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../standalone_bsp_0/microblaze_0/lib -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "scorebd.elf"  ./src/kbDecode.o ./src/main.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+Finished building target: scorebd.elf
+ 
+Invoking: MicroBlaze Print Size
+mb-size scorebd.elf  |tee "scorebd.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  24564	   1620	   2488	  28672	   7000	scorebd.elf
+Finished building: scorebd.elf.size
+ 
+Invoking: Xilinx ELF Check
+elfcheck scorebd.elf -hw ../../scoreboard_hw_platform/system.xml -pe microblaze_0  |tee "scorebd.elf.elfcheck"
+elfcheck
+Xilinx EDK 14.7 Build EDK_P.20131013
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+Command Line: elfcheck -hw ../../scoreboard_hw_platform/system.xml -pe
+microblaze_0 scorebd.elf 
+
+ELF file	: scorebd.elf
+elfcheck passed.
+Finished building: scorebd.elf.elfcheck
+ 
+21:19:48 **** Auto Build of project standalone_bsp_0 ****
+make -k all 
+Finished building libraries
+21:20:23 **** Auto Build of configuration Debug for project scorebd ****
+make all 
+Building file: ../src/main.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../standalone_bsp_0/microblaze_0/include -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.c"
+Finished building: ../src/main.c
+ 
+Building target: scorebd.elf
+Invoking: MicroBlaze gcc linker
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../standalone_bsp_0/microblaze_0/lib -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "scorebd.elf"  ./src/kbDecode.o ./src/main.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+Finished building target: scorebd.elf
+ 
+Invoking: MicroBlaze Print Size
+mb-size scorebd.elf  |tee "scorebd.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  24564	   1620	   2488	  28672	   7000	scorebd.elf
+Finished building: scorebd.elf.size
+ 
+Invoking: Xilinx ELF Check
+elfcheck scorebd.elf -hw ../../scoreboard_hw_platform/system.xml -pe microblaze_0  |tee "scorebd.elf.elfcheck"
+elfcheck
+Xilinx EDK 14.7 Build EDK_P.20131013
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+Command Line: elfcheck -hw ../../scoreboard_hw_platform/system.xml -pe
+microblaze_0 scorebd.elf 
+
+ELF file	: scorebd.elf
+elfcheck passed.
+Finished building: scorebd.elf.elfcheck
+ 
+21:20:29 **** Auto Build of project standalone_bsp_0 ****
+make -k all 
+Finished building libraries
+21:21:47 **** Auto Build of configuration Debug for project scorebd ****
+make all 
+Building file: ../src/main.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../standalone_bsp_0/microblaze_0/include -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.c"
+Finished building: ../src/main.c
+ 
+Building target: scorebd.elf
+Invoking: MicroBlaze gcc linker
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../standalone_bsp_0/microblaze_0/lib -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "scorebd.elf"  ./src/kbDecode.o ./src/main.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+Finished building target: scorebd.elf
+ 
+Invoking: MicroBlaze Print Size
+mb-size scorebd.elf  |tee "scorebd.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  24564	   1620	   2488	  28672	   7000	scorebd.elf
+Finished building: scorebd.elf.size
+ 
+Invoking: Xilinx ELF Check
+elfcheck scorebd.elf -hw ../../scoreboard_hw_platform/system.xml -pe microblaze_0  |tee "scorebd.elf.elfcheck"
+elfcheck
+Xilinx EDK 14.7 Build EDK_P.20131013
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+Command Line: elfcheck -hw ../../scoreboard_hw_platform/system.xml -pe
+microblaze_0 scorebd.elf 
+
+ELF file	: scorebd.elf
+elfcheck passed.
+Finished building: scorebd.elf.elfcheck
+ 
+21:21:53 **** Auto Build of project standalone_bsp_0 ****
+make -k all 
+Finished building libraries
+21:24:25 **** Auto Build of configuration Debug for project scorebd ****
+make all 
+Building file: ../src/main.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../standalone_bsp_0/microblaze_0/include -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.c"
+Finished building: ../src/main.c
+ 
+Building target: scorebd.elf
+Invoking: MicroBlaze gcc linker
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../standalone_bsp_0/microblaze_0/lib -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "scorebd.elf"  ./src/kbDecode.o ./src/main.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+Finished building target: scorebd.elf
+ 
+Invoking: MicroBlaze Print Size
+mb-size scorebd.elf  |tee "scorebd.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  24564	   1620	   2488	  28672	   7000	scorebd.elf
+Finished building: scorebd.elf.size
+ 
+Invoking: Xilinx ELF Check
+elfcheck scorebd.elf -hw ../../scoreboard_hw_platform/system.xml -pe microblaze_0  |tee "scorebd.elf.elfcheck"
+elfcheck
+Xilinx EDK 14.7 Build EDK_P.20131013
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+Command Line: elfcheck -hw ../../scoreboard_hw_platform/system.xml -pe
+microblaze_0 scorebd.elf 
+
+ELF file	: scorebd.elf
+elfcheck passed.
+Finished building: scorebd.elf.elfcheck
+ 
+21:24:31 **** Auto Build of project standalone_bsp_0 ****
+make -k all 
+Finished building libraries
+21:41:26 **** Auto Build of configuration Debug for project scorebd ****
+make all 
+Building file: ../src/main.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../standalone_bsp_0/microblaze_0/include -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.c"
+Finished building: ../src/main.c
+ 
+Building target: scorebd.elf
+Invoking: MicroBlaze gcc linker
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../standalone_bsp_0/microblaze_0/lib -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "scorebd.elf"  ./src/kbDecode.o ./src/main.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+Finished building target: scorebd.elf
+ 
+Invoking: MicroBlaze Print Size
+mb-size scorebd.elf  |tee "scorebd.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  24564	   1620	   2488	  28672	   7000	scorebd.elf
+Finished building: scorebd.elf.size
+ 
+Invoking: Xilinx ELF Check
+elfcheck scorebd.elf -hw ../../scoreboard_hw_platform/system.xml -pe microblaze_0  |tee "scorebd.elf.elfcheck"
+elfcheck
+Xilinx EDK 14.7 Build EDK_P.20131013
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+Command Line: elfcheck -hw ../../scoreboard_hw_platform/system.xml -pe
+microblaze_0 scorebd.elf 
+
+ELF file	: scorebd.elf
+elfcheck passed.
+Finished building: scorebd.elf.elfcheck
+ 
+21:41:32 **** Auto Build of project standalone_bsp_0 ****
+make -k all 
+Finished building libraries
+21:43:52 **** Auto Build of configuration Debug for project scorebd ****
+make all 
+Building target: scorebd.elf
+Invoking: MicroBlaze gcc linker
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../standalone_bsp_0/microblaze_0/lib -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "scorebd.elf"  ./src/kbDecode.o ./src/main.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+Finished building target: scorebd.elf
+ 
+Invoking: MicroBlaze Print Size
+mb-size scorebd.elf  |tee "scorebd.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  24564	   1620	   2488	  28672	   7000	scorebd.elf
+Finished building: scorebd.elf.size
+ 
+Invoking: Xilinx ELF Check
+elfcheck scorebd.elf -hw ../../scoreboard_hw_platform/system.xml -pe microblaze_0  |tee "scorebd.elf.elfcheck"
+elfcheck
+Xilinx EDK 14.7 Build EDK_P.20131013
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+Command Line: elfcheck -hw ../../scoreboard_hw_platform/system.xml -pe
+microblaze_0 scorebd.elf 
+
+ELF file	: scorebd.elf
+elfcheck passed.
+Finished building: scorebd.elf.elfcheck
+ 
+21:43:57 **** Auto Build of project standalone_bsp_0 ****
+make -k all 
+Finished building libraries
+21:53:13 **** Auto Build of configuration Debug for project scorebd ****
+make all 
+Building file: ../src/main.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../standalone_bsp_0/microblaze_0/include -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.c"
+../src/main.c: In function 'main':
+../src/main.c:996:1: error: expected declaration or statement at end of input
+../src/main.c:996:1: warning: control reaches end of non-void function [-Wreturn-type]
+make: *** [src/main.o] ´íÎó 1
+21:53:14 **** Auto Build of project standalone_bsp_0 ****
+make -k all 
+Finished building libraries
+21:53:50 **** Auto Build of configuration Debug for project scorebd ****
+make all 
+Building file: ../src/main.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../standalone_bsp_0/microblaze_0/include -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.c"
+Finished building: ../src/main.c
+ 
+Building target: scorebd.elf
+Invoking: MicroBlaze gcc linker
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../standalone_bsp_0/microblaze_0/lib -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "scorebd.elf"  ./src/kbDecode.o ./src/main.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+Finished building target: scorebd.elf
+ 
+Invoking: MicroBlaze Print Size
+mb-size scorebd.elf  |tee "scorebd.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  23552	   1620	   2484	  27656	   6c08	scorebd.elf
+Finished building: scorebd.elf.size
+ 
+Invoking: Xilinx ELF Check
+elfcheck scorebd.elf -hw ../../scoreboard_hw_platform/system.xml -pe microblaze_0  |tee "scorebd.elf.elfcheck"
+elfcheck
+Xilinx EDK 14.7 Build EDK_P.20131013
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+Command Line: elfcheck -hw ../../scoreboard_hw_platform/system.xml -pe
+microblaze_0 scorebd.elf 
+
+ELF file	: scorebd.elf
+elfcheck passed.
+Finished building: scorebd.elf.elfcheck
+ 
+21:53:56 **** Auto Build of project standalone_bsp_0 ****
+make -k all 
+Finished building libraries
+21:54:14 **** Auto Build of configuration Debug for project scorebd ****
+make all 
+make: Nothing to be done for `all'.
+21:54:14 **** Auto Build of project standalone_bsp_0 ****
+make -k all 
+Finished building libraries
+21:54:48 **** Auto Build of configuration Debug for project scorebd ****
+make all 
+Building file: ../src/main.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../standalone_bsp_0/microblaze_0/include -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.c"
+Finished building: ../src/main.c
+ 
+Building target: scorebd.elf
+Invoking: MicroBlaze gcc linker
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../standalone_bsp_0/microblaze_0/lib -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "scorebd.elf"  ./src/kbDecode.o ./src/main.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+Finished building target: scorebd.elf
+ 
+Invoking: MicroBlaze Print Size
+mb-size scorebd.elf  |tee "scorebd.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  22968	   1620	   2484	  27072	   69c0	scorebd.elf
+Finished building: scorebd.elf.size
+ 
+Invoking: Xilinx ELF Check
+elfcheck scorebd.elf -hw ../../scoreboard_hw_platform/system.xml -pe microblaze_0  |tee "scorebd.elf.elfcheck"
+elfcheck
+Xilinx EDK 14.7 Build EDK_P.20131013
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+Command Line: elfcheck -hw ../../scoreboard_hw_platform/system.xml -pe
+microblaze_0 scorebd.elf 
+
+ELF file	: scorebd.elf
+elfcheck passed.
+Finished building: scorebd.elf.elfcheck
+ 
+21:54:54 **** Auto Build of project standalone_bsp_0 ****
+make -k all 
+Finished building libraries
+21:55:06 **** Auto Build of configuration Debug for project scorebd ****
+make all 
+make: Nothing to be done for `all'.
+21:55:06 **** Auto Build of project standalone_bsp_0 ****
+make -k all 
+Finished building libraries
+21:57:02 **** Auto Build of configuration Debug for project scorebd ****
+make all 
+make: Nothing to be done for `all'.
+21:57:03 **** Auto Build of project standalone_bsp_0 ****
+make -k all 
+Finished building libraries
+22:04:55 **** Auto Build of configuration Debug for project scorebd ****
+make all 
+Building file: ../src/main.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../standalone_bsp_0/microblaze_0/include -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.c"
+Finished building: ../src/main.c
+ 
+Building target: scorebd.elf
+Invoking: MicroBlaze gcc linker
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../standalone_bsp_0/microblaze_0/lib -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "scorebd.elf"  ./src/kbDecode.o ./src/main.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+Finished building target: scorebd.elf
+ 
+Invoking: MicroBlaze Print Size
+mb-size scorebd.elf  |tee "scorebd.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  22768	   1620	   2484	  26872	   68f8	scorebd.elf
+Finished building: scorebd.elf.size
+ 
+Invoking: Xilinx ELF Check
+elfcheck scorebd.elf -hw ../../scoreboard_hw_platform/system.xml -pe microblaze_0  |tee "scorebd.elf.elfcheck"
+elfcheck
+Xilinx EDK 14.7 Build EDK_P.20131013
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+Command Line: elfcheck -hw ../../scoreboard_hw_platform/system.xml -pe
+microblaze_0 scorebd.elf 
+
+ELF file	: scorebd.elf
+elfcheck passed.
+Finished building: scorebd.elf.elfcheck
+ 
+22:05:01 **** Auto Build of project standalone_bsp_0 ****
+make -k all 
+Finished building libraries
+22:05:11 **** Auto Build of configuration Debug for project scorebd ****
+make all 
+make: Nothing to be done for `all'.
+22:05:12 **** Auto Build of project standalone_bsp_0 ****
+make -k all 
+Finished building libraries
+09:12:21 **** Auto Build of configuration Debug for project scorebd ****
+make all 
+Building file: ../src/main.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../standalone_bsp_0/microblaze_0/include -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.c"
+Finished building: ../src/main.c
+ 
+Building target: scorebd.elf
+Invoking: MicroBlaze gcc linker
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../standalone_bsp_0/microblaze_0/lib -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "scorebd.elf"  ./src/kbDecode.o ./src/main.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+Finished building target: scorebd.elf
+ 
+Invoking: MicroBlaze Print Size
+mb-size scorebd.elf  |tee "scorebd.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  24960	   1620	   2484	  29064	   7188	scorebd.elf
+Finished building: scorebd.elf.size
+ 
+Invoking: Xilinx ELF Check
+elfcheck scorebd.elf -hw ../../scoreboard_hw_platform/system.xml -pe microblaze_0  |tee "scorebd.elf.elfcheck"
+elfcheck
+Xilinx EDK 14.7 Build EDK_P.20131013
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+Command Line: elfcheck -hw ../../scoreboard_hw_platform/system.xml -pe
+microblaze_0 scorebd.elf 
+
+ELF file	: scorebd.elf
+elfcheck passed.
+Finished building: scorebd.elf.elfcheck
+ 
+09:12:27 **** Auto Build of project standalone_bsp_0 ****
+make -k all 
+Finished building libraries
+09:13:27 **** Auto Build of configuration Debug for project scorebd ****
+make all 
+make: Nothing to be done for `all'.
+09:13:28 **** Auto Build of project standalone_bsp_0 ****
+make -k all 
+Finished building libraries
+09:14:12 **** Auto Build of configuration Debug for project scorebd ****
+make all 
+Building file: ../src/main.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../standalone_bsp_0/microblaze_0/include -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.c"
+Finished building: ../src/main.c
+ 
+Building target: scorebd.elf
+Invoking: MicroBlaze gcc linker
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../standalone_bsp_0/microblaze_0/lib -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "scorebd.elf"  ./src/kbDecode.o ./src/main.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+Finished building target: scorebd.elf
+ 
+Invoking: MicroBlaze Print Size
+mb-size scorebd.elf  |tee "scorebd.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  22008	   1616	   2456	  26080	   65e0	scorebd.elf
+Finished building: scorebd.elf.size
+ 
+Invoking: Xilinx ELF Check
+elfcheck scorebd.elf -hw ../../scoreboard_hw_platform/system.xml -pe microblaze_0  |tee "scorebd.elf.elfcheck"
+elfcheck
+Xilinx EDK 14.7 Build EDK_P.20131013
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+Command Line: elfcheck -hw ../../scoreboard_hw_platform/system.xml -pe
+microblaze_0 scorebd.elf 
+
+ELF file	: scorebd.elf
+elfcheck passed.
+Finished building: scorebd.elf.elfcheck
+ 
+09:14:19 **** Auto Build of project standalone_bsp_0 ****
+make -k all 
+Finished building libraries
+09:14:31 **** Auto Build of configuration Debug for project scorebd ****
+make all 
+make: Nothing to be done for `all'.
+09:14:32 **** Auto Build of project standalone_bsp_0 ****
+make -k all 
+Finished building libraries
+09:19:41 **** Auto Build of configuration Debug for project scorebd ****
+make all 
+Building file: ../src/main.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../standalone_bsp_0/microblaze_0/include -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.c"
+Finished building: ../src/main.c
+ 
+Building target: scorebd.elf
+Invoking: MicroBlaze gcc linker
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../standalone_bsp_0/microblaze_0/lib -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "scorebd.elf"  ./src/kbDecode.o ./src/main.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+Finished building target: scorebd.elf
+ 
+Invoking: MicroBlaze Print Size
+mb-size scorebd.elf  |tee "scorebd.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  23684	   1620	   2488	  27792	   6c90	scorebd.elf
+Finished building: scorebd.elf.size
+ 
+Invoking: Xilinx ELF Check
+elfcheck scorebd.elf -hw ../../scoreboard_hw_platform/system.xml -pe microblaze_0  |tee "scorebd.elf.elfcheck"
+elfcheck
+Xilinx EDK 14.7 Build EDK_P.20131013
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+Command Line: elfcheck -hw ../../scoreboard_hw_platform/system.xml -pe
+microblaze_0 scorebd.elf 
+
+ELF file	: scorebd.elf
+elfcheck passed.
+Finished building: scorebd.elf.elfcheck
+ 
+09:19:48 **** Auto Build of project standalone_bsp_0 ****
+make -k all 
+Finished building libraries
+09:20:02 **** Auto Build of configuration Debug for project scorebd ****
+make all 
+make: Nothing to be done for `all'.
+09:20:02 **** Auto Build of project standalone_bsp_0 ****
+make -k all 
+Finished building libraries
+09:20:46 **** Auto Build of configuration Debug for project scorebd ****
+make all 
+Building file: ../src/main.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../standalone_bsp_0/microblaze_0/include -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.c"
+Finished building: ../src/main.c
+ 
+Building target: scorebd.elf
+Invoking: MicroBlaze gcc linker
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../standalone_bsp_0/microblaze_0/lib -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "scorebd.elf"  ./src/kbDecode.o ./src/main.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+Finished building target: scorebd.elf
+ 
+Invoking: MicroBlaze Print Size
+mb-size scorebd.elf  |tee "scorebd.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  23396	   1620	   2488	  27504	   6b70	scorebd.elf
+Finished building: scorebd.elf.size
+ 
+Invoking: Xilinx ELF Check
+elfcheck scorebd.elf -hw ../../scoreboard_hw_platform/system.xml -pe microblaze_0  |tee "scorebd.elf.elfcheck"
+elfcheck
+Xilinx EDK 14.7 Build EDK_P.20131013
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+Command Line: elfcheck -hw ../../scoreboard_hw_platform/system.xml -pe
+microblaze_0 scorebd.elf 
+
+ELF file	: scorebd.elf
+elfcheck passed.
+Finished building: scorebd.elf.elfcheck
+ 
+09:20:53 **** Auto Build of project standalone_bsp_0 ****
+make -k all 
+Finished building libraries
+09:21:04 **** Auto Build of configuration Debug for project scorebd ****
+make all 
+make: Nothing to be done for `all'.
+09:21:05 **** Auto Build of project standalone_bsp_0 ****
+make -k all 
+Finished building libraries
+09:22:44 **** Auto Build of configuration Debug for project scorebd ****
+make all 
+Building file: ../src/main.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../standalone_bsp_0/microblaze_0/include -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.c"
+Finished building: ../src/main.c
+ 
+Building target: scorebd.elf
+Invoking: MicroBlaze gcc linker
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../standalone_bsp_0/microblaze_0/lib -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "scorebd.elf"  ./src/kbDecode.o ./src/main.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+Finished building target: scorebd.elf
+ 
+Invoking: MicroBlaze Print Size
+mb-size scorebd.elf  |tee "scorebd.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  23196	   1620	   2488	  27304	   6aa8	scorebd.elf
+Finished building: scorebd.elf.size
+ 
+Invoking: Xilinx ELF Check
+elfcheck scorebd.elf -hw ../../scoreboard_hw_platform/system.xml -pe microblaze_0  |tee "scorebd.elf.elfcheck"
+elfcheck
+Xilinx EDK 14.7 Build EDK_P.20131013
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+Command Line: elfcheck -hw ../../scoreboard_hw_platform/system.xml -pe
+microblaze_0 scorebd.elf 
+
+ELF file	: scorebd.elf
+elfcheck passed.
+Finished building: scorebd.elf.elfcheck
+ 
+09:22:50 **** Auto Build of project standalone_bsp_0 ****
+make -k all 
+Finished building libraries
+09:23:05 **** Auto Build of configuration Debug for project scorebd ****
+make all 
+make: Nothing to be done for `all'.
+09:23:05 **** Auto Build of project standalone_bsp_0 ****
+make -k all 
+Finished building libraries
+09:42:28 **** Auto Build of configuration Debug for project scorebd ****
+make all 
+Building file: ../src/main.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../standalone_bsp_0/microblaze_0/include -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.c"
+Finished building: ../src/main.c
+ 
+Building target: scorebd.elf
+Invoking: MicroBlaze gcc linker
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../standalone_bsp_0/microblaze_0/lib -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "scorebd.elf"  ./src/kbDecode.o ./src/main.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+Finished building target: scorebd.elf
+ 
+Invoking: MicroBlaze Print Size
+mb-size scorebd.elf  |tee "scorebd.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  23452	   1620	   2488	  27560	   6ba8	scorebd.elf
+Finished building: scorebd.elf.size
+ 
+Invoking: Xilinx ELF Check
+elfcheck scorebd.elf -hw ../../scoreboard_hw_platform/system.xml -pe microblaze_0  |tee "scorebd.elf.elfcheck"
+elfcheck
+Xilinx EDK 14.7 Build EDK_P.20131013
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+Command Line: elfcheck -hw ../../scoreboard_hw_platform/system.xml -pe
+microblaze_0 scorebd.elf 
+
+ELF file	: scorebd.elf
+elfcheck passed.
+Finished building: scorebd.elf.elfcheck
+ 
+09:42:35 **** Auto Build of project standalone_bsp_0 ****
+make -k all 
+Finished building libraries
+09:42:54 **** Auto Build of configuration Debug for project scorebd ****
+make all 
+make: Nothing to be done for `all'.
+09:42:55 **** Auto Build of project standalone_bsp_0 ****
+make -k all 
+Finished building libraries
+09:46:20 **** Auto Build of configuration Debug for project scorebd ****
+make all 
+Building file: ../src/main.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../standalone_bsp_0/microblaze_0/include -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.c"
+Finished building: ../src/main.c
+ 
+Building target: scorebd.elf
+Invoking: MicroBlaze gcc linker
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../standalone_bsp_0/microblaze_0/lib -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "scorebd.elf"  ./src/kbDecode.o ./src/main.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+Finished building target: scorebd.elf
+ 
+Invoking: MicroBlaze Print Size
+mb-size scorebd.elf  |tee "scorebd.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  25016	   1620	   2484	  29120	   71c0	scorebd.elf
+Finished building: scorebd.elf.size
+ 
+Invoking: Xilinx ELF Check
+elfcheck scorebd.elf -hw ../../scoreboard_hw_platform/system.xml -pe microblaze_0  |tee "scorebd.elf.elfcheck"
+elfcheck
+Xilinx EDK 14.7 Build EDK_P.20131013
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+Command Line: elfcheck -hw ../../scoreboard_hw_platform/system.xml -pe
+microblaze_0 scorebd.elf 
+
+ELF file	: scorebd.elf
+elfcheck passed.
+Finished building: scorebd.elf.elfcheck
+ 
+09:46:27 **** Auto Build of project standalone_bsp_0 ****
+make -k all 
+Finished building libraries
+09:46:38 **** Auto Build of configuration Debug for project scorebd ****
+make all 
+make: Nothing to be done for `all'.
+09:46:39 **** Auto Build of project standalone_bsp_0 ****
+make -k all 
+Finished building libraries
+09:57:54 **** Auto Build of configuration Debug for project scorebd ****
+make all 
+Building file: ../src/main.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../standalone_bsp_0/microblaze_0/include -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.c"
+Finished building: ../src/main.c
+ 
+Building target: scorebd.elf
+Invoking: MicroBlaze gcc linker
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../standalone_bsp_0/microblaze_0/lib -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "scorebd.elf"  ./src/kbDecode.o ./src/main.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+Finished building target: scorebd.elf
+ 
+Invoking: MicroBlaze Print Size
+mb-size scorebd.elf  |tee "scorebd.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  25740	   1620	   2488	  29848	   7498	scorebd.elf
+Finished building: scorebd.elf.size
+ 
+Invoking: Xilinx ELF Check
+elfcheck scorebd.elf -hw ../../scoreboard_hw_platform/system.xml -pe microblaze_0  |tee "scorebd.elf.elfcheck"
+elfcheck
+Xilinx EDK 14.7 Build EDK_P.20131013
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+Command Line: elfcheck -hw ../../scoreboard_hw_platform/system.xml -pe
+microblaze_0 scorebd.elf 
+
+ELF file	: scorebd.elf
+elfcheck passed.
+Finished building: scorebd.elf.elfcheck
+ 
+09:58:01 **** Auto Build of project standalone_bsp_0 ****
+make -k all 
+Finished building libraries
+09:58:12 **** Auto Build of configuration Debug for project scorebd ****
+make all 
+make: Nothing to be done for `all'.
+09:58:12 **** Auto Build of project standalone_bsp_0 ****
+make -k all 
+Finished building libraries
+10:00:07 **** Auto Build of configuration Debug for project scorebd ****
+make all 
+Building file: ../src/main.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../standalone_bsp_0/microblaze_0/include -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.c"
+Finished building: ../src/main.c
+ 
+Building target: scorebd.elf
+Invoking: MicroBlaze gcc linker
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../standalone_bsp_0/microblaze_0/lib -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "scorebd.elf"  ./src/kbDecode.o ./src/main.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+Finished building target: scorebd.elf
+ 
+Invoking: MicroBlaze Print Size
+mb-size scorebd.elf  |tee "scorebd.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  25940	   1620	   2488	  30048	   7560	scorebd.elf
+Finished building: scorebd.elf.size
+ 
+Invoking: Xilinx ELF Check
+elfcheck scorebd.elf -hw ../../scoreboard_hw_platform/system.xml -pe microblaze_0  |tee "scorebd.elf.elfcheck"
+elfcheck
+Xilinx EDK 14.7 Build EDK_P.20131013
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+Command Line: elfcheck -hw ../../scoreboard_hw_platform/system.xml -pe
+microblaze_0 scorebd.elf 
+
+ELF file	: scorebd.elf
+elfcheck passed.
+Finished building: scorebd.elf.elfcheck
+ 
+10:00:14 **** Auto Build of project standalone_bsp_0 ****
+make -k all 
+Finished building libraries
+10:00:34 **** Auto Build of configuration Debug for project scorebd ****
+make all 
+make: Nothing to be done for `all'.
+10:00:34 **** Auto Build of project standalone_bsp_0 ****
+make -k all 
+Finished building libraries
+10:15:23 **** Auto Build of configuration Debug for project scorebd ****
+make all 
+Building file: ../src/main.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../standalone_bsp_0/microblaze_0/include -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.c"
+Finished building: ../src/main.c
+ 
+Building target: scorebd.elf
+Invoking: MicroBlaze gcc linker
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../standalone_bsp_0/microblaze_0/lib -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "scorebd.elf"  ./src/kbDecode.o ./src/main.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+Finished building target: scorebd.elf
+ 
+Invoking: MicroBlaze Print Size
+mb-size scorebd.elf  |tee "scorebd.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  25972	   1620	   2488	  30080	   7580	scorebd.elf
+Finished building: scorebd.elf.size
+ 
+Invoking: Xilinx ELF Check
+elfcheck scorebd.elf -hw ../../scoreboard_hw_platform/system.xml -pe microblaze_0  |tee "scorebd.elf.elfcheck"
+elfcheck
+Xilinx EDK 14.7 Build EDK_P.20131013
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+Command Line: elfcheck -hw ../../scoreboard_hw_platform/system.xml -pe
+microblaze_0 scorebd.elf 
+
+ELF file	: scorebd.elf
+elfcheck passed.
+Finished building: scorebd.elf.elfcheck
+ 
+10:15:30 **** Auto Build of project standalone_bsp_0 ****
+make -k all 
+Finished building libraries
+10:15:51 **** Auto Build of configuration Debug for project scorebd ****
+make all 
+Building file: ../src/main.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../standalone_bsp_0/microblaze_0/include -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.c"
+Finished building: ../src/main.c
+ 
+Building target: scorebd.elf
+Invoking: MicroBlaze gcc linker
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../standalone_bsp_0/microblaze_0/lib -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "scorebd.elf"  ./src/kbDecode.o ./src/main.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+Finished building target: scorebd.elf
+ 
+Invoking: MicroBlaze Print Size
+mb-size scorebd.elf  |tee "scorebd.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  25980	   1620	   2488	  30088	   7588	scorebd.elf
+Finished building: scorebd.elf.size
+ 
+Invoking: Xilinx ELF Check
+elfcheck scorebd.elf -hw ../../scoreboard_hw_platform/system.xml -pe microblaze_0  |tee "scorebd.elf.elfcheck"
+elfcheck
+Xilinx EDK 14.7 Build EDK_P.20131013
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+Command Line: elfcheck -hw ../../scoreboard_hw_platform/system.xml -pe
+microblaze_0 scorebd.elf 
+
+ELF file	: scorebd.elf
+elfcheck passed.
+Finished building: scorebd.elf.elfcheck
+ 
+10:15:58 **** Auto Build of project standalone_bsp_0 ****
+make -k all 
+Finished building libraries
+10:16:12 **** Auto Build of configuration Debug for project scorebd ****
+make all 
+make: Nothing to be done for `all'.
+10:16:12 **** Auto Build of project standalone_bsp_0 ****
+make -k all 
+Finished building libraries
+10:16:34 **** Auto Build of configuration Debug for project scorebd ****
+make all 
+make: Nothing to be done for `all'.
+10:16:34 **** Auto Build of project standalone_bsp_0 ****
+make -k all 
+Finished building libraries
+10:31:57 **** Auto Build of configuration Debug for project scorebd ****
+make all 
+Building file: ../src/main.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../standalone_bsp_0/microblaze_0/include -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.c"
+Finished building: ../src/main.c
+ 
+Building target: scorebd.elf
+Invoking: MicroBlaze gcc linker
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../standalone_bsp_0/microblaze_0/lib -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "scorebd.elf"  ./src/kbDecode.o ./src/main.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+Finished building target: scorebd.elf
+ 
+Invoking: MicroBlaze Print Size
+mb-size scorebd.elf  |tee "scorebd.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  25980	   1620	   2488	  30088	   7588	scorebd.elf
+Finished building: scorebd.elf.size
+ 
+Invoking: Xilinx ELF Check
+elfcheck scorebd.elf -hw ../../scoreboard_hw_platform/system.xml -pe microblaze_0  |tee "scorebd.elf.elfcheck"
+elfcheck
+Xilinx EDK 14.7 Build EDK_P.20131013
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+Command Line: elfcheck -hw ../../scoreboard_hw_platform/system.xml -pe
+microblaze_0 scorebd.elf 
+
+ELF file	: scorebd.elf
+elfcheck passed.
+Finished building: scorebd.elf.elfcheck
+ 
+10:32:04 **** Auto Build of project standalone_bsp_0 ****
+make -k all 
+Finished building libraries
+10:38:53 **** Auto Build of configuration Debug for project scorebd ****
+make all 
+Building file: ../src/main.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../standalone_bsp_0/microblaze_0/include -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.c"
+Finished building: ../src/main.c
+ 
+Building target: scorebd.elf
+Invoking: MicroBlaze gcc linker
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../standalone_bsp_0/microblaze_0/lib -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "scorebd.elf"  ./src/kbDecode.o ./src/main.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+Finished building target: scorebd.elf
+ 
+Invoking: MicroBlaze Print Size
+mb-size scorebd.elf  |tee "scorebd.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  25944	   1620	   2484	  30048	   7560	scorebd.elf
+Finished building: scorebd.elf.size
+ 
+Invoking: Xilinx ELF Check
+elfcheck scorebd.elf -hw ../../scoreboard_hw_platform/system.xml -pe microblaze_0  |tee "scorebd.elf.elfcheck"
+elfcheck
+Xilinx EDK 14.7 Build EDK_P.20131013
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+Command Line: elfcheck -hw ../../scoreboard_hw_platform/system.xml -pe
+microblaze_0 scorebd.elf 
+
+ELF file	: scorebd.elf
+elfcheck passed.
+Finished building: scorebd.elf.elfcheck
+ 
+10:39:00 **** Auto Build of project standalone_bsp_0 ****
+make -k all 
+Finished building libraries
+10:39:19 **** Auto Build of configuration Debug for project scorebd ****
+make all 
+make: Nothing to be done for `all'.
+10:39:20 **** Auto Build of project standalone_bsp_0 ****
+make -k all 
+Finished building libraries
+10:41:26 **** Auto Build of configuration Debug for project scorebd ****
+make all 
+Building file: ../src/main.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../standalone_bsp_0/microblaze_0/include -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.c"
+Finished building: ../src/main.c
+ 
+Building target: scorebd.elf
+Invoking: MicroBlaze gcc linker
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../standalone_bsp_0/microblaze_0/lib -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "scorebd.elf"  ./src/kbDecode.o ./src/main.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+Finished building target: scorebd.elf
+ 
+Invoking: MicroBlaze Print Size
+mb-size scorebd.elf  |tee "scorebd.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  25944	   1620	   2484	  30048	   7560	scorebd.elf
+Finished building: scorebd.elf.size
+ 
+Invoking: Xilinx ELF Check
+elfcheck scorebd.elf -hw ../../scoreboard_hw_platform/system.xml -pe microblaze_0  |tee "scorebd.elf.elfcheck"
+elfcheck
+Xilinx EDK 14.7 Build EDK_P.20131013
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+Command Line: elfcheck -hw ../../scoreboard_hw_platform/system.xml -pe
+microblaze_0 scorebd.elf 
+
+ELF file	: scorebd.elf
+elfcheck passed.
+Finished building: scorebd.elf.elfcheck
+ 
+10:41:33 **** Auto Build of project standalone_bsp_0 ****
+make -k all 
+Finished building libraries
+10:41:47 **** Auto Build of configuration Debug for project scorebd ****
+make all 
+make: Nothing to be done for `all'.
+10:41:47 **** Auto Build of project standalone_bsp_0 ****
+make -k all 
+Finished building libraries
+10:51:42 **** Auto Build of configuration Debug for project scorebd ****
+make all 
+Building file: ../src/main.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../standalone_bsp_0/microblaze_0/include -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.c"
+Finished building: ../src/main.c
+ 
+Building target: scorebd.elf
+Invoking: MicroBlaze gcc linker
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../standalone_bsp_0/microblaze_0/lib -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "scorebd.elf"  ./src/kbDecode.o ./src/main.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+Finished building target: scorebd.elf
+ 
+Invoking: MicroBlaze Print Size
+mb-size scorebd.elf  |tee "scorebd.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  25744	   1620	   2484	  29848	   7498	scorebd.elf
+Finished building: scorebd.elf.size
+ 
+Invoking: Xilinx ELF Check
+elfcheck scorebd.elf -hw ../../scoreboard_hw_platform/system.xml -pe microblaze_0  |tee "scorebd.elf.elfcheck"
+elfcheck
+Xilinx EDK 14.7 Build EDK_P.20131013
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+Command Line: elfcheck -hw ../../scoreboard_hw_platform/system.xml -pe
+microblaze_0 scorebd.elf 
+
+ELF file	: scorebd.elf
+elfcheck passed.
+Finished building: scorebd.elf.elfcheck
+ 
+10:51:48 **** Auto Build of project standalone_bsp_0 ****
+make -k all 
+Finished building libraries
+10:52:01 **** Auto Build of configuration Debug for project scorebd ****
+make all 
+make: Nothing to be done for `all'.
+10:52:01 **** Auto Build of project standalone_bsp_0 ****
+make -k all 
+Finished building libraries
+10:55:09 **** Auto Build of configuration Debug for project scorebd ****
+make all 
+Building file: ../src/main.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../standalone_bsp_0/microblaze_0/include -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.c"
+Finished building: ../src/main.c
+ 
+Building target: scorebd.elf
+Invoking: MicroBlaze gcc linker
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../standalone_bsp_0/microblaze_0/lib -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "scorebd.elf"  ./src/kbDecode.o ./src/main.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+Finished building target: scorebd.elf
+ 
+Invoking: MicroBlaze Print Size
+mb-size scorebd.elf  |tee "scorebd.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  25616	   1620	   2484	  29720	   7418	scorebd.elf
+Finished building: scorebd.elf.size
+ 
+Invoking: Xilinx ELF Check
+elfcheck scorebd.elf -hw ../../scoreboard_hw_platform/system.xml -pe microblaze_0  |tee "scorebd.elf.elfcheck"
+elfcheck
+Xilinx EDK 14.7 Build EDK_P.20131013
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+Command Line: elfcheck -hw ../../scoreboard_hw_platform/system.xml -pe
+microblaze_0 scorebd.elf 
+
+ELF file	: scorebd.elf
+elfcheck passed.
+Finished building: scorebd.elf.elfcheck
+ 
+10:55:16 **** Auto Build of project standalone_bsp_0 ****
+make -k all 
+Finished building libraries
+10:55:33 **** Auto Build of configuration Debug for project scorebd ****
+make all 
+make: Nothing to be done for `all'.
+10:55:33 **** Auto Build of project standalone_bsp_0 ****
+make -k all 
+Finished building libraries
+10:57:56 **** Auto Build of configuration Debug for project scorebd ****
+make all 
+make: Nothing to be done for `all'.
+10:57:57 **** Auto Build of project standalone_bsp_0 ****
+make -k all 
+Finished building libraries
+10:58:29 **** Auto Build of configuration Debug for project scorebd ****
+make all 
+make: Nothing to be done for `all'.
+10:58:29 **** Auto Build of project standalone_bsp_0 ****
+make -k all 
+Finished building libraries
+10:59:05 **** Auto Build of configuration Debug for project scorebd ****
+make all 
+Building file: ../src/main.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../standalone_bsp_0/microblaze_0/include -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.c"
+Finished building: ../src/main.c
+ 
+Building target: scorebd.elf
+Invoking: MicroBlaze gcc linker
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../standalone_bsp_0/microblaze_0/lib -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "scorebd.elf"  ./src/kbDecode.o ./src/main.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+Finished building target: scorebd.elf
+ 
+Invoking: MicroBlaze Print Size
+mb-size scorebd.elf  |tee "scorebd.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  25584	   1620	   2484	  29688	   73f8	scorebd.elf
+Finished building: scorebd.elf.size
+ 
+Invoking: Xilinx ELF Check
+elfcheck scorebd.elf -hw ../../scoreboard_hw_platform/system.xml -pe microblaze_0  |tee "scorebd.elf.elfcheck"
+elfcheck
+Xilinx EDK 14.7 Build EDK_P.20131013
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+Command Line: elfcheck -hw ../../scoreboard_hw_platform/system.xml -pe
+microblaze_0 scorebd.elf 
+
+ELF file	: scorebd.elf
+elfcheck passed.
+Finished building: scorebd.elf.elfcheck
+ 
+10:59:11 **** Auto Build of project standalone_bsp_0 ****
+make -k all 
+Finished building libraries
+10:59:22 **** Auto Build of configuration Debug for project scorebd ****
+make all 
+make: Nothing to be done for `all'.
+10:59:22 **** Auto Build of project standalone_bsp_0 ****
+make -k all 
+Finished building libraries
+11:26:59 **** Auto Build of configuration Debug for project scorebd ****
+make all 
+Building file: ../src/kbDecode.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../standalone_bsp_0/microblaze_0/include -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/kbDecode.d" -MT"src/kbDecode.d" -o "src/kbDecode.o" "../src/kbDecode.c"
+../src/kbDecode.c: In function 'int2str3':
+../src/kbDecode.c:19:5: error: 'for' loop initial declarations are only allowed in C99 mode
+../src/kbDecode.c:19:5: note: use option -std=c99 or -std=gnu99 to compile your code
+make: *** [src/kbDecode.o] ´íÎó 1
+11:27:00 **** Auto Build of project standalone_bsp_0 ****
+make -k all 
+Finished building libraries
+11:27:18 **** Auto Build of configuration Debug for project scorebd ****
+make all 
+Building file: ../src/kbDecode.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../standalone_bsp_0/microblaze_0/include -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/kbDecode.d" -MT"src/kbDecode.d" -o "src/kbDecode.o" "../src/kbDecode.c"
+Finished building: ../src/kbDecode.c
+ 
+Building target: scorebd.elf
+Invoking: MicroBlaze gcc linker
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../standalone_bsp_0/microblaze_0/lib -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "scorebd.elf"  ./src/kbDecode.o ./src/main.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+Finished building target: scorebd.elf
+ 
+Invoking: MicroBlaze Print Size
+mb-size scorebd.elf  |tee "scorebd.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  25584	   1620	   2484	  29688	   73f8	scorebd.elf
+Finished building: scorebd.elf.size
+ 
+Invoking: Xilinx ELF Check
+elfcheck scorebd.elf -hw ../../scoreboard_hw_platform/system.xml -pe microblaze_0  |tee "scorebd.elf.elfcheck"
+elfcheck
+Xilinx EDK 14.7 Build EDK_P.20131013
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+Command Line: elfcheck -hw ../../scoreboard_hw_platform/system.xml -pe
+microblaze_0 scorebd.elf 
+
+ELF file	: scorebd.elf
+elfcheck passed.
+Finished building: scorebd.elf.elfcheck
+ 
+11:27:24 **** Auto Build of project standalone_bsp_0 ****
+make -k all 
+Finished building libraries
+11:27:49 **** Auto Build of configuration Debug for project scorebd ****
+make all 
+Building file: ../src/main.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../standalone_bsp_0/microblaze_0/include -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.c"
+Finished building: ../src/main.c
+ 
+Building target: scorebd.elf
+Invoking: MicroBlaze gcc linker
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../standalone_bsp_0/microblaze_0/lib -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "scorebd.elf"  ./src/kbDecode.o ./src/main.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+Finished building target: scorebd.elf
+ 
+Invoking: MicroBlaze Print Size
+mb-size scorebd.elf  |tee "scorebd.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  25884	   1620	   2488	  29992	   7528	scorebd.elf
+Finished building: scorebd.elf.size
+ 
+Invoking: Xilinx ELF Check
+elfcheck scorebd.elf -hw ../../scoreboard_hw_platform/system.xml -pe microblaze_0  |tee "scorebd.elf.elfcheck"
+elfcheck
+Xilinx EDK 14.7 Build EDK_P.20131013
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+Command Line: elfcheck -hw ../../scoreboard_hw_platform/system.xml -pe
+microblaze_0 scorebd.elf 
+
+ELF file	: scorebd.elf
+elfcheck passed.
+Finished building: scorebd.elf.elfcheck
+ 
+11:27:55 **** Auto Build of project standalone_bsp_0 ****
+make -k all 
+Finished building libraries
+11:28:10 **** Auto Build of configuration Debug for project scorebd ****
+make all 
+make: Nothing to be done for `all'.
+11:28:11 **** Auto Build of project standalone_bsp_0 ****
+make -k all 
+Finished building libraries
+11:40:40 **** Auto Build of configuration Debug for project scorebd ****
+make all 
+Building file: ../src/main.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../standalone_bsp_0/microblaze_0/include -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.c"
+Finished building: ../src/main.c
+ 
+Building target: scorebd.elf
+Invoking: MicroBlaze gcc linker
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../standalone_bsp_0/microblaze_0/lib -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "scorebd.elf"  ./src/kbDecode.o ./src/main.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+Finished building target: scorebd.elf
+ 
+Invoking: MicroBlaze Print Size
+mb-size scorebd.elf  |tee "scorebd.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  25840	   1620	   2484	  29944	   74f8	scorebd.elf
+Finished building: scorebd.elf.size
+ 
+Invoking: Xilinx ELF Check
+elfcheck scorebd.elf -hw ../../scoreboard_hw_platform/system.xml -pe microblaze_0  |tee "scorebd.elf.elfcheck"
+elfcheck
+Xilinx EDK 14.7 Build EDK_P.20131013
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+Command Line: elfcheck -hw ../../scoreboard_hw_platform/system.xml -pe
+microblaze_0 scorebd.elf 
+
+ELF file	: scorebd.elf
+elfcheck passed.
+Finished building: scorebd.elf.elfcheck
+ 
+11:40:47 **** Auto Build of project standalone_bsp_0 ****
+make -k all 
+Finished building libraries
+11:40:59 **** Auto Build of configuration Debug for project scorebd ****
+make all 
+make: Nothing to be done for `all'.
+11:41:00 **** Auto Build of project standalone_bsp_0 ****
+make -k all 
+Finished building libraries
+11:55:18 **** Auto Build of configuration Debug for project scorebd ****
+make all 
+Building file: ../src/main.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../standalone_bsp_0/microblaze_0/include -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.c"
+Finished building: ../src/main.c
+ 
+Building target: scorebd.elf
+Invoking: MicroBlaze gcc linker
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../standalone_bsp_0/microblaze_0/lib -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "scorebd.elf"  ./src/kbDecode.o ./src/main.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+Finished building target: scorebd.elf
+ 
+Invoking: MicroBlaze Print Size
+mb-size scorebd.elf  |tee "scorebd.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  25576	   1616	   2480	  29672	   73e8	scorebd.elf
+Finished building: scorebd.elf.size
+ 
+Invoking: Xilinx ELF Check
+elfcheck scorebd.elf -hw ../../scoreboard_hw_platform/system.xml -pe microblaze_0  |tee "scorebd.elf.elfcheck"
+elfcheck
+Xilinx EDK 14.7 Build EDK_P.20131013
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+Command Line: elfcheck -hw ../../scoreboard_hw_platform/system.xml -pe
+microblaze_0 scorebd.elf 
+
+ELF file	: scorebd.elf
+elfcheck passed.
+Finished building: scorebd.elf.elfcheck
+ 
+11:55:25 **** Auto Build of project standalone_bsp_0 ****
+make -k all 
+Finished building libraries
+11:55:36 **** Auto Build of configuration Debug for project scorebd ****
+make all 
+make: Nothing to be done for `all'.
+11:55:37 **** Auto Build of project standalone_bsp_0 ****
+make -k all 
+Finished building libraries
+12:03:40 **** Auto Build of configuration Debug for project scorebd ****
+make all 
+Building file: ../src/main.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../standalone_bsp_0/microblaze_0/include -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.c"
+Finished building: ../src/main.c
+ 
+Building target: scorebd.elf
+Invoking: MicroBlaze gcc linker
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../standalone_bsp_0/microblaze_0/lib -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "scorebd.elf"  ./src/kbDecode.o ./src/main.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+Finished building target: scorebd.elf
+ 
+Invoking: MicroBlaze Print Size
+mb-size scorebd.elf  |tee "scorebd.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  25608	   1616	   2480	  29704	   7408	scorebd.elf
+Finished building: scorebd.elf.size
+ 
+Invoking: Xilinx ELF Check
+elfcheck scorebd.elf -hw ../../scoreboard_hw_platform/system.xml -pe microblaze_0  |tee "scorebd.elf.elfcheck"
+elfcheck
+Xilinx EDK 14.7 Build EDK_P.20131013
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+Command Line: elfcheck -hw ../../scoreboard_hw_platform/system.xml -pe
+microblaze_0 scorebd.elf 
+
+ELF file	: scorebd.elf
+elfcheck passed.
+Finished building: scorebd.elf.elfcheck
+ 
+12:03:47 **** Auto Build of project standalone_bsp_0 ****
+make -k all 
+Finished building libraries
+12:03:58 **** Auto Build of configuration Debug for project scorebd ****
+make all 
+make: Nothing to be done for `all'.
+12:03:58 **** Auto Build of project standalone_bsp_0 ****
+make -k all 
+Finished building libraries
+12:12:52 **** Auto Build of configuration Debug for project scorebd ****
+make all 
+Building file: ../src/main.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../standalone_bsp_0/microblaze_0/include -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.c"
+../src/main.c: In function 'main':
+../src/main.c:307:4: warning: statement with no effect [-Wunused-value]
+Finished building: ../src/main.c
+ 
+Building target: scorebd.elf
+Invoking: MicroBlaze gcc linker
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../standalone_bsp_0/microblaze_0/lib -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "scorebd.elf"  ./src/kbDecode.o ./src/main.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+Finished building target: scorebd.elf
+ 
+Invoking: MicroBlaze Print Size
+mb-size scorebd.elf  |tee "scorebd.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  25632	   1616	   2480	  29728	   7420	scorebd.elf
+Finished building: scorebd.elf.size
+ 
+Invoking: Xilinx ELF Check
+elfcheck scorebd.elf -hw ../../scoreboard_hw_platform/system.xml -pe microblaze_0  |tee "scorebd.elf.elfcheck"
+elfcheck
+Xilinx EDK 14.7 Build EDK_P.20131013
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+Command Line: elfcheck -hw ../../scoreboard_hw_platform/system.xml -pe
+microblaze_0 scorebd.elf 
+
+ELF file	: scorebd.elf
+elfcheck passed.
+Finished building: scorebd.elf.elfcheck
+ 
+12:12:58 **** Auto Build of project standalone_bsp_0 ****
+make -k all 
+Finished building libraries
+12:13:12 **** Auto Build of configuration Debug for project scorebd ****
+make all 
+Building file: ../src/main.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../standalone_bsp_0/microblaze_0/include -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.c"
+Finished building: ../src/main.c
+ 
+Building target: scorebd.elf
+Invoking: MicroBlaze gcc linker
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../standalone_bsp_0/microblaze_0/lib -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "scorebd.elf"  ./src/kbDecode.o ./src/main.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+Finished building target: scorebd.elf
+ 
+Invoking: MicroBlaze Print Size
+mb-size scorebd.elf  |tee "scorebd.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  25632	   1616	   2480	  29728	   7420	scorebd.elf
+Finished building: scorebd.elf.size
+ 
+Invoking: Xilinx ELF Check
+elfcheck scorebd.elf -hw ../../scoreboard_hw_platform/system.xml -pe microblaze_0  |tee "scorebd.elf.elfcheck"
+elfcheck
+Xilinx EDK 14.7 Build EDK_P.20131013
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+Command Line: elfcheck -hw ../../scoreboard_hw_platform/system.xml -pe
+microblaze_0 scorebd.elf 
+
+ELF file	: scorebd.elf
+elfcheck passed.
+Finished building: scorebd.elf.elfcheck
+ 
+12:13:18 **** Auto Build of project standalone_bsp_0 ****
+make -k all 
+Finished building libraries
+12:13:34 **** Auto Build of configuration Debug for project scorebd ****
+make all 
+make: Nothing to be done for `all'.
+12:13:34 **** Auto Build of project standalone_bsp_0 ****
+make -k all 
+Finished building libraries
+12:17:17 **** Auto Build of configuration Debug for project scorebd ****
+make all 
+make: Nothing to be done for `all'.
+12:17:18 **** Auto Build of project standalone_bsp_0 ****
+make -k all 
+Finished building libraries
+12:22:01 **** Auto Build of configuration Debug for project scorebd ****
+make all 
+Building file: ../src/main.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../standalone_bsp_0/microblaze_0/include -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.c"
+Finished building: ../src/main.c
+ 
+Building target: scorebd.elf
+Invoking: MicroBlaze gcc linker
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../standalone_bsp_0/microblaze_0/lib -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "scorebd.elf"  ./src/kbDecode.o ./src/main.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+Finished building target: scorebd.elf
+ 
+Invoking: MicroBlaze Print Size
+mb-size scorebd.elf  |tee "scorebd.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  25636	   1616	   2484	  29736	   7428	scorebd.elf
+Finished building: scorebd.elf.size
+ 
+Invoking: Xilinx ELF Check
+elfcheck scorebd.elf -hw ../../scoreboard_hw_platform/system.xml -pe microblaze_0  |tee "scorebd.elf.elfcheck"
+elfcheck
+Xilinx EDK 14.7 Build EDK_P.20131013
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+Command Line: elfcheck -hw ../../scoreboard_hw_platform/system.xml -pe
+microblaze_0 scorebd.elf 
+
+ELF file	: scorebd.elf
+elfcheck passed.
+Finished building: scorebd.elf.elfcheck
+ 
+12:22:07 **** Auto Build of project standalone_bsp_0 ****
+make -k all 
+Finished building libraries
+12:22:19 **** Auto Build of configuration Debug for project scorebd ****
+make all 
+make: Nothing to be done for `all'.
+12:22:19 **** Auto Build of project standalone_bsp_0 ****
+make -k all 
+Finished building libraries
+12:24:34 **** Auto Build of configuration Debug for project scorebd ****
+make all 
+Building file: ../src/main.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../standalone_bsp_0/microblaze_0/include -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.c"
+Finished building: ../src/main.c
+ 
+Building target: scorebd.elf
+Invoking: MicroBlaze gcc linker
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../standalone_bsp_0/microblaze_0/lib -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "scorebd.elf"  ./src/kbDecode.o ./src/main.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+Finished building target: scorebd.elf
+ 
+Invoking: MicroBlaze Print Size
+mb-size scorebd.elf  |tee "scorebd.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  25244	   1616	   2484	  29344	   72a0	scorebd.elf
+Finished building: scorebd.elf.size
+ 
+Invoking: Xilinx ELF Check
+elfcheck scorebd.elf -hw ../../scoreboard_hw_platform/system.xml -pe microblaze_0  |tee "scorebd.elf.elfcheck"
+elfcheck
+Xilinx EDK 14.7 Build EDK_P.20131013
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+Command Line: elfcheck -hw ../../scoreboard_hw_platform/system.xml -pe
+microblaze_0 scorebd.elf 
+
+ELF file	: scorebd.elf
+elfcheck passed.
+Finished building: scorebd.elf.elfcheck
+ 
+12:24:40 **** Auto Build of project standalone_bsp_0 ****
+make -k all 
+Finished building libraries
+12:24:54 **** Auto Build of configuration Debug for project scorebd ****
+make all 
+make: Nothing to be done for `all'.
+12:24:54 **** Auto Build of project standalone_bsp_0 ****
+make -k all 
+Finished building libraries
+17:10:08 **** Auto Build of configuration Debug for project scorebd ****
+make all 
+Building file: ../src/main.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../standalone_bsp_0/microblaze_0/include -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.c"
+Finished building: ../src/main.c
+ 
+Building target: scorebd.elf
+Invoking: MicroBlaze gcc linker
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../standalone_bsp_0/microblaze_0/lib -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "scorebd.elf"  ./src/kbDecode.o ./src/main.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+Finished building target: scorebd.elf
+ 
+Invoking: MicroBlaze Print Size
+mb-size scorebd.elf  |tee "scorebd.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  25244	   1616	   2484	  29344	   72a0	scorebd.elf
+Finished building: scorebd.elf.size
+ 
+Invoking: Xilinx ELF Check
+elfcheck scorebd.elf -hw ../../scoreboard_hw_platform/system.xml -pe microblaze_0  |tee "scorebd.elf.elfcheck"
+elfcheck
+Xilinx EDK 14.7 Build EDK_P.20131013
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+Command Line: elfcheck -hw ../../scoreboard_hw_platform/system.xml -pe
+microblaze_0 scorebd.elf 
+
+ELF file	: scorebd.elf
+elfcheck passed.
+Finished building: scorebd.elf.elfcheck
+ 
+17:10:14 **** Auto Build of project standalone_bsp_0 ****
+make -k all 
+Finished building libraries
+17:37:58 **** Auto Build of configuration Debug for project scorebd ****
+make all 
+Building file: ../src/main.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../standalone_bsp_0/microblaze_0/include -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.c"
+../src/main.c:103:33: warning: initialization makes integer from pointer without a cast [enabled by default]
+../src/main.c:103:1: error: initializer element is not computable at load time
+../src/main.c:103:53: warning: initialization makes integer from pointer without a cast [enabled by default]
+../src/main.c:103:1: error: initializer element is not computable at load time
+make: *** [src/main.o] ´íÎó 1
+17:37:59 **** Auto Build of project standalone_bsp_0 ****
+make -k all 
+Finished building libraries
+17:38:43 **** Auto Build of configuration Debug for project scorebd ****
+make all 
+Building file: ../src/main.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../standalone_bsp_0/microblaze_0/include -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.c"
+Finished building: ../src/main.c
+ 
+Building target: scorebd.elf
+Invoking: MicroBlaze gcc linker
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../standalone_bsp_0/microblaze_0/lib -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "scorebd.elf"  ./src/kbDecode.o ./src/main.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+Finished building target: scorebd.elf
+ 
+Invoking: MicroBlaze Print Size
+mb-size scorebd.elf  |tee "scorebd.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  25412	   1640	   2484	  29536	   7360	scorebd.elf
+Finished building: scorebd.elf.size
+ 
+Invoking: Xilinx ELF Check
+elfcheck scorebd.elf -hw ../../scoreboard_hw_platform/system.xml -pe microblaze_0  |tee "scorebd.elf.elfcheck"
+elfcheck
+Xilinx EDK 14.7 Build EDK_P.20131013
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+Command Line: elfcheck -hw ../../scoreboard_hw_platform/system.xml -pe
+microblaze_0 scorebd.elf 
+
+ELF file	: scorebd.elf
+elfcheck passed.
+Finished building: scorebd.elf.elfcheck
+ 
+17:38:49 **** Auto Build of project standalone_bsp_0 ****
+make -k all 
+Finished building libraries
+17:42:11 **** Auto Build of configuration Debug for project scorebd ****
+make all 
+Building file: ../src/main.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../standalone_bsp_0/microblaze_0/include -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.c"
+Finished building: ../src/main.c
+ 
+Building target: scorebd.elf
+Invoking: MicroBlaze gcc linker
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../standalone_bsp_0/microblaze_0/lib -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "scorebd.elf"  ./src/kbDecode.o ./src/main.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+Finished building target: scorebd.elf
+ 
+Invoking: MicroBlaze Print Size
+mb-size scorebd.elf  |tee "scorebd.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  25516	   1648	   2484	  29648	   73d0	scorebd.elf
+Finished building: scorebd.elf.size
+ 
+Invoking: Xilinx ELF Check
+elfcheck scorebd.elf -hw ../../scoreboard_hw_platform/system.xml -pe microblaze_0  |tee "scorebd.elf.elfcheck"
+elfcheck
+Xilinx EDK 14.7 Build EDK_P.20131013
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+Command Line: elfcheck -hw ../../scoreboard_hw_platform/system.xml -pe
+microblaze_0 scorebd.elf 
+
+ELF file	: scorebd.elf
+elfcheck passed.
+Finished building: scorebd.elf.elfcheck
+ 
+17:42:17 **** Auto Build of project standalone_bsp_0 ****
+make -k all 
+Finished building libraries
+17:42:43 **** Auto Build of configuration Debug for project scorebd ****
+make all 
+make: Nothing to be done for `all'.
+17:42:43 **** Auto Build of project standalone_bsp_0 ****
+make -k all 
+Finished building libraries
+17:50:28 **** Auto Build of configuration Debug for project scorebd ****
+make all 
+Building file: ../src/main.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../standalone_bsp_0/microblaze_0/include -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.c"
+Finished building: ../src/main.c
+ 
+Building target: scorebd.elf
+Invoking: MicroBlaze gcc linker
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../standalone_bsp_0/microblaze_0/lib -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "scorebd.elf"  ./src/kbDecode.o ./src/main.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+Finished building target: scorebd.elf
+ 
+Invoking: MicroBlaze Print Size
+mb-size scorebd.elf  |tee "scorebd.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  25620	   1648	   2484	  29752	   7438	scorebd.elf
+Finished building: scorebd.elf.size
+ 
+Invoking: Xilinx ELF Check
+elfcheck scorebd.elf -hw ../../scoreboard_hw_platform/system.xml -pe microblaze_0  |tee "scorebd.elf.elfcheck"
+elfcheck
+Xilinx EDK 14.7 Build EDK_P.20131013
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+Command Line: elfcheck -hw ../../scoreboard_hw_platform/system.xml -pe
+microblaze_0 scorebd.elf 
+
+ELF file	: scorebd.elf
+elfcheck passed.
+Finished building: scorebd.elf.elfcheck
+ 
+17:50:34 **** Auto Build of project standalone_bsp_0 ****
+make -k all 
+Finished building libraries
+17:51:26 **** Auto Build of configuration Debug for project scorebd ****
+make all 
+Building file: ../src/main.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../standalone_bsp_0/microblaze_0/include -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.c"
+Finished building: ../src/main.c
+ 
+Building target: scorebd.elf
+Invoking: MicroBlaze gcc linker
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../standalone_bsp_0/microblaze_0/lib -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "scorebd.elf"  ./src/kbDecode.o ./src/main.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+Finished building target: scorebd.elf
+ 
+Invoking: MicroBlaze Print Size
+mb-size scorebd.elf  |tee "scorebd.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  25724	   1648	   2484	  29856	   74a0	scorebd.elf
+Finished building: scorebd.elf.size
+ 
+Invoking: Xilinx ELF Check
+elfcheck scorebd.elf -hw ../../scoreboard_hw_platform/system.xml -pe microblaze_0  |tee "scorebd.elf.elfcheck"
+elfcheck
+Xilinx EDK 14.7 Build EDK_P.20131013
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+Command Line: elfcheck -hw ../../scoreboard_hw_platform/system.xml -pe
+microblaze_0 scorebd.elf 
+
+ELF file	: scorebd.elf
+elfcheck passed.
+Finished building: scorebd.elf.elfcheck
+ 
+17:51:32 **** Auto Build of project standalone_bsp_0 ****
+make -k all 
+Finished building libraries
+17:51:48 **** Auto Build of configuration Debug for project scorebd ****
+make all 
+make: Nothing to be done for `all'.
+17:51:49 **** Auto Build of project standalone_bsp_0 ****
+make -k all 
+Finished building libraries
+17:54:00 **** Auto Build of configuration Debug for project scorebd ****
+make all 
+Building file: ../src/main.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../standalone_bsp_0/microblaze_0/include -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.c"
+Finished building: ../src/main.c
+ 
+Building target: scorebd.elf
+Invoking: MicroBlaze gcc linker
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../standalone_bsp_0/microblaze_0/lib -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "scorebd.elf"  ./src/kbDecode.o ./src/main.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+Finished building target: scorebd.elf
+ 
+Invoking: MicroBlaze Print Size
+mb-size scorebd.elf  |tee "scorebd.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  25724	   1648	   2484	  29856	   74a0	scorebd.elf
+Finished building: scorebd.elf.size
+ 
+Invoking: Xilinx ELF Check
+elfcheck scorebd.elf -hw ../../scoreboard_hw_platform/system.xml -pe microblaze_0  |tee "scorebd.elf.elfcheck"
+elfcheck
+Xilinx EDK 14.7 Build EDK_P.20131013
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+Command Line: elfcheck -hw ../../scoreboard_hw_platform/system.xml -pe
+microblaze_0 scorebd.elf 
+
+ELF file	: scorebd.elf
+elfcheck passed.
+Finished building: scorebd.elf.elfcheck
+ 
+17:54:06 **** Auto Build of project standalone_bsp_0 ****
+make -k all 
+Finished building libraries
+18:18:13 **** Auto Build of configuration Debug for project scorebd ****
+make all 
+Building file: ../src/main.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../standalone_bsp_0/microblaze_0/include -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.c"
+Finished building: ../src/main.c
+ 
+Building target: scorebd.elf
+Invoking: MicroBlaze gcc linker
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../standalone_bsp_0/microblaze_0/lib -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "scorebd.elf"  ./src/kbDecode.o ./src/main.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+Finished building target: scorebd.elf
+ 
+Invoking: MicroBlaze Print Size
+mb-size scorebd.elf  |tee "scorebd.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  25920	   1648	   2480	  30048	   7560	scorebd.elf
+Finished building: scorebd.elf.size
+ 
+Invoking: Xilinx ELF Check
+elfcheck scorebd.elf -hw ../../scoreboard_hw_platform/system.xml -pe microblaze_0  |tee "scorebd.elf.elfcheck"
+elfcheck
+Xilinx EDK 14.7 Build EDK_P.20131013
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+Command Line: elfcheck -hw ../../scoreboard_hw_platform/system.xml -pe
+microblaze_0 scorebd.elf 
+
+ELF file	: scorebd.elf
+elfcheck passed.
+Finished building: scorebd.elf.elfcheck
+ 
+18:18:20 **** Auto Build of project standalone_bsp_0 ****
+make -k all 
+Finished building libraries
+18:18:31 **** Auto Build of configuration Debug for project scorebd ****
+make all 
+make: Nothing to be done for `all'.
+18:18:31 **** Auto Build of project standalone_bsp_0 ****
+make -k all 
+Finished building libraries
+18:49:48 **** Auto Build of configuration Debug for project scorebd ****
+make all 
+Building file: ../src/main.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../standalone_bsp_0/microblaze_0/include -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.c"
+Finished building: ../src/main.c
+ 
+Building target: scorebd.elf
+Invoking: MicroBlaze gcc linker
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../standalone_bsp_0/microblaze_0/lib -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "scorebd.elf"  ./src/kbDecode.o ./src/main.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+Finished building target: scorebd.elf
+ 
+Invoking: MicroBlaze Print Size
+mb-size scorebd.elf  |tee "scorebd.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  25920	   1648	   2480	  30048	   7560	scorebd.elf
+Finished building: scorebd.elf.size
+ 
+Invoking: Xilinx ELF Check
+elfcheck scorebd.elf -hw ../../scoreboard_hw_platform/system.xml -pe microblaze_0  |tee "scorebd.elf.elfcheck"
+elfcheck
+Xilinx EDK 14.7 Build EDK_P.20131013
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+Command Line: elfcheck -hw ../../scoreboard_hw_platform/system.xml -pe
+microblaze_0 scorebd.elf 
+
+ELF file	: scorebd.elf
+elfcheck passed.
+Finished building: scorebd.elf.elfcheck
+ 
+18:49:55 **** Auto Build of project standalone_bsp_0 ****
+make -k all 
+Finished building libraries
+18:50:07 **** Auto Build of configuration Debug for project scorebd ****
+make all 
+make: Nothing to be done for `all'.
+18:50:08 **** Auto Build of project standalone_bsp_0 ****
+make -k all 
+Finished building libraries
+18:53:08 **** Auto Build of configuration Debug for project scorebd ****
+make all 
+Building file: ../src/main.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../standalone_bsp_0/microblaze_0/include -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.c"
+Finished building: ../src/main.c
+ 
+Building target: scorebd.elf
+Invoking: MicroBlaze gcc linker
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../standalone_bsp_0/microblaze_0/lib -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "scorebd.elf"  ./src/kbDecode.o ./src/main.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+Finished building target: scorebd.elf
+ 
+Invoking: MicroBlaze Print Size
+mb-size scorebd.elf  |tee "scorebd.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  26000	   1648	   2480	  30128	   75b0	scorebd.elf
+Finished building: scorebd.elf.size
+ 
+Invoking: Xilinx ELF Check
+elfcheck scorebd.elf -hw ../../scoreboard_hw_platform/system.xml -pe microblaze_0  |tee "scorebd.elf.elfcheck"
+elfcheck
+Xilinx EDK 14.7 Build EDK_P.20131013
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+Command Line: elfcheck -hw ../../scoreboard_hw_platform/system.xml -pe
+microblaze_0 scorebd.elf 
+
+ELF file	: scorebd.elf
+elfcheck passed.
+Finished building: scorebd.elf.elfcheck
+ 
+18:53:15 **** Auto Build of project standalone_bsp_0 ****
+make -k all 
+Finished building libraries
+18:53:20 **** Incremental Build of configuration Debug for project scorebd ****
+make all 
+make: Nothing to be done for `all'.
+18:53:22 **** Incremental Build of project standalone_bsp_0 ****
+make -k all 
+Finished building libraries
+18:53:52 **** Auto Build of configuration Debug for project scorebd ****
+make all 
+Building file: ../src/main.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../standalone_bsp_0/microblaze_0/include -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.c"
+Finished building: ../src/main.c
+ 
+Building target: scorebd.elf
+Invoking: MicroBlaze gcc linker
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../standalone_bsp_0/microblaze_0/lib -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "scorebd.elf"  ./src/kbDecode.o ./src/main.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+Finished building target: scorebd.elf
+ 
+Invoking: MicroBlaze Print Size
+mb-size scorebd.elf  |tee "scorebd.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  26080	   1648	   2480	  30208	   7600	scorebd.elf
+Finished building: scorebd.elf.size
+ 
+Invoking: Xilinx ELF Check
+elfcheck scorebd.elf -hw ../../scoreboard_hw_platform/system.xml -pe microblaze_0  |tee "scorebd.elf.elfcheck"
+elfcheck
+Xilinx EDK 14.7 Build EDK_P.20131013
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+Command Line: elfcheck -hw ../../scoreboard_hw_platform/system.xml -pe
+microblaze_0 scorebd.elf 
+
+ELF file	: scorebd.elf
+elfcheck passed.
+Finished building: scorebd.elf.elfcheck
+ 
+18:53:59 **** Auto Build of project standalone_bsp_0 ****
+make -k all 
+Finished building libraries
+18:54:15 **** Auto Build of configuration Debug for project scorebd ****
+make all 
+make: Nothing to be done for `all'.
+18:54:16 **** Auto Build of project standalone_bsp_0 ****
+make -k all 
+Finished building libraries
+18:55:18 **** Auto Build of configuration Debug for project scorebd ****
+make all 
+Building file: ../src/main.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../standalone_bsp_0/microblaze_0/include -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.c"
+Finished building: ../src/main.c
+ 
+Building target: scorebd.elf
+Invoking: MicroBlaze gcc linker
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../standalone_bsp_0/microblaze_0/lib -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "scorebd.elf"  ./src/kbDecode.o ./src/main.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+Finished building target: scorebd.elf
+ 
+Invoking: MicroBlaze Print Size
+mb-size scorebd.elf  |tee "scorebd.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  26064	   1648	   2480	  30192	   75f0	scorebd.elf
+Finished building: scorebd.elf.size
+ 
+Invoking: Xilinx ELF Check
+elfcheck scorebd.elf -hw ../../scoreboard_hw_platform/system.xml -pe microblaze_0  |tee "scorebd.elf.elfcheck"
+elfcheck
+Xilinx EDK 14.7 Build EDK_P.20131013
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+Command Line: elfcheck -hw ../../scoreboard_hw_platform/system.xml -pe
+microblaze_0 scorebd.elf 
+
+ELF file	: scorebd.elf
+elfcheck passed.
+Finished building: scorebd.elf.elfcheck
+ 
+18:55:25 **** Auto Build of project standalone_bsp_0 ****
+make -k all 
+Finished building libraries
+18:55:38 **** Auto Build of configuration Debug for project scorebd ****
+make all 
+make: Nothing to be done for `all'.
+18:55:39 **** Auto Build of project standalone_bsp_0 ****
+make -k all 
+Finished building libraries
+19:01:59 **** Auto Build of configuration Debug for project scorebd ****
+make all 
+Building file: ../src/main.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../standalone_bsp_0/microblaze_0/include -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.c"
+Finished building: ../src/main.c
+ 
+Building target: scorebd.elf
+Invoking: MicroBlaze gcc linker
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../standalone_bsp_0/microblaze_0/lib -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "scorebd.elf"  ./src/kbDecode.o ./src/main.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+Finished building target: scorebd.elf
+ 
+Invoking: MicroBlaze Print Size
+mb-size scorebd.elf  |tee "scorebd.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  26120	   1648	   2480	  30248	   7628	scorebd.elf
+Finished building: scorebd.elf.size
+ 
+Invoking: Xilinx ELF Check
+elfcheck scorebd.elf -hw ../../scoreboard_hw_platform/system.xml -pe microblaze_0  |tee "scorebd.elf.elfcheck"
+elfcheck
+Xilinx EDK 14.7 Build EDK_P.20131013
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+Command Line: elfcheck -hw ../../scoreboard_hw_platform/system.xml -pe
+microblaze_0 scorebd.elf 
+
+ELF file	: scorebd.elf
+elfcheck passed.
+Finished building: scorebd.elf.elfcheck
+ 
+19:02:06 **** Auto Build of project standalone_bsp_0 ****
+make -k all 
+Finished building libraries
+19:04:20 **** Auto Build of configuration Debug for project scorebd ****
+make all 
+Building file: ../src/main.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../standalone_bsp_0/microblaze_0/include -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.c"
+Finished building: ../src/main.c
+ 
+Building target: scorebd.elf
+Invoking: MicroBlaze gcc linker
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../standalone_bsp_0/microblaze_0/lib -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "scorebd.elf"  ./src/kbDecode.o ./src/main.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+Finished building target: scorebd.elf
+ 
+Invoking: MicroBlaze Print Size
+mb-size scorebd.elf  |tee "scorebd.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  26164	   1648	   2484	  30296	   7658	scorebd.elf
+Finished building: scorebd.elf.size
+ 
+Invoking: Xilinx ELF Check
+elfcheck scorebd.elf -hw ../../scoreboard_hw_platform/system.xml -pe microblaze_0  |tee "scorebd.elf.elfcheck"
+elfcheck
+Xilinx EDK 14.7 Build EDK_P.20131013
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+Command Line: elfcheck -hw ../../scoreboard_hw_platform/system.xml -pe
+microblaze_0 scorebd.elf 
+
+ELF file	: scorebd.elf
+elfcheck passed.
+Finished building: scorebd.elf.elfcheck
+ 
+19:04:27 **** Auto Build of project standalone_bsp_0 ****
+make -k all 
+Finished building libraries
+19:04:42 **** Auto Build of configuration Debug for project scorebd ****
+make all 
+make: Nothing to be done for `all'.
+19:04:42 **** Auto Build of project standalone_bsp_0 ****
+make -k all 
+Finished building libraries
+19:20:02 **** Auto Build of configuration Debug for project scorebd ****
+make all 
+Building file: ../src/main.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../standalone_bsp_0/microblaze_0/include -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.c"
+Finished building: ../src/main.c
+ 
+Building target: scorebd.elf
+Invoking: MicroBlaze gcc linker
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../standalone_bsp_0/microblaze_0/lib -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "scorebd.elf"  ./src/kbDecode.o ./src/main.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+Finished building target: scorebd.elf
+ 
+Invoking: MicroBlaze Print Size
+mb-size scorebd.elf  |tee "scorebd.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  25912	   1648	   2480	  30040	   7558	scorebd.elf
+Finished building: scorebd.elf.size
+ 
+Invoking: Xilinx ELF Check
+elfcheck scorebd.elf -hw ../../scoreboard_hw_platform/system.xml -pe microblaze_0  |tee "scorebd.elf.elfcheck"
+elfcheck
+Xilinx EDK 14.7 Build EDK_P.20131013
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+Command Line: elfcheck -hw ../../scoreboard_hw_platform/system.xml -pe
+microblaze_0 scorebd.elf 
+
+ELF file	: scorebd.elf
+elfcheck passed.
+Finished building: scorebd.elf.elfcheck
+ 
+19:20:09 **** Auto Build of project standalone_bsp_0 ****
+make -k all 
+Finished building libraries
+19:20:24 **** Auto Build of configuration Debug for project scorebd ****
+make all 
+Building file: ../src/main.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../standalone_bsp_0/microblaze_0/include -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.c"
+Finished building: ../src/main.c
+ 
+Building target: scorebd.elf
+Invoking: MicroBlaze gcc linker
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../standalone_bsp_0/microblaze_0/lib -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "scorebd.elf"  ./src/kbDecode.o ./src/main.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+Finished building target: scorebd.elf
+ 
+Invoking: MicroBlaze Print Size
+mb-size scorebd.elf  |tee "scorebd.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  25912	   1648	   2480	  30040	   7558	scorebd.elf
+Finished building: scorebd.elf.size
+ 
+Invoking: Xilinx ELF Check
+elfcheck scorebd.elf -hw ../../scoreboard_hw_platform/system.xml -pe microblaze_0  |tee "scorebd.elf.elfcheck"
+elfcheck
+Xilinx EDK 14.7 Build EDK_P.20131013
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+Command Line: elfcheck -hw ../../scoreboard_hw_platform/system.xml -pe
+microblaze_0 scorebd.elf 
+
+ELF file	: scorebd.elf
+elfcheck passed.
+Finished building: scorebd.elf.elfcheck
+ 
+19:20:31 **** Auto Build of project standalone_bsp_0 ****
+make -k all 
+Finished building libraries
+19:20:42 **** Auto Build of configuration Debug for project scorebd ****
+make all 
+make: Nothing to be done for `all'.
+19:20:42 **** Auto Build of project standalone_bsp_0 ****
+make -k all 
+Finished building libraries
+19:23:32 **** Auto Build of configuration Debug for project scorebd ****
+make all 
+Building file: ../src/main.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../standalone_bsp_0/microblaze_0/include -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.c"
+Finished building: ../src/main.c
+ 
+Building target: scorebd.elf
+Invoking: MicroBlaze gcc linker
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../standalone_bsp_0/microblaze_0/lib -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "scorebd.elf"  ./src/kbDecode.o ./src/main.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+Finished building target: scorebd.elf
+ 
+Invoking: MicroBlaze Print Size
+mb-size scorebd.elf  |tee "scorebd.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  25916	   1648	   2484	  30048	   7560	scorebd.elf
+Finished building: scorebd.elf.size
+ 
+Invoking: Xilinx ELF Check
+elfcheck scorebd.elf -hw ../../scoreboard_hw_platform/system.xml -pe microblaze_0  |tee "scorebd.elf.elfcheck"
+elfcheck
+Xilinx EDK 14.7 Build EDK_P.20131013
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+Command Line: elfcheck -hw ../../scoreboard_hw_platform/system.xml -pe
+microblaze_0 scorebd.elf 
+
+ELF file	: scorebd.elf
+elfcheck passed.
+Finished building: scorebd.elf.elfcheck
+ 
+19:23:39 **** Auto Build of project standalone_bsp_0 ****
+make -k all 
+Finished building libraries
+19:25:30 **** Auto Build of configuration Debug for project scorebd ****
+make all 
+Building file: ../src/main.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../standalone_bsp_0/microblaze_0/include -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.c"
+Finished building: ../src/main.c
+ 
+Building target: scorebd.elf
+Invoking: MicroBlaze gcc linker
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../standalone_bsp_0/microblaze_0/lib -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "scorebd.elf"  ./src/kbDecode.o ./src/main.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+Finished building target: scorebd.elf
+ 
+Invoking: MicroBlaze Print Size
+mb-size scorebd.elf  |tee "scorebd.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  25932	   1648	   2484	  30064	   7570	scorebd.elf
+Finished building: scorebd.elf.size
+ 
+Invoking: Xilinx ELF Check
+elfcheck scorebd.elf -hw ../../scoreboard_hw_platform/system.xml -pe microblaze_0  |tee "scorebd.elf.elfcheck"
+elfcheck
+Xilinx EDK 14.7 Build EDK_P.20131013
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+Command Line: elfcheck -hw ../../scoreboard_hw_platform/system.xml -pe
+microblaze_0 scorebd.elf 
+
+ELF file	: scorebd.elf
+elfcheck passed.
+Finished building: scorebd.elf.elfcheck
+ 
+19:25:36 **** Auto Build of project standalone_bsp_0 ****
+make -k all 
+Finished building libraries
+19:25:53 **** Auto Build of configuration Debug for project scorebd ****
+make all 
+make: Nothing to be done for `all'.
+19:25:53 **** Auto Build of project standalone_bsp_0 ****
+make -k all 
+Finished building libraries
+19:37:33 **** Auto Build of configuration Debug for project scorebd ****
+make all 
+Building file: ../src/main.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../standalone_bsp_0/microblaze_0/include -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.c"
+Finished building: ../src/main.c
+ 
+Building target: scorebd.elf
+Invoking: MicroBlaze gcc linker
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../standalone_bsp_0/microblaze_0/lib -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "scorebd.elf"  ./src/kbDecode.o ./src/main.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+Finished building target: scorebd.elf
+ 
+Invoking: MicroBlaze Print Size
+mb-size scorebd.elf  |tee "scorebd.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  25932	   1648	   2484	  30064	   7570	scorebd.elf
+Finished building: scorebd.elf.size
+ 
+Invoking: Xilinx ELF Check
+elfcheck scorebd.elf -hw ../../scoreboard_hw_platform/system.xml -pe microblaze_0  |tee "scorebd.elf.elfcheck"
+elfcheck
+Xilinx EDK 14.7 Build EDK_P.20131013
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+Command Line: elfcheck -hw ../../scoreboard_hw_platform/system.xml -pe
+microblaze_0 scorebd.elf 
+
+ELF file	: scorebd.elf
+elfcheck passed.
+Finished building: scorebd.elf.elfcheck
+ 
+19:37:39 **** Auto Build of project standalone_bsp_0 ****
+make -k all 
+Finished building libraries
+19:37:53 **** Auto Build of configuration Debug for project scorebd ****
+make all 
+make: Nothing to be done for `all'.
+19:37:53 **** Auto Build of project standalone_bsp_0 ****
+make -k all 
+Finished building libraries
+19:39:15 **** Auto Build of configuration Debug for project scorebd ****
+make all 
+Building file: ../src/main.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../standalone_bsp_0/microblaze_0/include -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.c"
+Finished building: ../src/main.c
+ 
+Building target: scorebd.elf
+Invoking: MicroBlaze gcc linker
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../standalone_bsp_0/microblaze_0/lib -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "scorebd.elf"  ./src/kbDecode.o ./src/main.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+Finished building target: scorebd.elf
+ 
+Invoking: MicroBlaze Print Size
+mb-size scorebd.elf  |tee "scorebd.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  25932	   1648	   2484	  30064	   7570	scorebd.elf
+Finished building: scorebd.elf.size
+ 
+Invoking: Xilinx ELF Check
+elfcheck scorebd.elf -hw ../../scoreboard_hw_platform/system.xml -pe microblaze_0  |tee "scorebd.elf.elfcheck"
+elfcheck
+Xilinx EDK 14.7 Build EDK_P.20131013
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+Command Line: elfcheck -hw ../../scoreboard_hw_platform/system.xml -pe
+microblaze_0 scorebd.elf 
+
+ELF file	: scorebd.elf
+elfcheck passed.
+Finished building: scorebd.elf.elfcheck
+ 
+19:39:21 **** Auto Build of project standalone_bsp_0 ****
+make -k all 
+Finished building libraries
+19:39:42 **** Auto Build of configuration Debug for project scorebd ****
+make all 
+make: Nothing to be done for `all'.
+19:39:43 **** Auto Build of project standalone_bsp_0 ****
+make -k all 
+Finished building libraries
+19:44:21 **** Auto Build of configuration Debug for project scorebd ****
+make all 
+Building file: ../src/main.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../standalone_bsp_0/microblaze_0/include -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.c"
+Finished building: ../src/main.c
+ 
+Building target: scorebd.elf
+Invoking: MicroBlaze gcc linker
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../standalone_bsp_0/microblaze_0/lib -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "scorebd.elf"  ./src/kbDecode.o ./src/main.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+Finished building target: scorebd.elf
+ 
+Invoking: MicroBlaze Print Size
+mb-size scorebd.elf  |tee "scorebd.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  25932	   1648	   2484	  30064	   7570	scorebd.elf
+Finished building: scorebd.elf.size
+ 
+Invoking: Xilinx ELF Check
+elfcheck scorebd.elf -hw ../../scoreboard_hw_platform/system.xml -pe microblaze_0  |tee "scorebd.elf.elfcheck"
+elfcheck
+Xilinx EDK 14.7 Build EDK_P.20131013
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+Command Line: elfcheck -hw ../../scoreboard_hw_platform/system.xml -pe
+microblaze_0 scorebd.elf 
+
+ELF file	: scorebd.elf
+elfcheck passed.
+Finished building: scorebd.elf.elfcheck
+ 
+19:44:28 **** Auto Build of project standalone_bsp_0 ****
+make -k all 
+Finished building libraries
+19:45:03 **** Auto Build of configuration Debug for project scorebd ****
+make all 
+Building file: ../src/main.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../standalone_bsp_0/microblaze_0/include -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.c"
+../src/main.c: In function 'goStopWatch':
+../src/main.c:569:2: error: 'stw_tenthsec' undeclared (first use in this function)
+../src/main.c:569:2: note: each undeclared identifier is reported only once for each function it appears in
+../src/main.c:573:3: error: 'stw_seconds' undeclared (first use in this function)
+../src/main.c:577:4: error: 'stw_minutes' undeclared (first use in this function)
+../src/main.c:581:5: error: 'stw_hours' undeclared (first use in this function)
+make: *** [src/main.o] ´íÎó 1
+19:45:03 **** Auto Build of project standalone_bsp_0 ****
+make -k all 
+Finished building libraries
+19:45:33 **** Auto Build of configuration Debug for project scorebd ****
+make all 
+Building file: ../src/main.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../standalone_bsp_0/microblaze_0/include -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.c"
+Finished building: ../src/main.c
+ 
+Building target: scorebd.elf
+Invoking: MicroBlaze gcc linker
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../standalone_bsp_0/microblaze_0/lib -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "scorebd.elf"  ./src/kbDecode.o ./src/main.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+Finished building target: scorebd.elf
+ 
+Invoking: MicroBlaze Print Size
+mb-size scorebd.elf  |tee "scorebd.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  25932	   1648	   2444	  30024	   7548	scorebd.elf
+Finished building: scorebd.elf.size
+ 
+Invoking: Xilinx ELF Check
+elfcheck scorebd.elf -hw ../../scoreboard_hw_platform/system.xml -pe microblaze_0  |tee "scorebd.elf.elfcheck"
+elfcheck
+Xilinx EDK 14.7 Build EDK_P.20131013
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+Command Line: elfcheck -hw ../../scoreboard_hw_platform/system.xml -pe
+microblaze_0 scorebd.elf 
+
+ELF file	: scorebd.elf
+elfcheck passed.
+Finished building: scorebd.elf.elfcheck
+ 
+19:45:40 **** Auto Build of project standalone_bsp_0 ****
+make -k all 
+Finished building libraries
+19:47:04 **** Auto Build of configuration Debug for project scorebd ****
+make all 
+Building file: ../src/main.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../standalone_bsp_0/microblaze_0/include -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.c"
+Finished building: ../src/main.c
+ 
+Building target: scorebd.elf
+Invoking: MicroBlaze gcc linker
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../standalone_bsp_0/microblaze_0/lib -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "scorebd.elf"  ./src/kbDecode.o ./src/main.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+Finished building target: scorebd.elf
+ 
+Invoking: MicroBlaze Print Size
+mb-size scorebd.elf  |tee "scorebd.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  25932	   1648	   2444	  30024	   7548	scorebd.elf
+Finished building: scorebd.elf.size
+ 
+Invoking: Xilinx ELF Check
+elfcheck scorebd.elf -hw ../../scoreboard_hw_platform/system.xml -pe microblaze_0  |tee "scorebd.elf.elfcheck"
+elfcheck
+Xilinx EDK 14.7 Build EDK_P.20131013
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+Command Line: elfcheck -hw ../../scoreboard_hw_platform/system.xml -pe
+microblaze_0 scorebd.elf 
+
+ELF file	: scorebd.elf
+elfcheck passed.
+Finished building: scorebd.elf.elfcheck
+ 
+19:47:10 **** Auto Build of project standalone_bsp_0 ****
+make -k all 
+Finished building libraries
+19:47:36 **** Auto Build of configuration Debug for project scorebd ****
+make all 
+Building file: ../src/main.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../standalone_bsp_0/microblaze_0/include -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.c"
+Finished building: ../src/main.c
+ 
+Building target: scorebd.elf
+Invoking: MicroBlaze gcc linker
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../standalone_bsp_0/microblaze_0/lib -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "scorebd.elf"  ./src/kbDecode.o ./src/main.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+Finished building target: scorebd.elf
+ 
+Invoking: MicroBlaze Print Size
+mb-size scorebd.elf  |tee "scorebd.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  25932	   1648	   2444	  30024	   7548	scorebd.elf
+Finished building: scorebd.elf.size
+ 
+Invoking: Xilinx ELF Check
+elfcheck scorebd.elf -hw ../../scoreboard_hw_platform/system.xml -pe microblaze_0  |tee "scorebd.elf.elfcheck"
+elfcheck
+Xilinx EDK 14.7 Build EDK_P.20131013
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+Command Line: elfcheck -hw ../../scoreboard_hw_platform/system.xml -pe
+microblaze_0 scorebd.elf 
+
+ELF file	: scorebd.elf
+elfcheck passed.
+Finished building: scorebd.elf.elfcheck
+ 
+19:47:42 **** Auto Build of project standalone_bsp_0 ****
+make -k all 
+Finished building libraries
+19:48:03 **** Auto Build of configuration Debug for project scorebd ****
+make all 
+Building file: ../src/main.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../standalone_bsp_0/microblaze_0/include -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.c"
+../src/main.c: In function 'main':
+../src/main.c:271:8: error: 'set_flag' undeclared (first use in this function)
+../src/main.c:271:8: note: each undeclared identifier is reported only once for each function it appears in
+../src/main.c:271:27: error: 'SET_CODE' undeclared (first use in this function)
+../src/main.c: In function 'decodeKbPress':
+../src/main.c:579:4: error: 'set_flag' undeclared (first use in this function)
+../src/main.c:580:4: error: 'SET_CODE' undeclared (first use in this function)
+../src/main.c: In function 'kb_events':
+../src/main.c:640:10: error: 'SET_CODE' undeclared (first use in this function)
+make: *** [src/main.o] ´íÎó 1
+19:48:04 **** Auto Build of project standalone_bsp_0 ****
+make -k all 
+Finished building libraries
+19:48:41 **** Auto Build of configuration Debug for project scorebd ****
+make all 
+Building file: ../src/main.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../standalone_bsp_0/microblaze_0/include -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.c"
+Finished building: ../src/main.c
+ 
+Building target: scorebd.elf
+Invoking: MicroBlaze gcc linker
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../standalone_bsp_0/microblaze_0/lib -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "scorebd.elf"  ./src/kbDecode.o ./src/main.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+Finished building target: scorebd.elf
+ 
+Invoking: MicroBlaze Print Size
+mb-size scorebd.elf  |tee "scorebd.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  25932	   1648	   2444	  30024	   7548	scorebd.elf
+Finished building: scorebd.elf.size
+ 
+Invoking: Xilinx ELF Check
+elfcheck scorebd.elf -hw ../../scoreboard_hw_platform/system.xml -pe microblaze_0  |tee "scorebd.elf.elfcheck"
+elfcheck
+Xilinx EDK 14.7 Build EDK_P.20131013
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+Command Line: elfcheck -hw ../../scoreboard_hw_platform/system.xml -pe
+microblaze_0 scorebd.elf 
+
+ELF file	: scorebd.elf
+elfcheck passed.
+Finished building: scorebd.elf.elfcheck
+ 
+19:48:47 **** Auto Build of project standalone_bsp_0 ****
+make -k all 
+Finished building libraries
+19:49:48 **** Auto Build of configuration Debug for project scorebd ****
+make all 
+Building file: ../src/main.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../standalone_bsp_0/microblaze_0/include -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.c"
+Finished building: ../src/main.c
+ 
+Building target: scorebd.elf
+Invoking: MicroBlaze gcc linker
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../standalone_bsp_0/microblaze_0/lib -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "scorebd.elf"  ./src/kbDecode.o ./src/main.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+Finished building target: scorebd.elf
+ 
+Invoking: MicroBlaze Print Size
+mb-size scorebd.elf  |tee "scorebd.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  25932	   1648	   2444	  30024	   7548	scorebd.elf
+Finished building: scorebd.elf.size
+ 
+Invoking: Xilinx ELF Check
+elfcheck scorebd.elf -hw ../../scoreboard_hw_platform/system.xml -pe microblaze_0  |tee "scorebd.elf.elfcheck"
+elfcheck
+Xilinx EDK 14.7 Build EDK_P.20131013
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+Command Line: elfcheck -hw ../../scoreboard_hw_platform/system.xml -pe
+microblaze_0 scorebd.elf 
+
+ELF file	: scorebd.elf
+elfcheck passed.
+Finished building: scorebd.elf.elfcheck
+ 
+19:49:54 **** Auto Build of project standalone_bsp_0 ****
+make -k all 
+Finished building libraries

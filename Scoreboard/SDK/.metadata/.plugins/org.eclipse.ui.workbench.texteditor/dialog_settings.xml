@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
+		<item value="353" key="DIALOG_WIDTH"/>
+		<item value="392" key="DIALOG_Y_ORIGIN"/>
+		<item value="513" key="DIALOG_HEIGHT"/>
+		<item value="1317" key="DIALOG_X_ORIGIN"/>
+		<item value="1|Segoe UI|9.0|0|WINDOWS|1|-18|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI" key="DIALOG_FONT_NAME"/>
+	</section>
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
+		<item value="true" key="wrap"/>
+		<item value="false" key="isRegEx"/>
+		<item value="false" key="casesensitive"/>
+		<item value="false" key="incremental"/>
+		<item value="false" key="wholeword"/>
+		<item value="goGameTimer" key="selection"/>
+		<list key="findhistory">
+			<item value="goGameTimer"/>
+			<item value="alarm_reset"/>
+			<item value="alarm_flag"/>
+			<item value="kb_buffer"/>
+			<item value="counter1"/>
+			<item value="al_minutes"/>
+			<item value="&gt;"/>
+			<item value="kb_number"/>
+		</list>
+		<list key="replacehistory">
+			<item value="player_fouls"/>
+			<item value="pFouls"/>
+			<item value="event_flag"/>
+			<item value="input_flag"/>
+			<item value=""/>
+		</list>
+	</section>
+</section>

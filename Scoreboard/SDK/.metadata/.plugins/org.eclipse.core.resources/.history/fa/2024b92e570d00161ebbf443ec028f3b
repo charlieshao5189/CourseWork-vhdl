@@ -1,0 +1,1038 @@
+/*
+ * 	main.c
+ *
+ *  Created on: Mar 2, 2016
+ *  Author: Qinghui Liu (Brian Liu)
+ *
+ *
+ */
+
+#include <stdio.h>
+#include "xio.h"
+#include "xbasic_types.h"
+#include "xparameters.h"
+#include "xstatus.h"
+#include "xil_exception.h"
+#include "xintc.h"
+#include "mb_interface.h"
+#include <xgpio.h>
+#include "xtft.h"
+#include "xps2.h"
+#include "xtmrctr_l.h"
+#include "xtmrctr.h"
+// covert int to u8[] or u8[] to int and decode kb number input
+#include "kbDecode.h"
+
+#define printf xil_printf	   	/* A smaller footprint printf */
+//Ps2 Polled model
+#define PS2_DEVICE_ID		XPAR_PS2_0_DEVICE_ID
+#define INTC_DEVICE_ID		XPAR_INTC_0_DEVICE_ID
+static XPs2 Ps2Inst; 		/* Ps2 driver instance */
+u8 KbBuffer, prKeyCode, nwKeyCode, inputKey;
+
+//Ps2 interrupt model
+#define INTR_ID			XPAR_INTC_0_PS2_0_IP2INTC_IRPT_1_VEC_ID
+#define TOTAL_TEST_BYTES	4 	/* Total Number of bytes to be*/
+
+static XIntc IntcInst; 		/* Instance of the XIntc driver. */
+
+void Ps2IntrHandler(void *CallBackRef, u32 IntrMask, u32 ByteCount);
+//TFT VGA
+#define TFT_DEVICE_ID	XPAR_TFT_0_DEVICE_ID
+//#define TFT_FRAME_ADDR		XPAR_EMC_0_MEM0_HIGHADDR - 0x001FFFFF
+#define TFT_FRAME_ADDR		XPAR_EMC_0_MEM0_BASEADDR
+#define DISPLAY_COLUMNS  	640
+#define DISPLAY_ROWS     	480
+#define FGCOLOR_VALUE		0x0000FF00	/**< Foreground Color - Green */
+#define BGCOLOR_VALUE		0x0		/**< Background Color - Black */
+#define GREEN 				0x0000ff00
+#define RED 				0x00ff0000
+#define BLUE 				0x000000ff
+#define WHITE 				0x00ffffff	/**< Color - White */
+#define GREY				0x00AAAAAA  //grey
+#define LITE_GREY			0x00333333
+#define NS_GREY				0x00777777
+#define NEW_COL				0x0000ffff
+#define YELLOW				0x00FFFF00
+#define LIGHT_YELLOW		0x00FFFF66
+#define SILVER    			0x00C0C0C0
+#define OLIVE				0x00808000
+#define BLUEVIOLET			0x008A2BE2
+#define DEEPSKY				0x0000BFFF
+#define TOMATO				0x00FF6347
+#define CRIMSON				0x00DC143C
+
+//#define ID_SSG XPAR_DIGILENT_SEVSEG_DISP_BASEADDR // sevseg add
+
+/***************** TFT Function Prototypes ************************/
+static XTft TftInstance; /* TFT driver instance */
+int TftWriteString(XTft *InstancePtr, const u8 *CharValue);
+int XTft_DrawBox(XTft *Tft, int x1, int y1, int x2, int y2, unsigned int col);
+int XTft_DrawSolidBox(XTft *Tft, int x1, int y1, int x2, int y2, unsigned int col);
+int TftDrawLine(XTft *InstancePtr, int ColStartPos, int RowStartPos,
+				int ColEndPos, int RowEndPos, unsigned int PixelVal);
+int Draw_UIBox (XTft *TftInstance, unsigned int col);
+void Tft_WriteChar(XTft* InstancePtr, u8 CharValue,
+				u32 ColStartVal, u32 RowStartVal, u32 FgColor,
+				u32 BgColor);
+//int Draw_Circle(XTft *TftInstance, int Xmin, int Ymin,  unsigned int col);
+
+
+
+//#define TMRCTR_DEVICE_ID	XPAR_TMRCTR_0_DEVICE_ID
+//#define TMRCTR_DEVICE_ID	XPAR_XPS_TIMER_0_DEVICE_ID
+//#define INTC_DEVICE_ID		XPAR_INTC_0_DEVICE_ID
+//#define TMRCTR_INTERRUPT_ID	XPAR_INTC_0_TMRCTR_0_VEC_ID
+#define TMRCTR_INTERRUPT_ID	XPAR_XPS_INTC_0_XPS_TIMER_0_INTERRUPT_INTR
+//#define TIMER_FREQ XPAR_XPS_TIMER_0_CLOCK_FREQ_HZ
+#define ONE_SECOND 		XPAR_XPS_TIMER_0_CLOCK_FREQ_HZ
+#define TENTH_SECOND 	XPAR_XPS_TIMER_0_CLOCK_FREQ_HZ/10
+#define HUNDH_SECOND	XPAR_XPS_TIMER_0_CLOCK_FREQ_HZ/100
+
+static XTmrCtr tmrctr;
+volatile int timerExpired;
+void TimerCounterHandler(void *CallBackRef, u8 TmrCtrNumber);
+
+//states flag variables
+u8 set_flag = 0, SET_CODE =0x00, alarm_flag =0, alarm_reset=0;
+//u8 timer_reset = 0, timer_alarm = 0;
+u8 tm_start_flag = 0, tm_pause_flag = 0, tm_res_flag = 0, tm_rst_flag = 0;
+u8 stw_start_flag =0, stw_lap_flag=0, stw_rst_flag = 0;
+u8 event_flag =0;
+u8 kb_number[]="0000000000";
+u8* pkb_nb = kb_number;
+
+//display strings
+u8 rt_TS[] = "00", rt_SS[] = "00", rt_MM[] = "00",rt_HH[] = "00";
+u8 rt_DD[] = "01", rt_MN[] = "01", rt_YY[] = "1600";
+u8 al_HH[] = "00", al_MM[] = "00";
+u8 tm_HH[] = "00", tm_MM[] = "00",tm_SS[] ="00",tm_TS[] ="00";
+u8 lap_HH[]= "00", lap_MM[]= "00",lap_SS[]="00",lap_TS[]="00";
+u8 stw_HH[]= "00", stw_MM[]= "00",stw_SS[]="00",stw_TS[]="00";
+u8 kb_buffer[]="00";
+
+//
+int rt_hours, rt_minutes, rt_seconds, rt_tenthsec =0;
+int al_hours, al_minutes, tm_hours, tm_seconds, tm_tenthsec, tm_minutes = 10;
+int stw_hours, stw_minutes, stw_seconds, stw_tenthsec;
+int rt_days, rt_months, rt_years;
+unsigned int counter1;
+
+int home_score = 0, home_tol = 0, home_fouls = 0;
+int visit_score = 0, visit_tol = 0, visit_fouls = 0;
+int gtm_minutes = 10, game_period = 1, stm_seconds = 24;
+
+int gtm_seconds, gtm_tenthsec;
+u8 gtm_MM[] = "00",gtm_SS[] ="00",gtm_TS[] ="00";
+int stm_tenthsec = 0;
+u8 stm_SS[] ="00",stm_TS[] ="00", prd_NM[]="00";
+u8 gtm_start_flag =0, stm_start_flag=0;
+
+u8 SCORE_H[] ="000",SCORE_V[] ="000", FOULS_H[]="00",FOULS_V[]="00", TOL_H[]="00", TOL_V[]="00";
+
+#define right_offset 324
+
+void Graphic_UI();		//initialize GUI
+void decodeKbPress();	//process pressed keys
+void kb_events();		//process valid key events
+void Rt_Clock();		//real time clock by 0.01 seconds
+void goStopWatch();		//start stop watch counter
+void goTimer();			//start timer counter
+void goGameTimer();		//start game timer counter
+void goShotTimer();		//start game timer counter
+
+void goTimer()
+{
+	//tm_tenthsec --;
+
+}
+
+void goShotTimer()
+{
+	//tm_tenthsec --;
+
+	if (stm_tenthsec > 0){
+		stm_tenthsec --;
+		//int2str(stm_tenthsec,stm_TS);
+	}else{
+		if(stm_seconds > 0){
+			stm_seconds--;
+			//int2str(stm_seconds,stm_SS);
+			stm_tenthsec = 9;
+		}else{
+			stm_start_flag = 0;
+		}
+	}
+}
+
+void goGameTimer()
+{
+	//tm_tenthsec --;
+
+	if (gtm_tenthsec > 0){
+		gtm_tenthsec --;
+		int2str(gtm_tenthsec,gtm_TS);
+	}else{
+		if(gtm_seconds > 0){
+			gtm_seconds--;
+			int2str(gtm_seconds,gtm_SS);
+			gtm_tenthsec = 9;
+			int2str(gtm_tenthsec,gtm_TS);
+		}else{
+			if (gtm_minutes > 0) {
+				gtm_minutes--;
+				int2str(gtm_minutes,gtm_MM);
+				gtm_seconds = 59;
+				int2str(gtm_seconds,gtm_SS);
+				gtm_tenthsec = 9;
+			}else {
+				gtm_start_flag = 0;
+			}
+		}
+	}
+}
+
+int main()
+{
+	int status = XST_FAILURE;
+
+/**************************************timer interrupts code**************************************/
+	microblaze_enable_interrupts();
+	XIntc* gpIntc = &IntcInst;			// Pointer to Interrupt Controller
+	XTmrCtr* gpTmrCtr = &tmrctr;	// Pointer to Timer Counter, used for general timing
+	status = XTmrCtr_Initialize( gpTmrCtr, 0 ); 		 // Initialize the first counter
+	status = XIntc_Initialize( gpIntc, INTC_DEVICE_ID ); // Initialize the interrupt controller
+	// Connect a device driver handler to call when an interrupt triggers for a device
+	status = XIntc_Connect( gpIntc, TMRCTR_INTERRUPT_ID,
+			(XInterruptHandler)XTmrCtr_InterruptHandler,
+			(void*)gpTmrCtr );
+	status = XIntc_Start( gpIntc, XIN_REAL_MODE ); // Start the interrupt with XIN_REAL_MODE
+	//if ( status != XST_SUCCESS) return XST_FAILURE;
+
+	XIntc_Enable( gpIntc, TMRCTR_INTERRUPT_ID );
+	XTmrCtr_SetHandler( gpTmrCtr, TimerCounterHandler, gpTmrCtr );
+	XTmrCtr_SetOptions( gpTmrCtr, 0,
+			XTC_DOWN_COUNT_OPTION | XTC_INT_MODE_OPTION | XTC_AUTO_RELOAD_OPTION );
+
+	//Set reset value for XTmrCtr
+	//XTmrCtr_SetResetValue( gpTmrCtr, 0, ONE_SECOND );
+	XTmrCtr_SetResetValue( gpTmrCtr, 0, HUNDH_SECOND );
+	XTmrCtr_Start( gpTmrCtr, 0 );
+
+/**************************************TFT VGA Module**************************************/
+	XTft_Config *TftConfigPtr;
+	u32 Delay;
+
+	/* * Get address of xtft_config structure from the device ID*/
+	TftConfigPtr = XTft_LookupConfig(TFT_DEVICE_ID);
+	if (TftConfigPtr == (XTft_Config *)NULL)  return XST_FAILURE;
+
+	/* * initialize tftInstance and fills screen with default background color*/
+	status = XTft_CfgInitialize(&TftInstance, TftConfigPtr,
+				 	TftConfigPtr->BaseAddress);
+	if (status != XST_SUCCESS) 	return XST_FAILURE;
+
+	/* * Wait till Vsync(Video address latch) status bit is set before writing
+	 * the frame address into the Address Register. */
+	while (XTft_GetVsyncStatus(&TftInstance) !=
+					XTFT_IESR_VADDRLATCH_STATUS_MASK);
+
+	/* * Change the Video Memory Base Address from default value to
+	 * a valid Memory Address and clear the screen.*/
+	//XTft_ScanNormal(&TftInstance);
+	XTft_SetFrameBaseAddr(&TftInstance, TFT_FRAME_ADDR);
+	XTft_SetColor(&TftInstance, 0, 0);
+	XTft_ClearScreen(&TftInstance);
+	for(Delay = 0; Delay <10000000; Delay++);
+
+
+
+/**************************************Ps2 Code interrupt model **************************************/
+	XPs2_Config *ConfigPtr;
+	ConfigPtr = XPs2_LookupConfig(PS2_DEVICE_ID);
+	XPs2_CfgInitialize(&Ps2Inst, ConfigPtr, ConfigPtr->BaseAddress);
+	//status = XIntc_Initialize(&IntcInst, INTC_DEVICE_ID);
+	status = XIntc_Connect(gpIntc, INTR_ID,
+					(XInterruptHandler) XPs2_IntrHandler,
+					&Ps2Inst);
+	//status = XIntc_Start(gpIntc, XIN_REAL_MODE);
+	XIntc_Enable(gpIntc, INTR_ID);
+	XPs2_SetHandler(&Ps2Inst,(XPs2_Handler)Ps2IntrHandler, &Ps2Inst);
+	XPs2_IntrEnable(&Ps2Inst, XPS2_IPIXR_RX_ALL);
+	XPs2_IntrGlobalEnable(&Ps2Inst);
+
+
+/***** Start Graphic UI******/
+	Graphic_UI();
+
+//..enter loop
+
+	int loop = 1, initial = 1;
+	while (loop == 1)
+	{
+//display real time clock
+		XTft_SetPos(&TftInstance, 515, 11);
+		XTft_SetColor(&TftInstance, SILVER, 0);			 // clk_color = GREEN
+		//TftWriteString(&TftInstance, rt_HH);
+		XTft_Write(&TftInstance, rt_HH[0]);
+		XTft_Write(&TftInstance, rt_HH[1]);
+		TftWriteString(&TftInstance, (u8*)" : ");
+		//TftWriteString(&TftInstance, rt_MM);
+		XTft_Write(&TftInstance, rt_MM[0]);
+		XTft_Write(&TftInstance, rt_MM[1]);
+		TftWriteString(&TftInstance, (u8*)"->");
+		//TftWriteString(&TftInstance, rt_SS);
+		XTft_Write(&TftInstance, rt_SS[0]);
+		XTft_Write(&TftInstance, rt_SS[1]);
+
+// display game timer
+	if (((set_flag == 1) && (SET_CODE == 0x01)) || 	//F9  key
+		(gtm_start_flag ==1) || (initial == 1)){
+		int2str(gtm_minutes,gtm_MM);
+		int2str(gtm_seconds,gtm_SS);
+		int2str(gtm_tenthsec,gtm_TS);
+		XTft_SetPos(&TftInstance, 185, 11);
+		XTft_SetColor(&TftInstance, CRIMSON, BLUE);
+		XTft_Write(&TftInstance, gtm_MM[0]);
+		TftWriteString(&TftInstance, (u8*)" ");
+		XTft_Write(&TftInstance, gtm_MM[1]);
+		TftWriteString(&TftInstance, (u8*)" : ");
+		XTft_Write(&TftInstance, gtm_SS[0]);
+		TftWriteString(&TftInstance, (u8*)" ");
+		XTft_Write(&TftInstance, gtm_SS[1]);
+		TftWriteString(&TftInstance, (u8*)"  .  ");
+		XTft_Write(&TftInstance, gtm_TS[1]);
+	}
+// display shot timer
+	if (((set_flag == 1) && (SET_CODE == 0x09)) ||
+		(stm_start_flag ==1) || (initial == 1)){		//F10  key
+		int2str(stm_seconds,stm_SS);
+		XTft_SetPos(&TftInstance, 200, 46);
+		XTft_SetColor(&TftInstance, NEW_COL, 0);			// shot_color = GREEN
+		XTft_Write(&TftInstance, stm_SS[0]);
+		TftWriteString(&TftInstance, (u8*)" ");
+		XTft_Write(&TftInstance, stm_SS[1]);
+	}
+// display period number
+	if (((set_flag == 1) && (SET_CODE == 0x78)) || (initial == 1)){		//F11  key
+		if (game_period > 4){
+			game_period = 5;
+			XTft_SetPos(&TftInstance, 270, 46);
+			XTft_SetColor(&TftInstance, LIGHT_YELLOW, 0);		// prd_color = GREEN
+			TftWriteString(&TftInstance, (u8*)"E");
+		}else {
+			int2str(game_period,prd_NM);
+			XTft_SetPos(&TftInstance, 270, 46);
+			XTft_SetColor(&TftInstance, LIGHT_YELLOW, 0);		// prd_color = GREEN
+			XTft_Write(&TftInstance, prd_NM[1]);
+		}
+	}
+
+// display home name and home score
+	if (((set_flag == 1) && (SET_CODE == 0x05)) || (initial == 1)){		//F1  key
+		XTft_SetPos(&TftInstance, 30+24, 11);
+		XTft_SetColor(&TftInstance, TOMATO, 0);			//
+		TftWriteString(&TftInstance, (u8*)"HOME");		//u8 home_name[] = "000000"
+	}
+
+	if (((set_flag == 1) && (SET_CODE == 0x06)) || (initial == 1)){		//F2  key
+		XTft_SetPos(&TftInstance, 30+24, 28);
+		XTft_SetColor(&TftInstance, TOMATO, BLUE);			// home_color = GREEN
+		int2str3(home_score,SCORE_H);
+		if (SCORE_H[0] != '0')
+		{
+			XTft_Write(&TftInstance, SCORE_H[0]);
+			TftWriteString(&TftInstance, (u8*)" ");
+			XTft_Write(&TftInstance, SCORE_H[1]);
+			TftWriteString(&TftInstance, (u8*)" ");
+			XTft_Write(&TftInstance, SCORE_H[2]);
+
+		}else if (SCORE_H[1] != '0'){
+			TftWriteString(&TftInstance, (u8*)" ");
+			XTft_Write(&TftInstance, SCORE_H[1]);
+			TftWriteString(&TftInstance, (u8*)" ");
+			XTft_Write(&TftInstance, SCORE_H[2]);
+		}else{
+			TftWriteString(&TftInstance, (u8*)" ");
+			XTft_Write(&TftInstance, SCORE_H[2]);
+			TftWriteString(&TftInstance, (u8*)"  ");
+		}
+
+	}
+// display fouls of home
+	if (((set_flag == 1) && (SET_CODE == 0x0C)) || (initial == 1)){		//F4  key
+		int2str(home_fouls,FOULS_H);
+		XTft_SetPos(&TftInstance, 44, 90);
+		XTft_SetColor(&TftInstance, DEEPSKY, 0);			// Fouls_color = GREEN
+		if (FOULS_H[0] != '0'){
+			XTft_Write(&TftInstance, FOULS_H[0]);
+			TftWriteString(&TftInstance, (u8*)" ");
+			XTft_Write(&TftInstance, FOULS_H[1]);
+		}else{
+			TftWriteString(&TftInstance, (u8*)"  ");
+			XTft_Write(&TftInstance, FOULS_H[1]);
+		}
+
+	}
+// display TOL of home
+	if (((set_flag == 1) && (SET_CODE == 0x04)) || (initial == 1)){		//F3  key
+		int2str(home_tol,TOL_H);
+		XTft_SetPos(&TftInstance, 100, 90);
+		XTft_SetColor(&TftInstance, DEEPSKY, 0);			// TOL_color = GREEN
+		if (TOL_H[0] != '0'){
+			XTft_Write(&TftInstance, TOL_H[0]);
+			TftWriteString(&TftInstance, (u8*)" ");
+			XTft_Write(&TftInstance, TOL_H[1]);
+		}else{
+			TftWriteString(&TftInstance, (u8*)"  ");
+			XTft_Write(&TftInstance, TOL_H[1]);
+		}
+	}
+
+// display visit name and score
+	if (((set_flag == 1) && (SET_CODE == 0x03)) || (initial == 1)){		//F5  key
+		XTft_SetPos(&TftInstance, 30+right_offset+24, 11);
+		XTft_SetColor(&TftInstance, YELLOW, 0);			//
+		TftWriteString(&TftInstance, (u8*)"Visit");		//u8 visit_name[] = "000000"
+	}
+
+	if (((set_flag == 1) && (SET_CODE == 0x0B)) || (initial == 1)){		//F6  key
+		XTft_SetPos(&TftInstance, 40+right_offset+24, 28);
+		XTft_SetColor(&TftInstance, YELLOW, BLUE);			// visit_color = GREEN
+		int2str3(visit_score,SCORE_V);
+		if (SCORE_V[0] != '0')
+		{
+			XTft_Write(&TftInstance, SCORE_V[0]);
+			TftWriteString(&TftInstance, (u8*)" ");
+			XTft_Write(&TftInstance, SCORE_V[1]);
+			TftWriteString(&TftInstance, (u8*)" ");
+			XTft_Write(&TftInstance, SCORE_V[2]);
+		}else if (SCORE_V[1] != '0'){
+			TftWriteString(&TftInstance, (u8*)" ");
+			XTft_Write(&TftInstance, SCORE_V[1]);
+			TftWriteString(&TftInstance, (u8*)" ");
+			XTft_Write(&TftInstance, SCORE_V[2]);
+		}else{
+			TftWriteString(&TftInstance, (u8*)"   ");
+			XTft_Write(&TftInstance, SCORE_V[2]);
+		}
+	}
+
+// display visit TOL
+	if (((set_flag == 1) && (SET_CODE == 0x83)) || (initial == 1)){		//F7  key
+		int2str(visit_tol,TOL_V);
+		XTft_SetPos(&TftInstance, 44+right_offset, 90);
+		XTft_SetColor(&TftInstance, YELLOW, 0);			// Fouls_color = GREEN
+		if (TOL_V[0] != '0'){
+			XTft_Write(&TftInstance, TOL_V[0]);
+			TftWriteString(&TftInstance, (u8*)" ");
+			XTft_Write(&TftInstance, TOL_V[1]);
+		}else {
+			TftWriteString(&TftInstance, (u8*)" ");
+			XTft_Write(&TftInstance, TOL_V[1]);
+			TftWriteString(&TftInstance, (u8*)" ");
+		}
+
+	}
+// display visit FOULS
+	if (((set_flag == 1) && (SET_CODE == 0x0A)) || (initial == 1)){		//F8  key
+		int2str(visit_fouls,FOULS_V);
+		XTft_SetPos(&TftInstance, 100+right_offset, 90);
+		XTft_SetColor(&TftInstance, YELLOW, 0);
+		if (FOULS_V[0] != '0'){
+			XTft_Write(&TftInstance, FOULS_V[0]);
+			TftWriteString(&TftInstance, (u8*)" ");
+			XTft_Write(&TftInstance, FOULS_V[1]);
+		}else {
+			TftWriteString(&TftInstance, (u8*)" ");
+			XTft_Write(&TftInstance, FOULS_V[1]);
+			TftWriteString(&TftInstance, (u8*)" ");
+		}
+
+	}
+	if (initial == 1)  initial = 0;
+
+	kb_events();
+	}
+
+	if ( status != XST_SUCCESS) return XST_FAILURE;
+	else return XST_SUCCESS;
+}
+
+//keyboard interrupts handler function
+void Ps2IntrHandler(void *CallBackRef, u32 IntrMask, u32 ByteCount)
+{
+	XPs2_Recv(&Ps2Inst, &KbBuffer, 1);
+	prKeyCode = nwKeyCode;
+	nwKeyCode = KbBuffer;
+	if (prKeyCode != nwKeyCode)
+	{
+		if (nwKeyCode == 0xF0){
+			decodeKbPress();
+			XPs2_IntrClear(&Ps2Inst,1);
+		}
+	}
+
+}
+
+//timer interrupts handler function
+void TimerCounterHandler(void *CallBackRef, u8 TmrCtrNumber)
+{
+	XTmrCtr* InstancePtr = (XTmrCtr*)CallBackRef;
+	if (XTmrCtr_IsExpired(InstancePtr, TmrCtrNumber)) {
+		counter1++;
+		if (counter1 >9){
+			counter1 =0;
+			Rt_Clock();
+
+			if (gtm_start_flag == 1){
+				//goStopWatch();
+				goGameTimer();
+			}
+			//not yet finish
+			if (stm_start_flag == 1){
+				//goTimer();
+				goShotTimer();
+			}
+		}
+	}
+}
+
+void Rt_Clock()
+{
+	rt_tenthsec ++;
+	if (rt_tenthsec > 9){
+		rt_tenthsec = 0;
+		int2str(rt_tenthsec,rt_TS);
+		rt_seconds ++;
+		if (rt_seconds >59){
+			rt_seconds = 0;
+			int2str(rt_seconds,rt_SS);
+			rt_minutes++;
+			if(rt_minutes > 59){
+				rt_minutes = 0;
+				int2str(rt_minutes,rt_MM);
+				rt_hours++;
+				if (rt_hours > 23){
+					rt_hours = 0;
+					int2str(rt_hours,rt_HH);
+					rt_days++;
+					// write code here to calculate calendar
+					// need finish in future
+				}else{
+					int2str(rt_hours,rt_HH);
+				}
+			}else{
+				int2str(rt_minutes,rt_MM);
+			}
+		}else{
+			int2str(rt_seconds,rt_SS);
+		}
+	}
+	else{
+		int2str(rt_tenthsec,rt_TS);
+	}
+}
+
+void goStopWatch()
+{
+	stw_tenthsec ++;
+	if (stw_tenthsec > 9){
+		stw_tenthsec = 0;
+		int2str(stw_tenthsec,stw_TS);
+		stw_seconds ++;
+		if (stw_seconds >59){
+			stw_seconds = 0;
+			int2str(stw_seconds,stw_SS);
+			stw_minutes++;
+			if(stw_minutes > 59){
+				stw_minutes = 0;
+				int2str(stw_minutes,stw_MM);
+				stw_hours++;
+				int2str(stw_hours,stw_HH);
+
+			}else{
+				int2str(stw_minutes,stw_MM);
+			}
+		}else{
+			int2str(stw_seconds,stw_SS);
+		}
+	}
+	else{
+		int2str(stw_tenthsec,stw_TS);
+	}
+}
+
+void decodeKbPress()
+{
+	int i;
+	switch (prKeyCode)
+	{
+		case 0x05:			//F1 key, reset time
+		case 0x06:			//F2 key, reset alarm
+		case 0x04:			//F3 key, reset calendar
+		case 0x0C:			//F4 key, reset timer
+		case 0x03:			//F5 key, reset others
+		case 0x0B:			//F6 key, reset others
+		case 0x83:			//F7 key, reset others
+		case 0x0A:			//F8 key, reset others
+		case 0x01:			//F9  key, reset others
+		case 0x09:			//F10 key, reset others
+		case 0x78:			//F11 key, reset others
+		case 0x07:			//F12 key, reset others
+			set_flag = 1;
+			SET_CODE = prKeyCode;
+			event_flag=0;
+			pkb_nb = &kb_number[0];
+			for (i=0; i<8; i++){
+				kb_number[i]='0';
+			}
+			break;
+		case 0x5A:					//Enter Key, sent input number or letters
+			if(set_flag == 1){
+				set_flag = 0;
+				event_flag=0;
+				pkb_nb = kb_number;
+			}
+			break;
+		case 0x76:					//ESC Key, quite from on-going setings
+			if(set_flag == 1){
+				set_flag = 0;
+				event_flag= 0;
+				pkb_nb = kb_number;
+			}
+			break;
+		case 0x29:					//Space Key used to start or pause game timer
+			set_flag = 0;
+			if (gtm_start_flag == 0){
+				gtm_start_flag = 1;
+			}else{
+				gtm_start_flag = 0;
+			}
+			break;
+		case 0x11:					//Alt Key used to start or pause shot timer
+			set_flag = 0;
+			if (stm_start_flag == 0){
+				stm_start_flag = 1;
+			}else{
+				stm_start_flag = 0;
+			}
+			break;
+		case 0x14:					//Ctrl Key used to start or stop timer
+		case 0x12:					//Shift1 Key used to pause or resume or reset timer
+		case 0x59:					//Shift2 Key
+			set_flag = 0;
+			break;
+		default :
+			if (set_flag == 1){
+				prKeyCode = KbDeCode(prKeyCode);
+				if (prKeyCode == '/'){
+					set_flag = 0;
+					SET_CODE = 0;
+					pkb_nb = &kb_number[0];
+					for (i=0; i<8; i++){
+						kb_number[i]='0';
+					}
+				}else {
+					*(pkb_nb++) = prKeyCode;
+					if (event_flag == 0){
+					inputKey = prKeyCode;
+					event_flag = 1;
+					}
+				}
+			}
+			break;
+	}
+}
+
+void kb_events()
+{
+/////////////////////////set for home team/////////////////////
+	if (event_flag == 1){
+	switch (SET_CODE){
+			case 0x05:				//F1 change home team name
+
+				break;
+			case 0x06:				//F2 home score
+				if (inputKey == '+'){
+					if (home_score <199) {
+						home_score++;
+					}
+				}else if (inputKey == '-'){
+					if (home_score >0) {
+						home_score--;
+					}
+				}else if (inputKey == '1'){
+					if (home_score <199) {
+						home_score++;
+					}
+				}else if (inputKey == '2'){
+					if (home_score <198) {
+						home_score = home_score + 2;
+					}
+				}else if (inputKey == '3'){
+					if (home_score <197) {
+						home_score = home_score + 3;
+					}
+				}
+				break;
+			case 0x04:				//F3 home TOL
+				if (inputKey == '+'){
+					if (home_tol <3) {
+						home_tol++;
+						//int2str(home_tol,TOL_H);
+					}
+				}else if (inputKey == '-'){
+					if (home_tol > 0) {
+						home_tol--;
+						//int2str(home_tol,TOL_H);
+					}
+				}
+				break;
+			case 0x0C:				//F4 home fouls
+				if (inputKey == '+'){
+						home_fouls++;
+						//int2str(home_fouls,FOULS_H);
+
+				}else if (inputKey == '-'){
+					if (home_fouls > 0) {
+						home_fouls--;
+						//int2str(home_fouls,FOULS_H);
+					}
+				}
+				break;
+
+/////////////////////////set for visit team/////////////////////
+
+			case 0x03:				//F5 rest time
+
+				break;
+			case 0x0B:				//F6 home score
+				if (inputKey == '+'){
+					if (visit_score <199) {
+						visit_score++;
+					}
+				}else if (inputKey == '-'){
+					if (visit_score >0) {
+						visit_score--;
+					}
+				}else if (inputKey == '1'){
+					if (visit_score <199) {
+						visit_score++;
+					}
+				}else if (inputKey == '2'){
+					if (visit_score <198) {
+						visit_score = visit_score + 2;
+					}
+				}else if (inputKey == '3'){
+					if (visit_score <197) {
+						visit_score = visit_score + 3;
+					}
+				}
+				break;
+			case 0x83:				//F7 home TOL
+				if (inputKey == '+'){
+					if (visit_tol <3) {
+						visit_tol++;
+						//int2str(visit_tol,TOL_V);
+					}
+				}else if (inputKey == '-'){
+					if (visit_tol > 0) {
+						visit_tol--;
+						//int2str(visit_tol,TOL_V);
+					}
+				}else{
+					event_flag = 0;
+				}
+				break;
+			case 0x0A:				//F8 home fouls
+				if (inputKey == '+'){
+					visit_fouls++;
+					//int2str(visit_fouls,FOULS_V);
+
+				}else if (inputKey == '-'){
+					if (visit_fouls > 0) {
+						visit_fouls--;
+						//int2str(visit_fouls,FOULS_V);
+					}
+				}
+				break;
+
+/////////////////////////game operation keys/////////////////////
+
+			case 0x01:			//F9  setup game clock
+				switch (inputKey){
+					case '1':
+						gtm_minutes = 20;
+						gtm_seconds = gtm_tenthsec =0;
+					break;
+					case '2':
+						gtm_minutes = 15;
+						gtm_seconds = gtm_tenthsec =0;
+					break;
+					case '3':
+						gtm_minutes = 10;
+						gtm_seconds = gtm_tenthsec =0;
+					break;
+					case '4':
+						gtm_minutes = 5;
+						gtm_seconds = gtm_tenthsec =0;
+					break;
+					case '5':
+						gtm_minutes = 2;
+						gtm_seconds = gtm_tenthsec =0;
+					break;
+				}
+				break;
+			case 0x09:			//F10 setup shot clock
+				switch (inputKey){
+					case '1':
+						stm_seconds = 60;
+						stm_tenthsec =0;
+					break;
+					case '2':
+						stm_seconds = 24;
+						stm_tenthsec =0;
+					break;
+					case '3':
+						stm_seconds = 14;
+						stm_tenthsec =0;
+					break;
+				}
+				break;
+			case 0x78:			//F11 change period
+				if (inputKey == '+'){
+					game_period++;
+				}else if (inputKey == '-'){
+					if (game_period > 0) {
+						game_period--;
+					}
+				}
+
+				break;
+			case 0x07:			//F12 change player and fouls
+
+				break;
+	}
+	event_flag = 0;
+	}
+
+}
+
+void Graphic_UI()
+{
+// draw some static box and strings
+
+	XTft_DrawBox(&TftInstance, 5, 5, 490, 110, WHITE ); // HOME team name box
+	XTft_DrawBox(&TftInstance, 20, 8, 142, 24, TOMATO ); // HOME team name box
+	XTft_DrawSolidBox(&TftInstance, 20+24, 26, 80+24, 42, BLUE ); // HOME team score box
+
+	XTft_SetPos(&TftInstance, 60, 54);
+	XTft_SetColor(&TftInstance, DEEPSKY, 0);
+	TftWriteString(&TftInstance, (u8*)"Bonus");
+
+	XTft_DrawSolidBox(&TftInstance, 20, 70, 80, 86, NS_GREY ); // Fouls  box
+	XTft_DrawBox(&TftInstance, 20, 88, 80, 104, NS_GREY ); // Fouls number box
+	XTft_SetPos(&TftInstance, 24, 72);
+	XTft_SetColor(&TftInstance, BLUE, NS_GREY);
+	TftWriteString(&TftInstance, (u8*)"Fouls");
+
+	XTft_DrawSolidBox(&TftInstance, 82, 70, 142, 86, NS_GREY ); // T.O.L  box
+	XTft_DrawBox(&TftInstance, 82, 88, 142, 104, NS_GREY ); // T.O.L number box
+	XTft_SetPos(&TftInstance, 84, 72);
+	XTft_SetColor(&TftInstance, BLUE, NS_GREY);
+	TftWriteString(&TftInstance, (u8*)"T.O.L");
+
+	XTft_DrawSolidBox(&TftInstance, 182, 70, 242, 86, SILVER ); // Player  box
+	XTft_DrawBox(&TftInstance, 182, 88, 242, 104, SILVER ); // Player number box
+	XTft_SetPos(&TftInstance, 185, 72);
+	XTft_SetColor(&TftInstance, BLUE, SILVER);			//
+	TftWriteString(&TftInstance, (u8*)"Player");		//
+	XTft_SetPos(&TftInstance, 197, 90);
+	XTft_SetColor(&TftInstance, SILVER, 0);
+	TftWriteString(&TftInstance, (u8*)"1 8");
+
+	XTft_DrawSolidBox(&TftInstance, 244, 70, 304, 86, SILVER ); // Ply_fouls  box
+	XTft_DrawBox(&TftInstance, 244, 88, 304, 104, SILVER ); // Ply_fouls number box
+	XTft_SetPos(&TftInstance, 245, 72);
+	XTft_SetColor(&TftInstance, BLUE, SILVER);
+	TftWriteString(&TftInstance, (u8*)"Fouls");
+	XTft_SetPos(&TftInstance, 263, 90);
+	XTft_SetColor(&TftInstance, SILVER, 0);			// pf_color = GREEN
+	TftWriteString(&TftInstance, (u8*)"3");			//u8 pf_num[] = "00"
+
+// central clock UI
+
+	XTft_DrawSolidBox(&TftInstance, 162, 8, 324, 24, BLUE ); // Game Clock box
+	XTft_DrawSolidBox(&TftInstance, 182, 26, 242, 42, NS_GREY ); // Shot clk  box
+	XTft_DrawBox(&TftInstance, 182, 44, 242, 60, NS_GREY ); // shot clk number box
+	XTft_SetPos(&TftInstance, 190, 29);
+	XTft_SetColor(&TftInstance, WHITE, NS_GREY);			//
+	TftWriteString(&TftInstance, (u8*)"Shot");
+
+	XTft_DrawSolidBox(&TftInstance, 244, 26, 304, 42, NS_GREY ); // Period  box
+	XTft_DrawBox(&TftInstance, 244, 44, 304, 60, NS_GREY ); // Period number box
+	XTft_SetPos(&TftInstance, 246, 29);
+	XTft_SetColor(&TftInstance, WHITE, NS_GREY);
+	TftWriteString(&TftInstance, (u8*)"Period");
+
+// visit team ui
+	XTft_DrawBox(&TftInstance, 20+right_offset, 8, 142+right_offset, 24, YELLOW ); // Visit team name box
+	XTft_DrawSolidBox(&TftInstance, 20+right_offset+30, 26, 80+right_offset+30, 42, BLUE ); // visit team score box
+
+	XTft_SetPos(&TftInstance, 60+right_offset, 54);
+	XTft_SetColor(&TftInstance, BLUEVIOLET, 0);		//
+	TftWriteString(&TftInstance, (u8*)"Bonus");		//
+
+	XTft_DrawSolidBox(&TftInstance, 20+right_offset, 70, 80+right_offset, 86, NS_GREY ); // Fouls  box
+	XTft_DrawBox(&TftInstance, 20+right_offset, 88, 80+right_offset, 104, NS_GREY ); // Fouls number box
+	XTft_SetPos(&TftInstance, 24+right_offset, 72);
+	XTft_SetColor(&TftInstance, YELLOW, NS_GREY);
+	TftWriteString(&TftInstance, (u8*)"T.O.L");		//
+
+	XTft_DrawSolidBox(&TftInstance, 82+right_offset, 70, 142+right_offset, 86, NS_GREY ); // T.O.L  box
+	XTft_DrawBox(&TftInstance, 82+right_offset, 88, 142+right_offset, 104, NS_GREY ); // T.O.L number box
+	XTft_SetPos(&TftInstance, 84+right_offset, 72);
+	XTft_SetColor(&TftInstance, YELLOW, NS_GREY);
+	TftWriteString(&TftInstance, (u8*)"Fouls");		//
+
+}
+
+
+int TftWriteString(XTft *InstancePtr, const u8 *CharValue)
+{
+	while (*CharValue != 0) {
+		XTft_Write(InstancePtr, *CharValue);
+		CharValue++;
+	}
+	return XST_SUCCESS;
+}
+
+int XTft_DrawBox(XTft *Tft, int x1, int y1, int x2, int y2, unsigned int col)
+{
+	TftDrawLine(Tft,x1,y1,x2,y1,col);
+	TftDrawLine(Tft,x1,y1,x1,y2,col);
+	TftDrawLine(Tft,x2,y1,x2,y2,col);
+	TftDrawLine(Tft,x1,y2,x2,y2,col);
+	return 1;
+}
+
+int XTft_DrawSolidBox(XTft *Tft, int x1, int y1, int x2, int y2, unsigned int col)
+{
+   int xmin,xmax,ymin,ymax,i,j;
+
+   if (x1 >= 0 &&
+       x1 <= DISPLAY_COLUMNS-1 &&
+       x2 >= 0 &&
+       x2 <= DISPLAY_COLUMNS-1 &&
+       y1 >= 0 &&
+       y1 <= DISPLAY_ROWS-1 &&
+       y2 >= 0 &&
+       y2 <= DISPLAY_ROWS-1) {
+      if (x2 < x1) {
+         xmin = x2;
+         xmax = x1;
+      }
+      else {
+         xmin = x1;
+         xmax = x2;
+      }
+      if (y2 < y1) {
+         ymin = y2;
+         ymax = y1;
+      }
+      else {
+         ymin = y1;
+         ymax = y2;
+      }
+
+      for (i=xmin; i<=xmax; i++) {
+         for (j=ymin; j<=ymax; j++) {
+	   XTft_SetPixel(Tft, i, j, col);
+         }
+      }	   XTft_SetPixel(Tft, i, j, col);
+      return 0;
+   }
+   return 1;
+
+}
+
+int Draw_UIBox (XTft *TftInstance, unsigned int col){
+	TftDrawLine(TftInstance, 0, 0,   639,   0, col);
+	TftDrawLine(TftInstance, 0, 98,  639,  98, col);
+	TftDrawLine(TftInstance, 0, 119, 639, 119, col);
+	TftDrawLine(TftInstance, 0,   0,   0, 479, col);
+	TftDrawLine(TftInstance, 639, 0, 639, 479, col);
+	return 1;
+}
+
+int TftDrawLine(XTft *InstancePtr, int ColStartPos, int RowStartPos,
+			int ColEndPos, int RowEndPos, unsigned int PixelVal)
+{
+	int Slope, YIntercept;
+	int Xmin,Ymin;
+	int Xmax,Ymax;
+	int Index1,Index2;
+	int Mx;
+
+	 /** Check whether the given position of X,Y dimensions
+	 * are below the limits of the screen.*/
+
+	if (ColStartPos >= 0 && ColStartPos <= (DISPLAY_COLUMNS - 1) &&
+		ColEndPos >= 0 && ColEndPos <= (DISPLAY_COLUMNS - 1) &&
+		RowStartPos >= 0 && RowStartPos <= (DISPLAY_ROWS - 1) &&
+		RowEndPos >= 0 && RowEndPos <= (DISPLAY_ROWS - 1)) {
+
+		/** Check the exception case where slope can be infinite
+		 * that is vertical line. */
+
+		if (ColEndPos-ColStartPos != 0) {
+			Slope = ((RowEndPos - RowStartPos) /
+				(ColEndPos - ColStartPos) * 100000);
+			YIntercept = RowStartPos -
+					((Slope / 100000) * ColStartPos);
+		} else {
+			Slope = 0;
+			YIntercept = (-1);
+		}
+
+		/* * Update the min and max position by conditional checking.*/
+
+		if (ColEndPos < ColStartPos) {
+			Xmin = ColEndPos;
+			Xmax = ColStartPos;
+		} else {
+			Xmin = ColStartPos;
+			Xmax = ColEndPos;
+		}
+		if (RowEndPos < RowStartPos) {
+			Ymin = RowEndPos;
+			Ymax = RowStartPos;
+		} else {
+			Ymin = RowStartPos;
+			Ymax = RowEndPos;
+		}
+
+		for (Index1 = Xmin; Index1 <= Xmax; Index1++) {
+			Mx = (Slope * Index1) / 100000;
+			for (Index2 = Ymin; Index2 <= Ymax; Index2++) {
+				if ((Index2 - Mx) == YIntercept) {
+					XTft_SetPixel(InstancePtr, Index1,
+						 Index2, PixelVal);
+				}
+				else {
+					if((Slope == 0) &&
+							(YIntercept == -1)) {
+						XTft_SetPixel(InstancePtr,
+							Index1, Index2,
+							PixelVal);
+					}
+				}
+			}
+		}
+		return XST_SUCCESS;
+	} else {
+		return XST_FAILURE;
+	}
+
+}

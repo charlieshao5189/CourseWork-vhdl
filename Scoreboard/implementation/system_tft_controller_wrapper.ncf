@@ -1,0 +1,13 @@
+INST "*TFT_CTRL_I/FD_PLB_RST6*" TNM = "TNM_MPLB_RST_tft_controller";
+INST "*TFT_CTRL_I/tft_rst_*" TNM = "TNM_TFT_RST_tft_controller";
+INST "*TFT_CTRL_I/SLAVE_REG_U6/TFT_on_reg*" TNM = "TNM_SLAVE_ONREG_tft_controller";
+INST "*tft_on_reg_bram_d2*" TNM = "TNM_MPLB_ONREG_tft_controller";
+TIMESPEC "TS_SPLB2MPLB_tft_controller" = FROM "TNM_SLAVE_ONREG_tft_controller" TO "TNM_MPLB_ONREG_tft_controller" TIG;
+TIMESPEC "TS_MPLB2TFT_tft_controller" = FROM "TNM_MPLB_RST_tft_controller" TO "TNM_TFT_RST_tft_controller" TIG;
+INST "*/VSYNC_U3/V_bp_cnt_tc*" TNM = "TNM_TFT_CLOCK_tft_controller";
+INST "*/VSYNC_U3/V_p_cnt_tc*" TNM = "TNM_TFT_CLOCK_tft_controller";
+INST "*/TFT_CTRL_I/get_line_start_d1*" TNM = "TNM_TFT_CLOCK_tft_controller";
+INST "*/TFT_CTRL_I/v_bp_cnt_tc_d1*" TNM = "TNM_MPLB_CLOCK_tft_controller";
+INST "*/TFT_CTRL_I/v_p_cnt_tc_d1*" TNM = "TNM_MPLB_CLOCK_tft_controller";
+INST "*/TFT_CTRL_I/get_line_start_d2*" TNM = "TNM_MPLB_CLOCK_tft_controller";
+TIMESPEC "TS_TFT_MPLB_CLOCK_tft_controller" = FROM "TNM_TFT_CLOCK_tft_controller" TO "TNM_MPLB_CLOCK_tft_controller" TIG;
