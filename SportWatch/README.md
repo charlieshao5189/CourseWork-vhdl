@@ -1,4 +1,4 @@
-# VHDL-SmartWatch
+# SportWatch (VHDL lab-ass)
 ##Task:
 Using only the resources available in the NEXYS 3, namely switches, leds, press buttons, 7-segment displays, etc. to design an alarm clock. Add other features like:
 
